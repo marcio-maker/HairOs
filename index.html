@@ -47,6 +47,7 @@
             --shadow-bubble: 0 1px 4px rgba(0,0,0,0.06);
             --shadow-chat: 0 20px 60px rgba(0,0,0,0.12);
             --shadow-menu: 0 8px 30px rgba(0,0,0,0.4);
+            --shadow-modal: 0 25px 80px rgba(0,0,0,0.5);
             --avatar-helena: linear-gradient(135deg, #e8b4a0, #d49a82);
             --avatar-arthur: linear-gradient(135deg, #7ec8d4, #4a9aa8);
             --avatar-isabella: linear-gradient(135deg, #f0a8c4, #d4789a);
@@ -94,6 +95,7 @@
             --shadow-bubble: 0 1px 4px rgba(0,0,0,0.3);
             --shadow-chat: 0 20px 60px rgba(0,0,0,0.5);
             --shadow-menu: 0 8px 30px rgba(0,0,0,0.7);
+            --shadow-modal: 0 25px 80px rgba(0,0,0,0.7);
             --avatar-helena: linear-gradient(135deg, #c4947a, #b8834a);
             --avatar-arthur: linear-gradient(135deg, #5a9aa8, #3a7a88);
             --avatar-isabella: linear-gradient(135deg, #d4789a, #b85a7a);
@@ -140,7 +142,14 @@
             position: relative;
             z-index: 10;
         }
-        .chat-header .logo { font-size: 18px; font-weight: 700; }
+        .chat-header .logo {
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            user-select: none;
+        }
+        .chat-header .logo:hover { opacity: 0.8; }
         .chat-header .logo span { color: #d4a574; }
         .chat-header .status {
             font-size: 11px;
@@ -191,7 +200,11 @@
             border: 2px solid transparent;
             transition: all 0.3s ease;
             position: relative;
-            cursor: default;
+            cursor: pointer;
+        }
+        .agent-indicators .indicator:hover {
+            transform: scale(1.1);
+            border-color: rgba(255,255,255,0.3);
         }
         .agent-indicators .indicator.active {
             border-color: #d4a574;
@@ -238,6 +251,110 @@
         }
         .agent-indicators .indicator:hover .agent-label { opacity: 1; }
 
+        /* ============================================================
+           MODAL
+           ============================================================ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            padding: 20px;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .modal-content {
+            background: var(--bg-chat);
+            border-radius: 24px;
+            max-width: 400px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-modal);
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            padding: 0;
+            position: relative;
+        }
+        .modal-overlay.open .modal-content {
+            transform: scale(1) translateY(0);
+        }
+        .modal-content .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: 0.2s;
+            z-index: 10;
+            line-height: 1;
+        }
+        .modal-content .modal-close:hover {
+            color: var(--text-primary);
+            transform: rotate(90deg);
+        }
+        .modal-content .modal-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 24px 24px 0 0;
+            display: block;
+        }
+        .modal-content .modal-body {
+            padding: 24px 28px 28px 28px;
+        }
+        .modal-content .modal-body .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .modal-content .modal-body .modal-subtitle {
+            font-size: 13px;
+            color: var(--text-accent);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        .modal-content .modal-body .modal-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .modal-content .modal-body .modal-btn {
+            background: var(--bg-btn-primary);
+            color: #fff;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            width: 100%;
+        }
+        .modal-content .modal-body .modal-btn:hover {
+            background: var(--bg-btn-primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================================
+           MENU LATERAL
+           ============================================================ */
         .menu-overlay {
             position: fixed;
             inset: 0;
@@ -347,6 +464,9 @@
             color: var(--text-menu);
         }
 
+        /* ============================================================
+           MENSAGENS
+           ============================================================ */
         .messages {
             flex: 1;
             overflow-y: auto;
@@ -630,6 +750,9 @@
             .quick-buttons .btn { font-size: 11px; padding: 5px 10px; }
             .agent-indicators .indicator { width: 24px; height: 24px; }
             .menu-panel { width: 220px; }
+            .modal-content { max-width: 95%; }
+            .modal-content .modal-image { height: 150px; }
+            .modal-content .modal-body { padding: 18px 20px 20px 20px; }
         }
     </style>
 </head>
@@ -642,21 +765,21 @@
         ============================================================ -->
         <div class="chat-header">
             <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
-            <div class="logo">Hair<span>OS</span></div>
+            <div class="logo" id="logoBtn">Hair<span>OS</span></div>
             <div class="agent-indicators" id="agentIndicators">
-                <span class="indicator active" data-agent="helena" style="background-image:url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=60&h=60&fit=crop&crop=face');">
+                <span class="indicator active" data-agent="helena" data-modal="helena" style="background-image:url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=60&h=60&fit=crop&crop=face');">
                     <span class="wave-ring"></span>
                     <span class="agent-label">Helena</span>
                 </span>
-                <span class="indicator" data-agent="arthur" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face');">
+                <span class="indicator" data-agent="arthur" data-modal="arthur" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face');">
                     <span class="wave-ring"></span>
                     <span class="agent-label">Arthur</span>
                 </span>
-                <span class="indicator" data-agent="isabella" style="background-image:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=60&h=60&fit=crop&crop=face');">
+                <span class="indicator" data-agent="isabella" data-modal="isabella" style="background-image:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=60&h=60&fit=crop&crop=face');">
                     <span class="wave-ring"></span>
                     <span class="agent-label">Isabella</span>
                 </span>
-                <span class="indicator" data-agent="rafael" style="background-image:url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=60&h=60&fit=crop&crop=face');">
+                <span class="indicator" data-agent="rafael" data-modal="rafael" style="background-image:url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=60&h=60&fit=crop&crop=face');">
                     <span class="wave-ring"></span>
                     <span class="agent-label">Rafael</span>
                 </span>
@@ -664,6 +787,22 @@
             <div class="status">
                 <span class="dot"></span>
                 Especialistas
+            </div>
+        </div>
+
+        <!-- ============================================================
+        MODAL
+        ============================================================ -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal-content" id="modalContent">
+                <button class="modal-close" id="modalClose">✕</button>
+                <img class="modal-image" id="modalImage" src="" alt="Imagem" />
+                <div class="modal-body">
+                    <div class="modal-title" id="modalTitle"></div>
+                    <div class="modal-subtitle" id="modalSubtitle"></div>
+                    <div class="modal-text" id="modalText"></div>
+                    <button class="modal-btn" id="modalBtn">🔍 Saiba mais</button>
+                </div>
             </div>
         </div>
 
@@ -720,8 +859,7 @@
 
     <script>
         // ============================================================
-        // 1. TEMA
-        // ============================================================
+        // 1. TEMA        // ============================================================
         (function initTheme() {
             const themeToggle = document.getElementById('menuThemeToggle');
             const themeIcon = document.getElementById('menuThemeIcon');
@@ -762,7 +900,126 @@
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
         // ============================================================
-        // 3. AGENTES
+        // 3. MODAL
+        // ============================================================
+        const modalData = {
+            logo: {
+                image: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&h=400&fit=crop',
+                title: 'HairOS',
+                subtitle: '🧠 Ecossistema Inteligente de Consultoria Capilar',
+                text: 'O HairOS é um sistema inovador que conecta você a especialistas em cortes, cores e visagismo. Combinamos tecnologia com conhecimento humano para criar a experiência de beleza mais personalizada e inteligente do mercado.',
+                btnText: '🔍 Conhecer o ecossistema'
+            },
+            helena: {
+                image: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&h=400&fit=crop&crop=face',
+                title: 'Helena',
+                subtitle: '🧭 Recepcionista — Acolhimento e Direcionamento',
+                text: 'Helena é a porta de entrada do HairOS. Com sua abordagem acolhedora e organizada, ela escuta suas necessidades e direciona você para o especialista certo. Sua missão é garantir que você se sinta acolhido e guiado desde o primeiro momento.',
+                btnText: '👋 Falar com Helena'
+            },
+            arthur: {
+                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=face',
+                title: 'Arthur',
+                subtitle: '✂️ Especialista em Cortes — Estrutura e Movimento',
+                text: 'Arthur é um verdadeiro artista dos cortes. Ele analisa a estrutura do seu cabelo, densidade e movimento para criar o corte que valoriza seu rosto e personalidade. Técnico e criativo, ele transforma cada cabelo em uma obra de arte.',
+                btnText: '✂️ Falar com Arthur'
+            },
+            isabella: {
+                image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&h=400&fit=crop&crop=face',
+                title: 'Isabella',
+                subtitle: '🎨 Especialista em Cores — Harmonia e Pigmentos',
+                text: 'Isabella é apaixonada por cores! Ela harmoniza tons com seu tom de pele e personalidade, criando composições únicas. Com seu olhar artístico e detalhista, ela transforma sua cor em uma verdadeira expressão de quem você é.',
+                btnText: '🎨 Falar com Isabella'
+            },
+            rafael: {
+                image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=400&fit=crop&crop=face',
+                title: 'Rafael',
+                subtitle: '👤 Especialista em Visagismo — Proporções e Estilo',
+                text: 'Rafael é um mestre do visagismo. Ele estuda proporções faciais, traços e personalidade para criar uma imagem harmônica que comunica quem você é. Analítico e filosófico, ele acredita que cada rosto tem uma história única a contar.',
+                btnText: '👤 Falar com Rafael'
+            }
+        };
+
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalContent = document.getElementById('modalContent');
+        const modalClose = document.getElementById('modalClose');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalSubtitle = document.getElementById('modalSubtitle');
+        const modalText = document.getElementById('modalText');
+        const modalBtn = document.getElementById('modalBtn');
+
+        let modalCallback = null;
+
+        function openModal(key) {
+            const data = modalData[key];
+            if (!data) return;
+
+            modalImage.src = data.image;
+            modalImage.alt = data.title;
+            modalTitle.textContent = data.title;
+            modalSubtitle.textContent = data.subtitle;
+            modalText.textContent = data.text;
+            modalBtn.textContent = data.btnText;
+
+            // Configurar callback do botão
+            if (key === 'logo') {
+                modalBtn.onclick = function() {
+                    closeModal();
+                    setTimeout(() => {
+                        addMessage('helena', 'Que legal você querer conhecer mais sobre o HairOS! 🥰<br><br>Somos um ecossistema de consultoria capilar que conecta você a especialistas em cortes, cores e visagismo.<br><br>✨ <strong>Arthur</strong> (cortes) — analisa estrutura e movimento<br>✨ <strong>Isabella</strong> (cores) — harmoniza tons e pigmentos<br>✨ <strong>Rafael</strong> (visagismo) — estuda proporções faciais<br><br>Qual especialista você quer conhecer?', '', 'Recepcionista');
+                        appendButtons([
+                            { label: '✂️ Arthur', action: 'ir_para_arthur', class: 'primary' },
+                            { label: '🎨 Isabella', action: 'ir_para_isabella', class: 'outline' },
+                            { label: '👤 Rafael', action: 'ir_para_rafael', class: 'outline' }
+                        ]);
+                    }, 400);
+                };
+            } else {
+                modalBtn.onclick = function() {
+                    closeModal();
+                    if (key === 'helena') {
+                        setTimeout(() => handleAction('ir_para_helena'), 400);
+                    } else if (key === 'arthur') {
+                        setTimeout(() => handleAction('ir_para_arthur'), 400);
+                    } else if (key === 'isabella') {
+                        setTimeout(() => handleAction('ir_para_isabella'), 400);
+                    } else if (key === 'rafael') {
+                        setTimeout(() => handleAction('ir_para_rafael'), 400);
+                    }
+                };
+            }
+
+            modalOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Eventos do modal
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Eventos de clique nos elementos do header
+        document.getElementById('logoBtn').addEventListener('click', () => openModal('logo'));
+
+        document.querySelectorAll('.indicator[data-modal]').forEach(el => {
+            el.addEventListener('click', () => {
+                const key = el.dataset.modal;
+                if (key) openModal(key);
+            });
+        });
+
+        // ============================================================
+        // 4. AGENTES
         // ============================================================
         const AGENTES = {
             helena: {
@@ -809,22 +1066,19 @@
         };
 
         // ============================================================
-        // 4. IMAGENS DE REFERÊNCIA
+        // 5. IMAGENS DE REFERÊNCIA
         // ============================================================
         const HAIR_IMAGES = {
-            // Cortes
             short_bob: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&h=300&fit=crop',
             butterfly: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&h=300&fit=crop',
             pixie: 'https://images.unsplash.com/photo-1522338140262-f46f5913618a?w=400&h=300&fit=crop',
             long_bob: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&h=300&fit=crop',
             shaggy: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=300&fit=crop',
-            // Cores
             mel: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&h=300&fit=crop',
             cobre: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=300&fit=crop',
             caramelo: 'https://images.unsplash.com/photo-1562107610-a0e7fa563d8d?w=400&h=300&fit=crop',
             loiro_platinum: 'https://images.unsplash.com/photo-1522338140262-f46f5913618a?w=400&h=300&fit=crop',
             castanho_gelado: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&h=300&fit=crop',
-            // Visagismo
             visagismo_oval: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&h=300&fit=crop',
             visagismo_quadrado: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop',
             visagismo_redondo: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=300&fit=crop',
@@ -832,30 +1086,8 @@
             visagismo_diamante: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=300&fit=crop',
         };
 
-        // Mapeamento de recomendações para imagens
-        const RECOMENDACAO_IMAGENS = {
-            // Arthur
-            'Short Bob': HAIR_IMAGES.short_bob,
-            'Butterfly': HAIR_IMAGES.butterfly,
-            'Pixie': HAIR_IMAGES.pixie,
-            'Long Bob': HAIR_IMAGES.long_bob,
-            'Shaggy': HAIR_IMAGES.shaggy,
-            // Isabella
-            'Mel com reflexos': HAIR_IMAGES.mel,
-            'Cobre acobreado': HAIR_IMAGES.cobre,
-            'Caramelo': HAIR_IMAGES.caramelo,
-            'Loiro platinado': HAIR_IMAGES.loiro_platinum,
-            'Castanho gelado': HAIR_IMAGES.castanho_gelado,
-            // Rafael (visagismo)
-            'Rosto oval': HAIR_IMAGES.visagismo_oval,
-            'Rosto quadrado': HAIR_IMAGES.visagismo_quadrado,
-            'Rosto redondo': HAIR_IMAGES.visagismo_redondo,
-            'Rosto coração': HAIR_IMAGES.visagismo_coracao,
-            'Rosto diamante': HAIR_IMAGES.visagismo_diamante,
-        };
-
         // ============================================================
-        // 5. QUIZ - 5 PERGUNTAS POR ESPECIALISTA
+        // 6. QUIZ - 5 PERGUNTAS POR ESPECIALISTA
         // ============================================================
         const QUIZ = {
             arthur: {
@@ -1140,7 +1372,7 @@
         };
 
         // ============================================================
-        // 6. DÚVIDAS - 5 PERGUNTAS POR ESPECIALISTA
+        // 7. DÚVIDAS - 5 PERGUNTAS POR ESPECIALISTA
         // ============================================================
         const DUVIDAS = {
             arthur: {
@@ -1239,7 +1471,7 @@
         };
 
         // ============================================================
-        // 7. ESTADO
+        // 8. ESTADO
         // ============================================================
         let estado = {
             passo: 'boas_vindas',
@@ -1268,7 +1500,7 @@
         };
 
         // ============================================================
-        // 8. RENDERIZAÇÃO
+        // 9. RENDERIZAÇÃO
         // ============================================================
         const messagesEl = document.getElementById('messages');
         const indicators = document.querySelectorAll('.indicator');
@@ -1447,7 +1679,7 @@
         }
 
         // ============================================================
-        // 9. QUIZ - LÓGICA COMPLETA (5 PERGUNTAS)
+        // 10. QUIZ - LÓGICA COMPLETA (5 PERGUNTAS)
         // ============================================================
         function iniciarQuiz(agenteId) {
             const quiz = QUIZ[agenteId];
@@ -1576,7 +1808,6 @@
 
             html += `</ul>`;
 
-            // Análise combinada com a foto + imagem de referência
             const recomendacaoFinal = gerarRecomendacaoFinal(agenteId, respostas);
 
             html += `
@@ -1642,7 +1873,7 @@
         }
 
         // ============================================================
-        // 10. DÚVIDAS - LÓGICA COMPLETA (5 PERGUNTAS)
+        // 11. DÚVIDAS - LÓGICA COMPLETA (5 PERGUNTAS)
         // ============================================================
         function iniciarDuvidas(agenteId) {
             const duvidas = DUVIDAS[agenteId];
@@ -1740,7 +1971,7 @@
         }
 
         // ============================================================
-        // 11. HANDLER DE AÇÕES
+        // 12. HANDLER DE AÇÕES
         // ============================================================
         function handleAction(action, data) {
             removeLastButtons();
@@ -1839,6 +2070,7 @@
                         <p>• Cada especialista tem um <strong>quiz de 5 perguntas</strong></p>
                         <p>• Cada especialista tem <strong>5 dúvidas frequentes</strong></p>
                         <p>• A <strong>análise completa</strong> combina foto + quiz + imagem de referência</p>
+                        <p>• Clique no <strong>logo</strong> ou nos <strong>especialistas</strong> no topo para saber mais</p>
                         <p>• <strong>Arthur</strong>: cortes (Short Bob, Butterfly, Pixie)</p>
                         <p>• <strong>Isabella</strong>: cores (Mel, Cobre, Caramelo)</p>
                         <p>• <strong>Rafael</strong>: visagismo e harmonia facial</p>
@@ -1852,7 +2084,7 @@
         }
 
         // ============================================================
-        // 12. TROCAR AGENTE
+        // 13. TROCAR AGENTE
         // ============================================================
         function trocarAgente(agenteId) {
             if (estado.quiz_ativo) {
@@ -1914,7 +2146,7 @@
         }
 
         // ============================================================
-        // 13. MOSTRAR OPÇÕES DO AGENTE
+        // 14. MOSTRAR OPÇÕES DO AGENTE
         // ============================================================
         function mostrarOpcoesAgente(agenteId) {
             const botoes = [];
@@ -1977,7 +2209,7 @@
         }
 
         // ============================================================
-        // 14. ANÁLISE COMPLETA (FOTO + QUIZ + IMAGEM)
+        // 15. ANÁLISE COMPLETA (FOTO + QUIZ + IMAGEM)
         // ============================================================
         function analiseCompleta(agenteId) {
             if (!estado.usuario.foto) {
@@ -2002,7 +2234,6 @@
                 return;
             }
 
-            // Análise combinada
             const recomendacoes = quiz.resultado(respostas);
             const recomendacaoFinal = gerarRecomendacaoFinal(agenteId, respostas);
             const imagemRef = quiz.getImagemRecomendacao ? quiz.getImagemRecomendacao(respostas) : null;
@@ -2044,7 +2275,7 @@
         }
 
         // ============================================================
-        // 15. FUNÇÕES DOS AGENTES
+        // 16. FUNÇÕES DOS AGENTES
         // ============================================================
 
         function pedirFotoPrimeiro(agenteId) {
@@ -2175,7 +2406,7 @@
         }
 
         // ============================================================
-        // 16. INPUT DO USUÁRIO
+        // 17. INPUT DO USUÁRIO
         // ============================================================
         const userInput = document.getElementById('userInput');
         const sendBtn = document.getElementById('sendBtn');
@@ -2305,7 +2536,7 @@
         sendBtn.addEventListener('click', handleUserText);
 
         // ============================================================
-        // 17. UPLOAD AVATAR
+        // 18. UPLOAD AVATAR
         // ============================================================
         function triggerAvatarUpload() {
             const input = document.createElement('input');
@@ -2338,7 +2569,7 @@
         document.getElementById('profileUploadBtn').addEventListener('click', triggerAvatarUpload);
 
         // ============================================================
-        // 18. MENU - AÇÕES
+        // 19. MENU - AÇÕES
         // ============================================================
         document.getElementById('menuReset').addEventListener('click', () => {
             reiniciar();
@@ -2352,6 +2583,7 @@
                 <p>• Cada especialista tem um <strong>quiz de 5 perguntas</strong></p>
                 <p>• Cada especialista tem <strong>5 dúvidas frequentes</strong></p>
                 <p>• A <strong>análise completa</strong> combina foto + quiz + imagem de referência</p>
+                <p>• Clique no <strong>logo</strong> ou nos <strong>especialistas</strong> no topo para saber mais</p>
                 <p>• <strong>Arthur</strong>: cortes (Short Bob, Butterfly, Pixie)</p>
                 <p>• <strong>Isabella</strong>: cores (Mel, Cobre, Caramelo)</p>
                 <p>• <strong>Rafael</strong>: visagismo e harmonia facial</p>
@@ -2360,7 +2592,7 @@
         });
 
         // ============================================================
-        // 19. REINICIAR
+        // 20. REINICIAR
         // ============================================================
         function reiniciar() {
             estado = {
@@ -2395,7 +2627,7 @@
         }
 
         // ============================================================
-        // 20. BOAS-VINDAS
+        // 21. BOAS-VINDAS
         // ============================================================
         function boasVindas() {
             addMeetingBadge('👋 HAIROS — CONSULTORIA DE IMAGEM');
@@ -2431,7 +2663,7 @@
         }
 
         // ============================================================
-        // 21. INICIALIZAÇÃO
+        // 22. INICIALIZAÇÃO
         // ============================================================
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(boasVindas, 400);
