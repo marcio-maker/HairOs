@@ -137,11 +137,8 @@
       display: block;
     }
 
-    .landing-page.hidden {
-      display: none;
-    }
+    .landing-page.hidden { display: none; }
 
-    /* HEADER LANDING */
     .landing-header {
       background: var(--bg-header);
       padding: 16px 32px;
@@ -171,7 +168,6 @@
     }
     .landing-header .menu-hamburger:hover { opacity: 0.7; }
 
-    /* HERO */
     .hero {
       padding: 60px 32px 50px;
       background: var(--bg-messages);
@@ -211,7 +207,22 @@
       box-shadow: 0 8px 28px rgba(0,0,0,0.25);
     }
 
-    /* CARROSSÉIS */
+    .hero .ia-feature {
+      margin-top: 20px;
+      display: inline-block;
+      background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+      color: #fff;
+      padding: 8px 24px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      animation: ia-pulse 2s ease-in-out infinite;
+    }
+    @keyframes ia-pulse {
+      0%,100% { transform: scale(1); box-shadow: 0 0 20px rgba(108,92,231,0.3); }
+      50% { transform: scale(1.03); box-shadow: 0 0 40px rgba(108,92,231,0.5); }
+    }
+
     .carousels-section {
       padding: 40px 32px 50px;
       background: var(--bg-chat);
@@ -261,6 +272,12 @@
       color: var(--text-primary);
       margin-bottom: 6px;
     }
+    .carousel-card .carousel-body .personality-tag {
+      font-size: 10px;
+      color: var(--text-accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
     .carousel-card .carousel-body p {
       font-size: 0.9rem;
       color: var(--text-secondary);
@@ -286,7 +303,6 @@
       transform: scale(1.04);
     }
 
-    /* FOOTER */
     .landing-footer {
       background: var(--bg-header);
       color: var(--text-header-muted);
@@ -350,7 +366,7 @@
     }
 
     /* ============================================================
-       CHAT CONTAINER (oculto por padrão)
+       CHAT CONTAINER
        ============================================================ */
     .chat-container {
       width: 100%;
@@ -365,12 +381,10 @@
       transition: background 0.3s ease, box-shadow 0.3s ease;
       position: relative;
     }
-    .chat-container.active {
-      display: flex;
-    }
+    .chat-container.active { display: flex; }
 
     /* ============================================================
-       MENU LATERAL (global)
+       MENU LATERAL
        ============================================================ */
     .menu-overlay {
       position: fixed;
@@ -739,7 +753,7 @@
     }
 
     /* ============================================================
-       MENSAGENS (chat)
+       MENSAGENS
        ============================================================ */
     .messages {
       flex: 1;
@@ -845,6 +859,16 @@
       padding: 3px 10px;
       background: var(--bg-tag-highlight);
       border-radius: 8px;
+    }
+    .bubble .personality-badge {
+      font-size: 9px;
+      color: #6c5ce7;
+      font-weight: 600;
+      display: inline-block;
+      margin-left: 6px;
+      background: rgba(108,92,231,0.12);
+      padding: 1px 10px;
+      border-radius: 12px;
     }
     .bubble .text { margin-top: 2px; color: var(--text-primary); }
     .bubble .text p { margin-bottom: 5px; }
@@ -1043,28 +1067,7 @@
     .chat-input .send-btn:hover { background: var(--bg-btn-primary-hover); }
 
     /* ============================================================
-       RESPONSIVO
-       ============================================================ */
-    @media (max-width: 520px) {
-      .chat-container { height: 100vh; border-radius: 0; max-width: 100%; }
-      body { padding: 0; }
-      .messages { padding: 14px 10px 6px 10px; }
-      .quick-buttons .btn { font-size: 11px; padding: 5px 10px; }
-      .agent-indicators .indicator { width: 24px; height: 24px; }
-      .menu-panel { width: 220px; }
-      .modal-content { max-width: 95%; }
-      .modal-content .modal-image { height: 150px; }
-      .modal-content .modal-body { padding: 18px 20px 20px 20px; }
-      .hero { padding: 40px 20px 30px; }
-      .hero h1 { font-size: 2rem; }
-      .carousels-section { padding: 30px 16px 40px; }
-      .carousels-grid { grid-template-columns: 1fr; }
-      .landing-header { padding: 12px 16px; }
-      .landing-footer { padding: 16px 20px; }
-    }
-
-    /* ============================================================
-       PRODUTOS (reutilizado do chat)
+       PRODUTOS
        ============================================================ */
     .product-card {
       background: var(--product-bg);
@@ -1149,6 +1152,42 @@
     .share-buttons .share-btn.twitter { background: #1DA1F2; color: #fff; }
     .share-buttons .share-btn.copy { background: var(--bg-btn-primary); color: #fff; }
 
+    /* ============================================================
+       BADGE IA
+       ============================================================ */
+    .ia-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+      color: #fff;
+      font-size: 8px;
+      font-weight: 700;
+      padding: 1px 8px;
+      border-radius: 10px;
+      margin-left: 4px;
+      letter-spacing: 0.5px;
+      animation: ia-pulse 2s ease-in-out infinite;
+    }
+
+    /* ============================================================
+       RESPONSIVO
+       ============================================================ */
+    @media (max-width: 520px) {
+      .chat-container { height: 100vh; border-radius: 0; max-width: 100%; }
+      body { padding: 0; }
+      .messages { padding: 14px 10px 6px 10px; }
+      .quick-buttons .btn { font-size: 11px; padding: 5px 10px; }
+      .agent-indicators .indicator { width: 24px; height: 24px; }
+      .menu-panel { width: 220px; }
+      .modal-content { max-width: 95%; }
+      .modal-content .modal-image { height: 150px; }
+      .modal-content .modal-body { padding: 18px 20px 20px 20px; }
+      .hero { padding: 40px 20px 30px; }
+      .hero h1 { font-size: 2rem; }
+      .carousels-section { padding: 30px 16px 40px; }
+      .carousels-grid { grid-template-columns: 1fr; }
+      .landing-header { padding: 12px 16px; }
+      .landing-footer { padding: 16px 20px; }
+    }
   </style>
 </head>
 <body>
@@ -1158,7 +1197,7 @@
   ============================================================ -->
   <div class="loading-overlay" id="loadingOverlay">
     <div class="loading-spinner"></div>
-    <p>Carregando HairOS…</p>
+    <p>Carregando HairOS com IA...</p>
   </div>
 
   <!-- ============================================================
@@ -1174,44 +1213,45 @@
       <h1>Seu estilo, <span>inteligência</span> e <span>beleza</span></h1>
       <p>Conectamos você a especialistas em cortes, cores e visagismo. Uma experiência personalizada e inteligente.</p>
       <button class="btn-hero" id="btnEntrarChat">Entrar no Chat →</button>
+      <div class="ia-feature">🧠 Especialistas com IA e Personalidades Únicas</div>
     </section>
 
     <section class="carousels-section">
-      <h2>✨ Nossos Especialistas</h2>
+      <h2>✨ Nossos Especialistas com Personalidade</h2>
       <div class="carousels-grid">
-        <!-- Card 1 -->
         <div class="carousel-card">
           <img class="carousel-img" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&h=300&fit=crop&crop=face" alt="Helena" />
           <div class="carousel-body">
             <h3>🧭 Helena</h3>
-            <p>Recepcionista — acolhe e direciona você para os especialistas certos.</p>
+            <div class="personality-tag">🎭 Acolhedora · Maternal · Empática</div>
+            <p>Recepcionista — acolhe e direciona você para os especialistas certos com carinho e atenção.</p>
             <button class="btn-saiba" data-modal="helena">Saiba mais</button>
           </div>
         </div>
-        <!-- Card 2 -->
         <div class="carousel-card">
           <img class="carousel-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=face" alt="Arthur" />
           <div class="carousel-body">
             <h3>✂️ Arthur</h3>
-            <p>Especialista em cortes — estrutura, densidade e movimento.</p>
+            <div class="personality-tag">🎭 Criativo · Técnico · Observador</div>
+            <p>Especialista em cortes — estrutura, densidade e movimento com um toque artístico.</p>
             <button class="btn-saiba" data-modal="arthur">Saiba mais</button>
           </div>
         </div>
-        <!-- Card 3 -->
         <div class="carousel-card">
           <img class="carousel-img" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=300&fit=crop&crop=face" alt="Isabella" />
           <div class="carousel-body">
             <h3>🎨 Isabella</h3>
-            <p>Especialista em cores — harmoniza tons e pigmentos.</p>
+            <div class="personality-tag">🎭 Artística · Detalhista · Passional</div>
+            <p>Especialista em cores — harmoniza tons e pigmentos com uma visão artística única.</p>
             <button class="btn-saiba" data-modal="isabella">Saiba mais</button>
           </div>
         </div>
-        <!-- Card 4 -->
         <div class="carousel-card">
           <img class="carousel-img" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=300&fit=crop&crop=face" alt="Rafael" />
           <div class="carousel-body">
             <h3>👤 Rafael</h3>
-            <p>Especialista em visagismo — proporções faciais e estilo.</p>
+            <div class="personality-tag">🎭 Filósofo · Analítico · Equilibrado</div>
+            <p>Especialista em visagismo — proporções faciais e estilo com profundidade filosófica.</p>
             <button class="btn-saiba" data-modal="rafael">Saiba mais</button>
           </div>
         </div>
@@ -1219,7 +1259,7 @@
     </section>
 
     <footer class="landing-footer">
-      <p><strong>HairOS</strong> — Consultoria capilar inteligente</p>
+      <p><strong>HairOS</strong> — Consultoria capilar inteligente com IA</p>
       <div class="footer-links">
         <a href="#" onclick="event.preventDefault();">Sobre</a>
         <a href="#" onclick="event.preventDefault();">Contato</a>
@@ -1233,7 +1273,6 @@
   ============================================================ -->
   <div class="chat-container" id="app">
 
-    <!-- HEADER CHAT -->
     <div class="chat-header">
       <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
       <div class="logo" id="logoBtn">Hair<span>OS</span></div>
@@ -1257,7 +1296,7 @@
       </div>
       <div class="status">
         <span class="dot"></span>
-        Especialistas
+        Especialistas com IA
       </div>
     </div>
 
@@ -1329,6 +1368,9 @@
     </div>
   </div>
 
+  <!-- ============================================================
+  SCRIPT COMPLETO COM IA E PERSONALIDADES INTERNAS
+  ============================================================ -->
   <script>
     // ============================================================
     // 0. LOADING
@@ -1367,7 +1409,7 @@
     })();
 
     // ============================================================
-    // 2. MENU (global)
+    // 2. MENU
     // ============================================================
     const menuBtn = document.getElementById('menuBtn');
     const menuClose = document.getElementById('menuClose');
@@ -1382,10 +1424,7 @@
     menuOverlay.addEventListener('click', closeMenu);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
-    // Landing menu hamburger
-    document.getElementById('landingMenuBtn').addEventListener('click', () => {
-      openMenu();
-    });
+    document.getElementById('landingMenuBtn').addEventListener('click', openMenu);
 
     // ============================================================
     // 3. MODAL
@@ -1395,34 +1434,33 @@
         image: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&h=400&fit=crop&crop=face',
         title: 'Helena',
         subtitle: '🧭 Recepcionista — Acolhimento e Direcionamento',
-        text: 'Helena é a porta de entrada do HairOS. Com sua abordagem acolhedora e organizada, ela escuta suas necessidades e direciona você para o especialista certo. Sua missão é garantir que você se sinta acolhido e guiado desde o primeiro momento.',
+        text: 'Helena é a porta de entrada do HairOS. Com sua abordagem acolhedora e organizada, ela escuta suas necessidades e direciona você para o especialista certo. Sua missão é garantir que você se sinta acolhido e guiado desde o primeiro momento. 🎭 Personalidade: Acolhedora, Maternal e Empática.',
         btnText: '👋 Falar com Helena'
       },
       arthur: {
         image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=face',
         title: 'Arthur',
         subtitle: '✂️ Especialista em Cortes — Estrutura e Movimento',
-        text: 'Arthur é um verdadeiro artista dos cortes. Ele analisa a estrutura do seu cabelo, densidade e movimento para criar o corte que valoriza seu rosto e personalidade. Técnico e criativo, ele transforma cada cabelo em uma obra de arte.',
+        text: 'Arthur é um verdadeiro artista dos cortes. Ele analisa a estrutura do seu cabelo, densidade e movimento para criar o corte que valoriza seu rosto e personalidade. Técnico e criativo, ele transforma cada cabelo em uma obra de arte. 🎭 Personalidade: Criativo, Técnico e Observador.',
         btnText: '✂️ Falar com Arthur'
       },
       isabella: {
         image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&h=400&fit=crop&crop=face',
         title: 'Isabella',
         subtitle: '🎨 Especialista em Cores — Harmonia e Pigmentos',
-        text: 'Isabella é apaixonada por cores! Ela harmoniza tons com seu tom de pele e personalidade, criando composições únicas. Com seu olhar artístico e detalhista, ela transforma sua cor em uma verdadeira expressão de quem você é.',
+        text: 'Isabella é apaixonada por cores! Ela harmoniza tons com seu tom de pele e personalidade, criando composições únicas. Com seu olhar artístico e detalhista, ela transforma sua cor em uma verdadeira expressão de quem você é. 🎭 Personalidade: Artística, Detalhista e Passional.',
         btnText: '🎨 Falar com Isabella'
       },
       rafael: {
         image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=400&fit=crop&crop=face',
         title: 'Rafael',
         subtitle: '👤 Especialista em Visagismo — Proporções e Estilo',
-        text: 'Rafael é um mestre do visagismo. Ele estuda proporções faciais, traços e personalidade para criar uma imagem harmônica que comunica quem você é. Analítico e filosófico, ele acredita que cada rosto tem uma história única a contar.',
+        text: 'Rafael é um mestre do visagismo. Ele estuda proporções faciais, traços e personalidade para criar uma imagem harmônica que comunica quem você é. Analítico e filosófico, ele acredita que cada rosto tem uma história única a contar. 🎭 Personalidade: Filósofo, Analítico e Equilibrado.',
         btnText: '👤 Falar com Rafael'
       }
     };
 
     const modalOverlay = document.getElementById('modalOverlay');
-    const modalContent = document.getElementById('modalContent');
     const modalClose = document.getElementById('modalClose');
     const modalImage = document.getElementById('modalImage');
     const modalTitle = document.getElementById('modalTitle');
@@ -1442,7 +1480,6 @@
 
       modalBtn.onclick = function() {
         closeModal();
-        // Entrar no chat e ir para o especialista
         mostrarChat();
         setTimeout(() => {
           if (key === 'helena') handleAction('ir_para_helena');
@@ -1468,8 +1505,16 @@
       if (e.key === 'Escape') closeModal();
     });
 
+    document.querySelectorAll('.btn-saiba').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const modalKey = this.dataset.modal;
+        if (modalKey) openModal(modalKey);
+      });
+    });
+
     // ============================================================
-    // 4. NAVEGAÇÃO ENTRE LANDING E CHAT
+    // 4. NAVEGAÇÃO
     // ============================================================
     const landingPage = document.getElementById('landingPage');
     const chatContainer = document.getElementById('app');
@@ -1477,10 +1522,6 @@
     function mostrarChat() {
       landingPage.classList.add('hidden');
       chatContainer.classList.add('active');
-      // Se for a primeira vez, inicia boas-vindas
-      if (estado.passo === 'boas_vindas') {
-        // já está configurado
-      }
     }
 
     function mostrarLanding() {
@@ -1489,7 +1530,6 @@
       closeMenu();
     }
 
-    // Botão "Entrar no Chat"
     document.getElementById('btnEntrarChat').addEventListener('click', () => {
       showLoading();
       setTimeout(() => {
@@ -1498,25 +1538,10 @@
       }, 800);
     });
 
-    // Logo do chat volta para a landing
-    document.getElementById('logoBtn').addEventListener('click', () => {
-      mostrarLanding();
-    });
-
-    // Botões "Saiba mais" dos carrosséis
-    document.querySelectorAll('.btn-saiba').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const modalKey = this.dataset.modal;
-        if (modalKey) {
-          // Abre o modal diretamente na landing
-          openModal(modalKey);
-        }
-      });
-    });
+    document.getElementById('logoBtn').addEventListener('click', mostrarLanding);
 
     // ============================================================
-    // 5. AGENTES, ESTADO, HISTÓRICO
+    // 5. AGENTES COM PERSONALIDADES
     // ============================================================
     const AGENTES = {
       helena: {
@@ -1525,9 +1550,11 @@
         descricao: '🧭 Acolhe e direciona você para os especialistas certos',
         emoji: '👋',
         avatar: 'helena',
-        saudacao: 'Oi! Sou a Helena, sua recepcionista. Estou aqui para te acolher e conectar com os especialistas certos! 🥰',
-        personalidade: 'Acolhedora, organizada, atenciosa.',
-        contexto: 'Recepcionista do HairOS'
+        personalidade: 'Acolhedora, Maternal, Empática',
+        saudacao: 'Oi, meu bem! Sou a Helena, sua recepcionista. Estou aqui para te acolher com todo carinho! 🌸',
+        vocabulario: ['Querido', 'Amor', 'Vamos com calma', 'Fique tranquilo', 'Confia em mim'],
+        emocoes: ['😊', '🥰', '💕', '🌸', '✨'],
+        frases: ['Tudo vai ficar bem, viu?', 'Você merece se sentir especial!', 'Que bom que você veio!']
       },
       arthur: {
         nome: 'Arthur',
@@ -1535,9 +1562,11 @@
         descricao: '✂️ Analisa estrutura, densidade e movimento para criar o corte ideal',
         emoji: '✂️',
         avatar: 'arthur',
-        saudacao: 'Oii! Sou o Arthur, especialista em cortes. Adoro criar formas que valorizam cada rosto! 🥰',
-        personalidade: 'Criativo, técnico, observador.',
-        contexto: 'Especialista em cortes'
+        personalidade: 'Criativo, Técnico, Observador',
+        saudacao: 'E aí, beleza? Sou o Arthur, especialista em cortes. Vamos criar algo incrível! 🔥',
+        vocabulario: ['Massa!', 'Top!', 'Olha que legal', 'Perfeito', 'Incrível'],
+        emocoes: ['✂️', '🎨', '🔥', '💇', '⭐'],
+        frases: ['Cada corte é uma obra de arte!', 'Confia na visão, vai ficar top!', 'A estrutura do seu cabelo é perfeita para isso!']
       },
       isabella: {
         nome: 'Isabella',
@@ -1545,9 +1574,11 @@
         descricao: '🎨 Harmoniza tons com seu tom de pele e personalidade',
         emoji: '🎨',
         avatar: 'isabella',
-        saudacao: 'Oi! Sou a Isabella, expert em cores. Amo brincar com tons e criar harmonias incríveis! 🎨',
-        personalidade: 'Artística, detalhista, apaixonada por cores.',
-        contexto: 'Especialista em cores'
+        personalidade: 'Artística, Detalhista, Passional',
+        saudacao: 'Oieee! Sou a Isabella, expert em cores. Vamos pintar o mundo de cores juntos? 🌈',
+        vocabulario: ['Lindo', 'Maravilhoso', 'Perfeito', 'Sensacional', 'Uau'],
+        emocoes: ['🎨', '🌈', '✨', '💜', '🌸'],
+        frases: ['A cor certa pode iluminar seu rosto!', 'Cada tom é uma emoção diferente', 'Vamos criar uma paleta única!']
       },
       rafael: {
         nome: 'Rafael',
@@ -1555,15 +1586,17 @@
         descricao: '👤 Estuda proporções faciais e estilo para uma imagem harmônica',
         emoji: '👤',
         avatar: 'rafael',
-        saudacao: 'Olá! Sou o Rafael, especialista em visagismo. Acredito que cada rosto tem uma história para contar! 👤',
-        personalidade: 'Analítico, filosófico, equilibrado.',
-        contexto: 'Especialista em visagismo'
+        personalidade: 'Filósofo, Analítico, Equilibrado',
+        saudacao: 'Olá. Sou o Rafael, especialista em visagismo. Como você está se sentindo hoje? 🙏',
+        vocabulario: ['Interessante', 'Refletindo', 'Harmonia', 'Equilíbrio', 'Essência'],
+        emocoes: ['👤', '🙏', '✨', '💫', '🎯'],
+        frases: ['Seu rosto conta uma história, vamos ouvi-la juntos', 'A verdadeira beleza é a expressão da sua essência', 'O equilíbrio é a chave para a harmonia perfeita']
       },
-      system: { nome: 'Sistema', role: '', emoji: '🧠', avatar: 'system' },
+      system: { nome: 'Sistema', role: '', emoji: '🧠', avatar: 'system' }
     };
 
     // ============================================================
-    // 6. IMAGENS DE REFERÊNCIA
+    // 6. IMAGENS
     // ============================================================
     const HAIR_IMAGES = {
       short_bob: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&h=300&fit=crop',
@@ -1580,7 +1613,7 @@
       visagismo_quadrado: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop',
       visagismo_redondo: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=300&fit=crop',
       visagismo_coracao: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=300&fit=crop',
-      visagismo_diamante: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=300&fit=crop',
+      visagismo_diamante: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=300&fit=crop'
     };
 
     // ============================================================
@@ -1591,24 +1624,24 @@
         { id: 'p1', nome: 'Shampoo Volume e Densidade', desc: 'Fortalece e dá volume aos fios finos', preco: 'R$ 89,90', icon: '🧴' },
         { id: 'p2', nome: 'Máscara de Hidratação Profunda', desc: 'Reparação intensa para todos os tipos', preco: 'R$ 129,90', icon: '💆' },
         { id: 'p3', nome: 'Óleo de Argan', desc: 'Brilho e maciez com proteção térmica', preco: 'R$ 79,90', icon: '✨' },
-        { id: 'p4', nome: 'Finalizador Texturizador', desc: 'Cria movimento e definição', preco: 'R$ 59,90', icon: '🌀' },
+        { id: 'p4', nome: 'Finalizador Texturizador', desc: 'Cria movimento e definição', preco: 'R$ 59,90', icon: '🌀' }
       ],
       isabella: [
         { id: 'p5', nome: 'Shampoo para Cabelos Coloridos', desc: 'Preserva a cor e a hidratação', preco: 'R$ 99,90', icon: '🎨' },
         { id: 'p6', nome: 'Máscara de Brilho e Proteção', desc: 'Intensifica a cor e protege dos UV', preco: 'R$ 149,90', icon: '✨' },
         { id: 'p7', nome: 'Cronograma Capilar Completo', desc: 'Kit com 3 máscaras para tratamento', preco: 'R$ 199,90', icon: '📋' },
-        { id: 'p8', nome: 'Protetor Térmico Colorido', desc: 'Protege a cor durante a secagem', preco: 'R$ 69,90', icon: '🔥' },
+        { id: 'p8', nome: 'Protetor Térmico Colorido', desc: 'Protege a cor durante a secagem', preco: 'R$ 69,90', icon: '🔥' }
       ],
       rafael: [
         { id: 'p9', nome: 'Kit Visagismo Facial', desc: 'Produtos para realçar sua harmonia', preco: 'R$ 159,90', icon: '👤' },
         { id: 'p10', nome: 'Máscara de Modelagem Facial', desc: 'Define e valoriza o contorno facial', preco: 'R$ 89,90', icon: '💫' },
         { id: 'p11', nome: 'Finalizador de Franja', desc: 'Mantém a franja no lugar e com movimento', preco: 'R$ 49,90', icon: '💇' },
-        { id: 'p12', nome: 'Kit de Estilo Profissional', desc: 'Pomada e spray para modelagem', preco: 'R$ 119,90', icon: '🎯' },
+        { id: 'p12', nome: 'Kit de Estilo Profissional', desc: 'Pomada e spray para modelagem', preco: 'R$ 119,90', icon: '🎯' }
       ]
     };
 
     // ============================================================
-    // 8. QUIZ (resumido para manter o mesmo comportamento)
+    // 8. QUIZ (mesmo do original)
     // ============================================================
     const QUIZ = {
       arthur: {
@@ -1789,7 +1822,7 @@
     };
 
     // ============================================================
-    // 9. DÚVIDAS (resumido)
+    // 9. DÚVIDAS
     // ============================================================
     const DUVIDAS = {
       arthur: {
@@ -1837,8 +1870,6 @@
       especialista_ativo: null,
       usuario: {
         foto: false,
-        corte: null,
-        cor: null,
         avatarUrl: null,
         quiz: { arthur: {}, isabella: {}, rafael: {} },
         nome: 'Cliente'
@@ -1848,7 +1879,7 @@
         helena: { interacoes: 0 },
         arthur: { interacoes: 0 },
         isabella: { interacoes: 0 },
-        rafael: { interacoes: 0 },
+        rafael: { interacoes: 0 }
       },
       ultima_pergunta: null,
       historico: historico,
@@ -1856,9 +1887,8 @@
       quiz_pergunta_atual: 0,
       quiz_respostas: {},
       duvidas_ativo: null,
-      duvidas_pergunta_atual: 0,
       analise_realizada: false,
-      sugestoes_cortes: [],
+      sugestoes_cortes: []
     };
 
     // ============================================================
@@ -1940,15 +1970,168 @@
       }, duration / agentes.length);
     }
 
+    // ============================================================
+    // 13. SISTEMA DE IA COM PERSONALIDADES INTERNAS
+    // ============================================================
+    const sistemaIA = {
+      agentes: {},
+
+      inicializar() {
+        // Cada agente já tem sua personalidade definida no AGENTES
+        // A IA usa as personalidades para gerar respostas
+        console.log('🧠 HairOS com IA e Personalidades internas inicializado!');
+        console.log('👤 Agentes:', Object.keys(AGENTES).filter(k => k !== 'system').join(', '));
+        console.log('🎭 Cada agente tem personalidade, emoções e vocabulário próprio!');
+      },
+
+      gerarRespostaPersonalizada(agenteId, mensagem, contexto = {}) {
+        const agente = AGENTES[agenteId];
+        if (!agente) return null;
+
+        const pers = agente;
+        let resposta = '';
+
+        // 1. Verificar respostas específicas por palavra-chave
+        const palavrasChave = {
+          'helena': ['ajuda', 'oi', 'olá', 'bom dia', 'boa tarde', 'direcionar'],
+          'arthur': ['corte', 'tesoura', 'short bob', 'pixie', 'butterfly', 'shaggy', 'cabelo'],
+          'isabella': ['cor', 'pintar', 'mel', 'caramelo', 'cobre', 'loiro', 'tons'],
+          'rafael': ['rosto', 'visagismo', 'proporção', 'harmonia', 'formato', 'feições']
+        };
+
+        const respostasEspecificas = {
+          'helena': {
+            'direcionar': 'Posso te direcionar para Arthur (cortes), Isabella (cores) ou Rafael (visagismo).'
+          },
+          'arthur': {
+            'oval': 'Rosto oval combina com tudo! Short Bob e Butterfly são top!',
+            'quadrado': 'Rosto quadrado: cortes com camadas e franja lateral suavizam.',
+            'redondo': 'Rosto redondo: volume no topo alonga. Pixie assimétrico é show!',
+            'liso': 'Cabelo liso: cortes retos ou camadas leves para movimento.'
+          },
+          'isabella': {
+            'quente': 'Tons quentes: mel, caramelo e cobre realçam sua pele!',
+            'frio': 'Tons frios: loiro platinado e castanho gelado são perfeitos!'
+          },
+          'rafael': {
+            'oval': 'Rosto oval é versátil e equilibrado. Qualquer estilo combina!',
+            'quadrado': 'Rosto quadrado transmite poder. Suavize com linhas curvas.'
+          }
+        };
+
+        const lowerMsg = mensagem.toLowerCase();
+        for (let [chave, respostaEsp] of Object.entries(respostasEspecificas[agenteId] || {})) {
+          if (lowerMsg.includes(chave)) {
+            resposta = this.aplicarPersonalidade(respostaEsp, agenteId);
+            return resposta;
+          }
+        }
+
+        // 2. Resposta genérica com personalidade
+        const respostasGenericas = {
+          'helena': [
+            'Que pergunta interessante, querido! Vamos explorar isso juntos? 🥰',
+            'Ah, fique tranquilo! Vou te ajudar com isso, viu? 💕',
+            'Que bom que você perguntou! Isso é algo que adoro falar! 🌸'
+          ],
+          'arthur': [
+            'Massa! Essa pergunta é show! Vamos criar algo irado! ✂️',
+            'Top! Isso me lembra um corte que fiz mês passado... 🔥',
+            'Olha que legal você perguntar isso! Vamos explorar! 💇'
+          ],
+          'isabella': [
+            'Ai, que pergunta linda! Vamos colorir isso juntos! 🎨',
+            'Maravilhoso você ter perguntado isso! Vamos explorar! 🌈',
+            'Sensacional! Essa pergunta tem tanta profundidade! 💜'
+          ],
+          'rafael': [
+            'Interessante... Essa pergunta revela uma busca profunda. 👤',
+            'Refletindo sobre isso... A resposta pode te surpreender. 🙏',
+            'A harmonia está na pergunta em si. Vamos explorar juntos? ✨'
+          ]
+        };
+
+        const lista = respostasGenericas[agenteId] || respostasGenericas['helena'];
+        resposta = lista[Math.floor(Math.random() * lista.length)];
+        resposta = this.aplicarPersonalidade(resposta, agenteId);
+
+        return resposta;
+      },
+
+      aplicarPersonalidade(resposta, agenteId) {
+        const agente = AGENTES[agenteId];
+        if (!agente) return resposta;
+
+        // Adicionar vocabulário característico
+        if (Math.random() < 0.3) {
+          const palavra = agente.vocabulario[Math.floor(Math.random() * agente.vocabulario.length)];
+          resposta = `${palavra} ${resposta}`;
+        }
+
+        // Adicionar emoção
+        if (Math.random() < 0.2) {
+          const emocao = agente.emocoes[Math.floor(Math.random() * agente.emocoes.length)];
+          resposta += ` ${emocao}`;
+        }
+
+        // Adicionar frase característica
+        if (Math.random() < 0.1) {
+          const frase = agente.frases[Math.floor(Math.random() * agente.frases.length)];
+          resposta += `\n\n"${frase}"`;
+        }
+
+        return resposta;
+      },
+
+      encontrarAgenteAdequado(mensagem) {
+        const palavrasChave = {
+          'arthur': ['corte', 'tesoura', 'short bob', 'pixie', 'butterfly', 'shaggy', 'cabelo'],
+          'isabella': ['cor', 'pintar', 'mel', 'caramelo', 'cobre', 'loiro', 'tons', 'coloração'],
+          'rafael': ['rosto', 'visagismo', 'proporção', 'harmonia', 'formato', 'feições']
+        };
+
+        const lowerMsg = mensagem.toLowerCase();
+        let melhorAgente = null;
+        let maiorScore = 0;
+
+        for (let [agente, palavras] of Object.entries(palavrasChave)) {
+          let score = 0;
+          for (let palavra of palavras) {
+            if (lowerMsg.includes(palavra)) {
+              score += 2;
+            }
+          }
+          if (score > maiorScore) {
+            maiorScore = score;
+            melhorAgente = agente;
+          }
+        }
+
+        return maiorScore > 1 ? melhorAgente : null;
+      },
+
+      realizarReuniao(pergunta) {
+        const respostas = {};
+        for (let [id] of Object.entries(AGENTES)) {
+          if (id === 'system') continue;
+          respostas[id] = this.gerarRespostaPersonalizada(id, pergunta, { modoReuniao: true });
+        }
+        return respostas;
+      }
+    };
+
+    sistemaIA.inicializar();
+
+    // ============================================================
+    // 14. FUNÇÕES DE MENSAGEM
+    // ============================================================
     function addMessage(agenteId, html, extraClass = '', contexto = null, imagens = null) {
       const agente = AGENTES[agenteId];
       if (!agente) return;
       const div = document.createElement('div');
       div.className = `message bot ${extraClass}`;
-      let contextHtml = '';
-      if (contexto) {
-        contextHtml = `<div class="agent-context">💭 ${contexto}</div>`;
-      }
+
+      let contextHtml = contexto ? `<div class="agent-context">💭 ${contexto}</div>` : '';
       let imagesHtml = '';
       if (imagens) {
         if (Array.isArray(imagens)) {
@@ -1957,77 +2140,34 @@
           imagesHtml = `<img src="${imagens}" class="hair-image" alt="Referência" loading="lazy" />`;
         }
       }
+
       const descHtml = agente.descricao ? `<span class="agent-desc">${agente.descricao}</span>` : '';
+      const iaBadge = `<span class="ia-badge">🧠 IA</span>`;
+      const personalityBadge = `<span class="personality-badge">🎭 ${agente.personalidade}</span>`;
 
       div.innerHTML = `
         <div class="avatar ${agente.avatar}"></div>
         <div class="bubble ${extraClass}">
-          <span class="agent-name">${agente.emoji} ${agente.nome}</span>
+          <span class="agent-name">${agente.emoji} ${agente.nome} ${iaBadge} ${personalityBadge}</span>
           <span class="agent-role">${agente.role}</span>
           ${descHtml}
-          <div class="text">
-            ${html}
-            ${imagesHtml}
-          </div>
+          <div class="text">${html}${imagesHtml}</div>
           ${contextHtml}
         </div>
       `;
       messagesEl.appendChild(div);
       scrollToBottom();
       updateIndicators(agenteId);
-      const allAgents = ['helena', 'arthur', 'isabella', 'rafael'];
-      animateAgentConversation(allAgents, 1800);
-      if (estado.contextos[agenteId]) {
-        estado.contextos[agenteId].interacoes += 1;
-      }
+      animateAgentConversation(['helena', 'arthur', 'isabella', 'rafael'], 1800);
+      if (estado.contextos[agenteId]) estado.contextos[agenteId].interacoes += 1;
       salvarHistorico({ agente: agenteId, texto: html.replace(/<[^>]*>/g, '').substring(0, 100) });
-    }
-
-    function addMessageWithoutHistory(agenteId, html, extraClass = '', contexto = null, imagens = null) {
-      const agente = AGENTES[agenteId];
-      if (!agente) return;
-      const div = document.createElement('div');
-      div.className = `message bot ${extraClass}`;
-      let contextHtml = '';
-      if (contexto) {
-        contextHtml = `<div class="agent-context">💭 ${contexto}</div>`;
-      }
-      let imagesHtml = '';
-      if (imagens) {
-        if (Array.isArray(imagens)) {
-          imagesHtml = `<div class="hair-grid">${imagens.map(img => `<img src="${img}" class="hair-image" alt="Referência" loading="lazy" />`).join('')}</div>`;
-        } else {
-          imagesHtml = `<img src="${imagens}" class="hair-image" alt="Referência" loading="lazy" />`;
-        }
-      }
-      const descHtml = agente.descricao ? `<span class="agent-desc">${agente.descricao}</span>` : '';
-
-      div.innerHTML = `
-        <div class="avatar ${agente.avatar}"></div>
-        <div class="bubble ${extraClass}">
-          <span class="agent-name">${agente.emoji} ${agente.nome}</span>
-          <span class="agent-role">${agente.role}</span>
-          ${descHtml}
-          <div class="text">
-            ${html}
-            ${imagesHtml}
-          </div>
-          ${contextHtml}
-        </div>
-      `;
-      messagesEl.appendChild(div);
-      scrollToBottom();
-      updateIndicators(agenteId);
     }
 
     function addUserMessage(text) {
       const div = document.createElement('div');
       div.className = 'message user';
       const avatarStyle = estado.usuario.avatarUrl ? `background-image: url('${estado.usuario.avatarUrl}');` : '';
-      div.innerHTML = `
-        <div class="avatar user" style="${avatarStyle}"></div>
-        <div class="bubble">${text}</div>
-      `;
+      div.innerHTML = `<div class="avatar user" style="${avatarStyle}"></div><div class="bubble">${text}</div>`;
       messagesEl.appendChild(div);
       scrollToBottom();
       estado.ultima_pergunta = text;
@@ -2057,7 +2197,6 @@
         const el = document.createElement('button');
         el.className = `btn ${btn.class || ''}`;
         el.textContent = btn.label;
-        el.dataset.action = btn.action;
         if (btn.disabled) el.disabled = true;
         if (btn.onclick) {
           el.addEventListener('click', btn.onclick);
@@ -2094,6 +2233,18 @@
       }
     }
 
+    function removeMessagesByKeyword(keyword) {
+      const msgs = messagesEl.querySelectorAll('.message');
+      for (let i = msgs.length - 1; i >= 0; i--) {
+        const msg = msgs[i];
+        const text = msg.querySelector('.text')?.textContent || '';
+        if (text.includes(keyword)) {
+          msg.remove();
+          if (i > 20) break;
+        }
+      }
+    }
+
     function removeLastMessage() {
       const msgs = messagesEl.querySelectorAll('.message');
       if (msgs.length > 0) {
@@ -2102,51 +2253,43 @@
       }
     }
 
-    function removeMessagesByKeyword(keyword) {
-      const msgs = messagesEl.querySelectorAll('.message');
-      let removidas = 0;
-      for (let i = msgs.length - 1; i >= 0; i--) {
-        const msg = msgs[i];
-        const text = msg.querySelector('.text')?.textContent || '';
-        if (text.includes(keyword)) {
-          msg.remove();
-          removidas++;
-          if (removidas > 15) break;
-        }
-      }
-    }
-
     // ============================================================
-    // 13. REUNIÃO
+    // 15. REUNIÃO
     // ============================================================
     function executarReuniao(callback) {
       estado.meeting_ativa = true;
       let delay = 1000;
-      addMeetingBadge('🎙️ REUNIÃO DOS ESPECIALISTAS', true);
+      addMeetingBadge('🎙️ REUNIÃO DOS ESPECIALISTAS COM IA E PERSONALIDADES', true);
       removeLastButtons();
 
+      const reuniao = sistemaIA.realizarReuniao('Análise completa do cliente');
+
       const agentes = [
-        { id: 'rafael', texto: '👤 Pela imagem, vejo que o formato do rosto é versátil. Podemos trabalhar com cortes que valorizam a simetria e tragam equilíbrio.' },
-        { id: 'arthur', texto: '✂️ Concordo! A estrutura do cabelo parece saudável. Short Bob, Butterfly ou Pixie podem ficar incríveis!' },
-        { id: 'isabella', texto: '🎨 Pelo tom de pele, tons quentes como mel e caramelo vão iluminar muito o rosto. Combinado com o corte certo, fica perfeito!' },
-        { id: 'helena', texto: '👋 Ótimo! Já temos uma direção. Agora vamos entender o que o cliente deseja com o quiz.' }
+        { id: 'rafael', texto: reuniao.rafael },
+        { id: 'arthur', texto: reuniao.arthur },
+        { id: 'isabella', texto: reuniao.isabella },
+        { id: 'helena', texto: reuniao.helena }
       ];
 
       agentes.forEach((agente, index) => {
         setTimeout(() => {
           updateIndicators(agente.id, true);
           const agenteInfo = AGENTES[agente.id];
-          const descHtml = agenteInfo.descricao ? `<span class="agent-desc">${agenteInfo.descricao}</span>` : '';
+          const iaBadge = `<span class="ia-badge">🧠 IA</span>`;
+          const personalityBadge = `<span class="personality-badge">🎭 ${agenteInfo.personalidade}</span>`;
+
           const div = document.createElement('div');
           div.className = `message bot`;
           div.innerHTML = `
             <div class="avatar ${agenteInfo.avatar}"></div>
             <div class="bubble">
-              <span class="agent-name">${agenteInfo.emoji} ${agenteInfo.nome}</span>
+              <span class="agent-name">${agenteInfo.emoji} ${agenteInfo.nome} ${iaBadge} ${personalityBadge}</span>
               <span class="agent-role">${agenteInfo.role}</span>
-              ${descHtml}
               <div class="text">
                 ${agente.texto}
+                <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">
+                  🎭 ${agenteInfo.personalidade} | ${agenteInfo.vocabulario[0]}
+                </div>
               </div>
             </div>
           `;
@@ -2158,7 +2301,7 @@
       });
 
       setTimeout(() => {
-        addMeetingBadge('✅ REUNIÃO FINALIZADA — Vamos ao quiz!');
+        addMeetingBadge('✅ REUNIÃO FINALIZADA!');
         estado.meeting_ativa = false;
         if (callback) callback();
         setTimeout(() => {
@@ -2171,7 +2314,7 @@
     }
 
     // ============================================================
-    // 14. QUIZ (funções principais)
+    // 16. QUIZ
     // ============================================================
     function iniciarQuiz(agenteId) {
       const quiz = QUIZ[agenteId];
@@ -2179,12 +2322,9 @@
 
       if (!estado.usuario.foto) {
         addMessage('helena', `
-          <p>Para fazer o quiz e obter uma análise completa, <strong>preciso que você envie uma foto</strong> primeiro. 📸</p>
-          <p>Isso permite que os especialistas analisem sua estrutura!</p>
+          <p>Para fazer o quiz, <strong>preciso que você envie uma foto</strong> primeiro. 📸</p>
           <div class="photo-upload">
-            <button class="btn primary" onclick="document.getElementById('fileInput').click()" style="flex:1;border:none;padding:8px 16px;border-radius:24px;font-size:13px;cursor:pointer;font-family:inherit;">
-              📷 Enviar Foto
-            </button>
+            <button class="btn primary" onclick="document.getElementById('fileInput').click()">📷 Enviar Foto</button>
           </div>
         `, '', 'Recepcionista');
         appendButtons([
@@ -2203,15 +2343,12 @@
       estado.quiz_pergunta_atual = 0;
       estado.quiz_respostas = {};
 
-      if (estado.especialista_ativo !== agenteId) {
-        trocarAgente(agenteId);
-      }
+      if (estado.especialista_ativo !== agenteId) trocarAgente(agenteId);
 
       setTimeout(() => {
         addMessage(agenteId, `
           <p>${quiz.titulo}</p>
           <p>Vamos descobrir o que combina com você! São 5 perguntas. 🥰</p>
-          <p style="font-size:12px;color:var(--text-muted);">Clique nas opções para responder.</p>
         `, '', 'Início do quiz');
         mostrarPerguntaQuiz(agenteId);
       }, 800);
@@ -2229,12 +2366,10 @@
       const pergunta = quiz.perguntas[idx];
       const progresso = `${idx + 1}/${quiz.perguntas.length}`;
 
-      const botoes = pergunta.opcoes.map((op, i) => ({
+      const botoes = pergunta.opcoes.map(op => ({
         label: op.label,
         class: 'outline',
-        onclick: function() {
-          responderQuiz(agenteId, idx, op.valor);
-        }
+        onclick: function() { responderQuiz(agenteId, idx, op.valor); }
       }));
 
       if (idx > 0) {
@@ -2246,10 +2381,7 @@
               estado.quiz_pergunta_atual--;
               removeLastMessage();
               const userMsgs = messagesEl.querySelectorAll('.message.user');
-              if (userMsgs.length > 0) {
-                const lastUser = userMsgs[userMsgs.length - 1];
-                if (lastUser) lastUser.remove();
-              }
+              if (userMsgs.length > 0 && userMsgs[userMsgs.length - 1]) userMsgs[userMsgs.length - 1].remove();
               setTimeout(() => mostrarPerguntaQuiz(agenteId), 300);
             }
           }
@@ -2277,46 +2409,28 @@
       estado.quiz_pergunta_atual++;
       removeLastButtons();
 
-      setTimeout(() => {
-        mostrarPerguntaQuiz(agenteId);
-      }, 500);
+      setTimeout(() => mostrarPerguntaQuiz(agenteId), 500);
     }
 
     function finalizarQuiz(agenteId) {
       const quiz = QUIZ[agenteId];
       const respostas = estado.quiz_respostas;
       const recomendacoes = quiz.resultado(respostas);
-      const imagemRef = quiz.getImagemRecomendacao ? quiz.getImagemRecomendacao(respostas) : null;
-      const sugestoes = quiz.getSugestoes ? quiz.getSugestoes(respostas) : [];
+      const imagemRef = quiz.getImagemRecomendacao(respostas);
+      const sugestoes = quiz.getSugestoes(respostas);
 
       estado.sugestoes_cortes = sugestoes;
       estado.analise_realizada = true;
 
       let html = `
         <p>✅ <strong>Quiz finalizado!</strong></p>
-        <p>Com base nas suas respostas, aqui estão as recomendações:</p>
-        <ul style="margin:8px 0 0 16px; padding-left:4px;">
+        <p>Com base nas suas respostas:</p>
+        <ul style="margin:8px 0 0 16px;">
       `;
-
-      recomendacoes.forEach(r => {
-        html += `<li style="margin-bottom:4px;">${r}</li>`;
-      });
-
+      recomendacoes.forEach(r => { html += `<li>${r}</li>`; });
       html += `</ul>`;
 
-      const recomendacaoFinal = gerarRecomendacaoFinal(agenteId, respostas);
-
-      html += `
-        <p style="margin-top:10px;padding:10px;background:var(--bg-tag-highlight);border-radius:8px;">
-          📸 <strong>Análise combinada com sua foto + reunião dos especialistas:</strong><br>
-          ${recomendacaoFinal}
-        </p>
-        <p style="font-size:12px;color:var(--text-muted);margin-top:6px;">
-          ✅ Análise completa! Abaixo 3 sugestões de cortes com imagens.
-        </p>
-      `;
-
-      addMessage(agenteId, html, '', `Resultado do quiz - ${quiz.titulo}`, imagemRef);
+      addMessage(agenteId, html, '', `Resultado do quiz`, imagemRef);
 
       if (sugestoes.length > 0) {
         let gridHtml = `<div class="hair-grid-3">`;
@@ -2330,69 +2444,50 @@
           `;
         });
         gridHtml += `</div>`;
-        addMessageWithoutHistory(agenteId, `
-          <p>✂️ <strong>3 Sugestões de cortes para você:</strong></p>
+        addMessage(agenteId, `
+          <p>✂️ <strong>3 Sugestões para você:</strong></p>
           ${gridHtml}
-          <p style="font-size:12px;color:var(--text-muted);margin-top:6px;">💡 Qual desses estilos te agrada mais?</p>
-        `, '', 'Sugestões de cortes');
+        `, '', 'Sugestões');
       }
 
       const botoes = [
         { label: '🔄 Recomeçar quiz', onclick: function() {
-          estado.quiz_ativo = null;
-          estado.quiz_pergunta_atual = 0;
-          estado.quiz_respostas = {};
-          removeMessagesByKeyword('Quiz');
-          removeMessagesByKeyword('Pergunta');
-          removeMessagesByKeyword('Resultado');
-          setTimeout(() => iniciarQuiz(agenteId), 500);
-        }, class: 'outline' },
-        { label: '🛒 Ver produtos recomendados', onclick: function() {
-          mostrarProdutos(agenteId);
-        }, class: 'accent' },
-        { label: '👥 Compartilhar resultado', onclick: function() {
-          compartilharResultado(agenteId, recomendacoes);
-        }, class: 'outline' },
-        { label: '🔙 Voltar ao menu', onclick: function() {
-          estado.quiz_ativo = null;
-          estado.quiz_pergunta_atual = 0;
-          estado.quiz_respostas = {};
-          mostrarOpcoesAgente(agenteId);
-        }, class: 'outline' },
+            estado.quiz_ativo = null;
+            estado.quiz_pergunta_atual = 0;
+            estado.quiz_respostas = {};
+            removeMessagesByKeyword('Quiz');
+            removeMessagesByKeyword('Pergunta');
+            removeMessagesByKeyword('Resultado');
+            setTimeout(() => iniciarQuiz(agenteId), 500);
+          }, class: 'outline' },
+        { label: '🛒 Ver produtos', onclick: function() { mostrarProdutos(agenteId); }, class: 'accent' },
+        { label: '👥 Compartilhar', onclick: function() { compartilharResultado(agenteId, recomendacoes); }, class: 'outline' },
+        { label: '🔙 Voltar', onclick: function() {
+            estado.quiz_ativo = null;
+            estado.quiz_pergunta_atual = 0;
+            estado.quiz_respostas = {};
+            mostrarOpcoesAgente(agenteId);
+          }, class: 'outline' }
       ];
 
       appendButtons(botoes);
       estado.quiz_ativo = null;
-      salvarHistorico({ agente: agenteId, texto: 'Quiz finalizado com sugestões de cortes' });
-    }
-
-    function gerarRecomendacaoFinal(agenteId, respostas) {
-      const sugestoes = {
-        arthur: { default: 'Recomendo um Short Bob com camadas leves para valorizar seu rosto.', oval: 'Recomendo Butterfly com camadas suaves para movimento.', quadrado: 'Recomendo cortes com franja lateral para suavizar.', redondo: 'Recomendo Pixie assimétrico com volume no topo.' },
-        isabella: { default: 'Recomendo mel com reflexos para iluminar seu rosto.', quente: 'Recomendo cobre acobreado para realçar seu tom de pele.', frio: 'Recomendo castanho gelado para equilíbrio.', neutro: 'Recomendo caramelo como tom versátil.' },
-        rafael: { default: 'Recomendo linhas suaves para harmonizar seu rosto.', oval: 'Recomendo linhas fluídas e naturais.', quadrado: 'Recomendo linhas curvas para suavizar.', redondo: 'Recomendo linhas verticais para alongar.' }
-      };
-      const sugestao = sugestoes[agenteId] || sugestoes.arthur;
-      const formato = respostas.q1 || '';
-      const chave = Object.keys(sugestao).find(k => formato.includes(k)) || 'default';
-      return sugestao[chave] || sugestao.default;
+      salvarHistorico({ agente: agenteId, texto: 'Quiz finalizado' });
     }
 
     // ============================================================
-    // 15. DÚVIDAS
+    // 17. DÚVIDAS
     // ============================================================
     function iniciarDuvidas(agenteId) {
       const duvidas = DUVIDAS[agenteId];
       if (!duvidas) return;
       estado.duvidas_ativo = agenteId;
-      if (estado.especialista_ativo !== agenteId) {
-        trocarAgente(agenteId);
-      }
+      if (estado.especialista_ativo !== agenteId) trocarAgente(agenteId);
+
       setTimeout(() => {
         addMessage(agenteId, `
           <p>${duvidas.titulo}</p>
-          <p>Escolha uma das perguntas abaixo para saber mais! 🥰</p>
-          <p style="font-size:12px;color:var(--text-muted);">Clique em uma pergunta para ver a resposta.</p>
+          <p>Escolha uma pergunta: 🥰</p>
         `, '', 'Dúvidas');
         mostrarPerguntaDuvidas(agenteId);
       }, 800);
@@ -2402,54 +2497,25 @@
       const duvidas = DUVIDAS[agenteId];
       const perguntas = duvidas.perguntas;
 
-      const botoes = perguntas.map((p, idx) => ({
+      const botoes = perguntas.map(p => ({
         label: p.pergunta,
         class: 'outline',
         onclick: function() {
           addUserMessage(`❓ ${p.pergunta}`);
           addMessage(agenteId, `
             <p><strong>📌 ${p.pergunta}</strong></p>
-            <p style="white-space:pre-line;margin-top:6px;">${p.resposta}</p>
-            <p style="font-size:11px;color:var(--text-muted);margin-top:6px;">Quer ver outra dúvida?</p>
+            <p style="white-space:pre-line;">${p.resposta}</p>
           `, '', `Dúvida respondida`);
           setTimeout(() => {
-            const botoesVoltar = perguntas.map((p2, idx2) => ({
+            const botoesVoltar = perguntas.map(p2 => ({
               label: p2.pergunta,
-              class: idx2 === idx ? 'success' : 'outline',
-              onclick: function() {
-                addUserMessage(`❓ ${p2.pergunta}`);
-                addMessage(agenteId, `
-                  <p><strong>📌 ${p2.pergunta}</strong></p>
-                  <p style="white-space:pre-line;margin-top:6px;">${p2.resposta}</p>
-                  <p style="font-size:11px;color:var(--text-muted);margin-top:6px;">Quer ver outra dúvida?</p>
-                `, '', `Dúvida respondida`);
-                setTimeout(() => {
-                  const botoesNovamente = perguntas.map((p3, idx3) => ({
-                    label: p3.pergunta,
-                    class: idx3 === idx2 ? 'success' : 'outline',
-                    onclick: function() {
-                      mostrarPerguntaDuvidas(agenteId);
-                    }
-                  }));
-                  botoesNovamente.push({
-                    label: '🔙 Voltar ao menu',
-                    class: 'primary',
-                    onclick: function() {
-                      estado.duvidas_ativo = null;
-                      mostrarOpcoesAgente(agenteId);
-                    }
-                  });
-                  appendButtons(botoesNovamente);
-                }, 300);
-              }
+              class: 'outline',
+              onclick: function() { mostrarPerguntaDuvidas(agenteId); }
             }));
             botoesVoltar.push({
-              label: '🔙 Voltar ao menu',
+              label: '🔙 Voltar',
               class: 'primary',
-              onclick: function() {
-                estado.duvidas_ativo = null;
-                mostrarOpcoesAgente(agenteId);
-              }
+              onclick: function() { estado.duvidas_ativo = null; mostrarOpcoesAgente(agenteId); }
             });
             appendButtons(botoesVoltar);
           }, 300);
@@ -2457,33 +2523,23 @@
       }));
 
       botoes.push({
-        label: '🔙 Voltar ao menu',
+        label: '🔙 Voltar',
         class: 'primary',
-        onclick: function() {
-          estado.duvidas_ativo = null;
-          mostrarOpcoesAgente(agenteId);
-        }
+        onclick: function() { estado.duvidas_ativo = null; mostrarOpcoesAgente(agenteId); }
       });
 
-      addMessage(agenteId, `
-        <p style="font-size:12px;color:var(--text-muted);">Escolha uma pergunta:</p>
-      `, '', 'Dúvidas - lista');
-
+      addMessage(agenteId, `<p style="font-size:12px;color:var(--text-muted);">Escolha uma pergunta:</p>`, '', 'Dúvidas - lista');
       appendButtons(botoes);
     }
 
     // ============================================================
-    // 16. PRODUTOS
+    // 18. PRODUTOS
     // ============================================================
     function mostrarProdutos(agenteId) {
       const produtos = PRODUTOS[agenteId] || PRODUTOS.arthur;
       const nomeAgente = AGENTES[agenteId]?.nome || 'Especialista';
 
-      let html = `
-        <p>🛒 <strong>Produtos recomendados por ${nomeAgente}</strong></p>
-        <p style="font-size:12px;color:var(--text-muted);">Selecione um produto para saber mais:</p>
-      `;
-
+      let html = `<p>🛒 <strong>Produtos recomendados por ${nomeAgente}</strong></p>`;
       produtos.forEach(p => {
         html += `
           <div class="product-card">
@@ -2498,78 +2554,61 @@
         `;
       });
 
-      html += `
-        <p style="font-size:11px;color:var(--text-muted);margin-top:6px;">💡 Produtos sugeridos com base na sua análise.</p>
-      `;
-
-      addMessage(agenteId, html, '', '🛒 Catálogo de produtos');
+      addMessage(agenteId, html, '', '🛒 Catálogo');
 
       window.adicionarAoCarrinho = function(nome, preco) {
-        addUserMessage(`🛒 Adicionar ao carrinho: ${nome} - ${preco}`);
-        addMessage(agenteId, `
-          <p>✅ <strong>${nome}</strong> adicionado ao carrinho!</p>
-          <p>💳 Total: ${preco}</p>
-          <p style="font-size:12px;color:var(--text-muted);">Continue navegando ou finalize a compra.</p>
-        `, '', 'Carrinho');
+        addUserMessage(`🛒 Adicionar: ${nome} - ${preco}`);
+        addMessage(agenteId, `<p>✅ <strong>${nome}</strong> adicionado ao carrinho!</p><p>💳 Total: ${preco}</p>`, '', 'Carrinho');
         appendButtons([
-          { label: '🔙 Voltar aos produtos', onclick: function() {
-            mostrarProdutos(agenteId);
-          }, class: 'outline' },
-          { label: '🔙 Voltar ao menu', action: `voltar_menu`, class: 'outline', data: { agente: agenteId } }
+          { label: '🔙 Voltar aos produtos', onclick: function() { mostrarProdutos(agenteId); }, class: 'outline' },
+          { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agenteId } }
         ]);
         salvarHistorico({ agente: 'carrinho', texto: `Adicionou ${nome} - ${preco}` });
       };
 
       appendButtons([
-        { label: '🔙 Voltar ao menu', action: `voltar_menu`, class: 'outline', data: { agente: agenteId } }
+        { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agenteId } }
       ]);
     }
 
     // ============================================================
-    // 17. COMPARTILHAR
+    // 19. COMPARTILHAR
     // ============================================================
     function compartilharResultado(agenteId, recomendacoes) {
       const nomeAgente = AGENTES[agenteId]?.nome || 'HairOS';
       const texto = recomendacoes ? recomendacoes.join('\n') : 'Descobri meu estilo ideal com o HairOS! 🥰';
+      const mensagem = `🌟 HairOS - Estilo Personalizado!\n\n👤 Especialista: ${nomeAgente}\n📋 ${texto}\n\n🔗 https://hairos.app`;
 
-      const mensagem = `🌟 HairOS - Descobri meu estilo ideal!\n\n👤 Especialista: ${nomeAgente}\n📋 Recomendações:\n${texto}\n\n🔗 Experimente também: https://hairos.app`;
-
-      const html = `
+      addMessage(agenteId, `
         <p>👥 <strong>Compartilhe seu resultado!</strong></p>
-        <p style="font-size:12px;color:var(--text-muted);">Mostre para seus amigos o estilo que o HairOS recomendou!</p>
         <div class="share-buttons">
           <button class="share-btn whatsapp" onclick="window.compartilharWhatsApp('${encodeURIComponent(mensagem)}')">💬 WhatsApp</button>
           <button class="share-btn instagram" onclick="window.compartilharInstagram()">📸 Instagram</button>
           <button class="share-btn twitter" onclick="window.compartilharTwitter('${encodeURIComponent(mensagem)}')">🐦 Twitter</button>
           <button class="share-btn copy" onclick="window.copiarTexto('${encodeURIComponent(mensagem)}')">📋 Copiar</button>
         </div>
-      `;
-
-      addMessage(agenteId, html, '', '👥 Compartilhar');
+      `, '', '👥 Compartilhar');
 
       window.compartilharWhatsApp = function(msg) {
         window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
-        addUserMessage('💬 Compartilhado no WhatsApp!');
+        addUserMessage('💬 WhatsApp');
         salvarHistorico({ agente: 'compartilhar', texto: 'WhatsApp' });
       };
-
       window.compartilharInstagram = function() {
-        addUserMessage('📸 Compartilhado no Instagram (simulado)!');
-        addMessage(agenteId, '📸 No Instagram, poste sua foto e marque @HairOS para aparecer no nosso perfil! 🥰', '', 'Instagram');
+        addUserMessage('📸 Instagram');
+        addMessage(agenteId, '📸 Poste e marque @HairOS! 🥰', '', 'Instagram');
         salvarHistorico({ agente: 'compartilhar', texto: 'Instagram' });
       };
-
       window.compartilharTwitter = function(msg) {
         window.open(`https://twitter.com/intent/tweet?text=${msg}`, '_blank');
-        addUserMessage('🐦 Compartilhado no Twitter!');
+        addUserMessage('🐦 Twitter');
         salvarHistorico({ agente: 'compartilhar', texto: 'Twitter' });
       };
-
       window.copiarTexto = function(msg) {
         const decoded = decodeURIComponent(msg);
         navigator.clipboard.writeText(decoded).then(() => {
-          addUserMessage('📋 Texto copiado para a área de transferência!');
-          addMessage(agenteId, '✅ Link copiado! Compartilhe com seus amigos. 🥰', '', 'Copiado');
+          addUserMessage('📋 Copiado!');
+          addMessage(agenteId, '✅ Copiado!', '', 'Copiado');
           salvarHistorico({ agente: 'compartilhar', texto: 'Copiado' });
         }).catch(() => {
           const textarea = document.createElement('textarea');
@@ -2578,18 +2617,18 @@
           textarea.select();
           document.execCommand('copy');
           document.body.removeChild(textarea);
-          addUserMessage('📋 Texto copiado para a área de transferência!');
+          addUserMessage('📋 Copiado!');
           salvarHistorico({ agente: 'compartilhar', texto: 'Copiado' });
         });
       };
 
       appendButtons([
-        { label: '🔙 Voltar', action: `voltar_menu`, class: 'outline', data: { agente: agenteId } }
+        { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agenteId } }
       ]);
     }
 
     // ============================================================
-    // 18. TROCAR AGENTE
+    // 20. TROCAR AGENTE
     // ============================================================
     function trocarAgente(agenteId) {
       if (estado.quiz_ativo) {
@@ -2597,9 +2636,7 @@
         estado.quiz_pergunta_atual = 0;
         estado.quiz_respostas = {};
       }
-      if (estado.duvidas_ativo) {
-        estado.duvidas_ativo = null;
-      }
+      if (estado.duvidas_ativo) estado.duvidas_ativo = null;
 
       if (estado.especialista_ativo === agenteId && estado.contextos[agenteId]?.interacoes > 0) {
         mostrarOpcoesAgente(agenteId);
@@ -2613,43 +2650,19 @@
       const interacoes = estado.contextos[agenteId]?.interacoes || 0;
 
       if (interacoes === 0) {
-        addDivider(`${agente.emoji} ${agente.nome.toUpperCase()} — ${agente.role.toUpperCase()}`);
-        addMessage(agenteId, agente.saudacao, '', `${agente.role} - 1º contato`);
+        addDivider(`${agente.emoji} ${agente.nome.toUpperCase()} — ${agente.role} 🎭 ${agente.personalidade}`);
+        const saudacaoIA = sistemaIA.gerarRespostaPersonalizada(agenteId, 'Saudação inicial', { primeiraVez: true });
+        addMessage(agenteId, saudacaoIA, '', `${agente.role} - IA`);
       } else {
-        const respostas = {
-          helena: [
-            'Oi! Estou aqui para te ajudar. O que você precisa agora? 🥰',
-            'Que bom te ver de novo! Como posso ajudar você hoje? 💕',
-            'Olá! Pronta para continuar sua jornada de estilo? Me diga o que precisa! ✨',
-          ],
-          arthur: [
-            'Que bom te ver de novo! Vamos continuar falando sobre cortes? ✂️',
-            'Oi! Já pensou em um Short Bob, Butterfly ou Pixie? São tendência! 🦋',
-            'Voltou! Vamos refinar sua escolha. O que você achou das opções? 💇',
-          ],
-          isabella: [
-            'Que bom te ver de novo! Vamos continuar explorando cores? 🎨',
-            'Oi! Já imaginou como ficaria com um tom mais quente? ✨',
-            'Voltou! Vamos refinar a cor perfeita para você. 🌈',
-          ],
-          rafael: [
-            'Que bom te ver de novo! Vamos continuar explorando sua imagem? 👤',
-            'Oi! A harmonia facial é única. Vamos encontrar o estilo que mais valoriza você! ✨',
-            'Voltou! Vamos refinar sua imagem. O que você achou das análises anteriores? 🎯',
-          ]
-        };
-        const lista = respostas[agenteId] || [`Olá novamente! Como posso te ajudar? 😊`];
-        const idx = Math.min(interacoes - 1, lista.length - 1);
-        addMessage(agenteId, lista[idx], '', `${agente.role} - ${interacoes+1}º contato`);
+        const saudacaoIA = sistemaIA.gerarRespostaPersonalizada(agenteId, 'Retorno do cliente', { saudacao: true });
+        addMessage(agenteId, saudacaoIA, '', `${agente.role} - IA`);
       }
 
-      setTimeout(() => {
-        mostrarOpcoesAgente(agenteId);
-      }, 600);
+      setTimeout(() => mostrarOpcoesAgente(agenteId), 600);
     }
 
     // ============================================================
-    // 19. MOSTRAR OPÇÕES DO AGENTE
+    // 21. MOSTRAR OPÇÕES DO AGENTE
     // ============================================================
     function mostrarOpcoesAgente(agenteId) {
       const botoes = [];
@@ -2661,71 +2674,67 @@
         case 'helena':
           botoes.push(
             { label: '📸 Enviar foto', action: 'enviar_foto', class: 'primary' },
-            { label: '✂️ Arthur (Cortes)', action: 'ir_para_arthur', class: 'outline' },
-            { label: '🎨 Isabella (Cores)', action: 'ir_para_isabella', class: 'outline' },
-            { label: '👤 Rafael (Visagismo)', action: 'ir_para_rafael', class: 'outline' }
+            { label: '✂️ Arthur', action: 'ir_para_arthur', class: 'outline' },
+            { label: '🎨 Isabella', action: 'ir_para_isabella', class: 'outline' },
+            { label: '👤 Rafael', action: 'ir_para_rafael', class: 'outline' }
           );
           break;
 
         case 'arthur':
           botoes.push(
             { label: '🔍 Analisar imagem', action: 'analisar_imagem', class: 'primary', data: { agente: 'arthur' } },
-            { label: '📋 Fazer quiz (5 perguntas)', action: 'iniciar_quiz', class: 'accent', data: { agente: 'arthur' } },
-            { label: '❓ Tirar dúvidas (5 perguntas)', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'arthur' } },
+            { label: '📋 Fazer quiz', action: 'iniciar_quiz', class: 'accent', data: { agente: 'arthur' } },
+            { label: '❓ Tirar dúvidas', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'arthur' } },
             { label: '🛒 Ver produtos', action: 'ver_produtos', class: 'outline', data: { agente: 'arthur' } },
             { label: '👥 Compartilhar', action: 'compartilhar', class: 'outline', data: { agente: 'arthur' } },
             { label: '👋 Voltar à Helena', action: 'ir_para_helena', class: 'outline' }
           );
           if (temFoto && temQuiz && temAnalise) {
-            botoes.unshift({ label: '✅ Ver minhas 3 sugestões de cortes', action: 'ver_sugestoes', class: 'success', data: { agente: 'arthur' } });
+            botoes.unshift({ label: '✅ Ver minhas 3 sugestões', action: 'ver_sugestoes', class: 'success', data: { agente: 'arthur' } });
           }
           break;
 
         case 'isabella':
           botoes.push(
             { label: '🔍 Analisar imagem', action: 'analisar_imagem', class: 'primary', data: { agente: 'isabella' } },
-            { label: '📋 Fazer quiz (5 perguntas)', action: 'iniciar_quiz', class: 'accent', data: { agente: 'isabella' } },
-            { label: '❓ Tirar dúvidas (5 perguntas)', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'isabella' } },
+            { label: '📋 Fazer quiz', action: 'iniciar_quiz', class: 'accent', data: { agente: 'isabella' } },
+            { label: '❓ Tirar dúvidas', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'isabella' } },
             { label: '🛒 Ver produtos', action: 'ver_produtos', class: 'outline', data: { agente: 'isabella' } },
             { label: '👥 Compartilhar', action: 'compartilhar', class: 'outline', data: { agente: 'isabella' } },
             { label: '👋 Voltar à Helena', action: 'ir_para_helena', class: 'outline' }
           );
           if (temFoto && temQuiz && temAnalise) {
-            botoes.unshift({ label: '✅ Ver minhas 3 sugestões de cortes', action: 'ver_sugestoes', class: 'success', data: { agente: 'isabella' } });
+            botoes.unshift({ label: '✅ Ver minhas 3 sugestões', action: 'ver_sugestoes', class: 'success', data: { agente: 'isabella' } });
           }
           break;
 
         case 'rafael':
           botoes.push(
             { label: '🔍 Analisar imagem', action: 'analisar_imagem', class: 'primary', data: { agente: 'rafael' } },
-            { label: '📋 Fazer quiz (5 perguntas)', action: 'iniciar_quiz', class: 'accent', data: { agente: 'rafael' } },
-            { label: '❓ Tirar dúvidas (5 perguntas)', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'rafael' } },
+            { label: '📋 Fazer quiz', action: 'iniciar_quiz', class: 'accent', data: { agente: 'rafael' } },
+            { label: '❓ Tirar dúvidas', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'rafael' } },
             { label: '🛒 Ver produtos', action: 'ver_produtos', class: 'outline', data: { agente: 'rafael' } },
             { label: '👥 Compartilhar', action: 'compartilhar', class: 'outline', data: { agente: 'rafael' } },
             { label: '👋 Voltar à Helena', action: 'ir_para_helena', class: 'outline' }
           );
           if (temFoto && temQuiz && temAnalise) {
-            botoes.unshift({ label: '✅ Ver minhas 3 sugestões de cortes', action: 'ver_sugestoes', class: 'success', data: { agente: 'rafael' } });
+            botoes.unshift({ label: '✅ Ver minhas 3 sugestões', action: 'ver_sugestoes', class: 'success', data: { agente: 'rafael' } });
           }
           break;
       }
 
-      const botoesUnicos = botoes.filter((b, i, arr) =>
-        arr.findIndex(a => a.action === b.action && a.label === b.label) === i
-      );
-
-      appendButtons(botoesUnicos);
+      appendButtons(botoes);
     }
 
     // ============================================================
-    // 20. VER SUGESTÕES
+    // 22. VER SUGESTÕES
     // ============================================================
     function verSugestoes(agenteId) {
       if (!estado.analise_realizada || estado.sugestoes_cortes.length === 0) {
-        addMessage(agenteId, 'Você ainda não tem sugestões de cortes. Faça o quiz primeiro! 📋', '', 'Aguardando');
+        addMessage(agenteId, 'Você ainda não tem sugestões. Faça o quiz primeiro! 📋', '', 'Aguardando');
         appendButtons([
           { label: '📋 Fazer quiz', action: 'iniciar_quiz', class: 'primary', data: { agente: agenteId } },
-          { label: '🔙 Voltar', action: `voltar_menu`, class: 'outline', data: { agente: agenteId } }
+          { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agenteId } }
         ]);
         return;
       }
@@ -2743,42 +2752,20 @@
       gridHtml += `</div>`;
 
       addMessage(agenteId, `
-        <p>✂️ <strong>Suas 3 sugestões de cortes personalizadas:</strong></p>
+        <p>✂️ <strong>Suas 3 sugestões personalizadas:</strong></p>
         ${gridHtml}
-        <p style="font-size:12px;color:var(--text-muted);margin-top:6px;">💡 Qual desses estilos te agrada mais? Converse com o Arthur para mais detalhes!</p>
-      `, '', 'Sugestões de cortes');
+      `, '', 'Sugestões');
 
       appendButtons([
         { label: '✂️ Falar com Arthur', action: 'ir_para_arthur', class: 'primary' },
         { label: '🛒 Ver produtos', action: 'ver_produtos', class: 'accent', data: { agente: agenteId } },
         { label: '👥 Compartilhar', action: 'compartilhar', class: 'outline', data: { agente: agenteId } },
-        { label: '🔙 Voltar', action: `voltar_menu`, class: 'outline', data: { agente: agenteId } }
+        { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agenteId } }
       ]);
     }
 
     // ============================================================
-    // 21. FUNÇÕES DE APOIO
-    // ============================================================
-    function pedirFotoPrimeiro(agenteId) {
-      const nome = AGENTES[agenteId]?.nome || 'especialista';
-      addMessage('helena', `
-        <p>Para o ${nome} analisar seu cabelo, preciso que você <strong>envie uma foto</strong> primeiro. 📸</p>
-        <p>Clique no botão abaixo para enviar sua foto.</p>
-        <div class="photo-upload">
-          <button class="btn primary" onclick="document.getElementById('fileInput').click()" style="flex:1;border:none;padding:8px 16px;border-radius:24px;font-size:13px;cursor:pointer;font-family:inherit;">
-            📷 Enviar Foto
-          </button>
-        </div>
-        <p style="font-size:12px;color:var(--text-muted);margin-top:6px;">Após enviar, os especialistas farão uma reunião para analisar!</p>
-      `, '', 'Recepcionista');
-      appendButtons([
-        { label: '📸 Enviar foto', action: 'enviar_foto', class: 'primary' },
-        { label: '👋 Voltar', action: `ir_para_${agenteId}`, class: 'outline' }
-      ]);
-    }
-
-    // ============================================================
-    // 22. HANDLER DE AÇÕES
+    // 23. HANDLER DE AÇÕES
     // ============================================================
     function handleAction(action, data) {
       removeLastButtons();
@@ -2794,16 +2781,14 @@
             estado.quiz_pergunta_atual = 0;
             estado.quiz_respostas = {};
           }
-          if (estado.duvidas_ativo) {
-            estado.duvidas_ativo = null;
-          }
+          if (estado.duvidas_ativo) estado.duvidas_ativo = null;
           trocarAgente(id);
           break;
 
         case 'iniciar_quiz':
           const agenteQuiz = data?.agente || estado.especialista_ativo;
           if (agenteQuiz && QUIZ[agenteQuiz]) {
-            addUserMessage(`📋 Iniciar quiz de ${AGENTES[agenteQuiz].nome}`);
+            addUserMessage(`📋 Quiz de ${AGENTES[agenteQuiz].nome}`);
             setTimeout(() => iniciarQuiz(agenteQuiz), 500);
           }
           break;
@@ -2811,7 +2796,7 @@
         case 'iniciar_duvidas':
           const agenteDuvidas = data?.agente || estado.especialista_ativo;
           if (agenteDuvidas && DUVIDAS[agenteDuvidas]) {
-            addUserMessage(`❓ Tirar dúvidas com ${AGENTES[agenteDuvidas].nome}`);
+            addUserMessage(`❓ Dúvidas com ${AGENTES[agenteDuvidas].nome}`);
             setTimeout(() => iniciarDuvidas(agenteDuvidas), 500);
           }
           break;
@@ -2822,19 +2807,22 @@
             addUserMessage('🔍 Analisar imagem');
             setTimeout(() => pedirFotoPrimeiro(agenteAnalise), 400);
           } else {
-            addUserMessage('🔍 Analisar imagem');
+            addUserMessage('🔍 Analisar imagem com IA');
             setTimeout(() => {
               executarReuniao(() => {
                 setTimeout(() => {
                   addMessage('helena', `
-                    <p>🎯 <strong>Agora vamos entender melhor o que você deseja!</strong></p>
-                    <p>Faça o <strong>quiz</strong> para completar sua análise e receber 3 sugestões de cortes com imagens.</p>
-                    <p style="font-size:12px;color:var(--text-muted);">Ou tire dúvidas com os especialistas.</p>
-                  `, '', 'Recepcionista');
+                    <p>🎯 <strong>Análise com IA concluída!</strong></p>
+                    <p>Os especialistas analisaram sua imagem:</p>
+                    <p>• <strong>Arthur:</strong> ${sistemaIA.gerarRespostaPersonalizada('arthur', 'Recomendação de corte')}</p>
+                    <p>• <strong>Isabella:</strong> ${sistemaIA.gerarRespostaPersonalizada('isabella', 'Recomendação de cor')}</p>
+                    <p>• <strong>Rafael:</strong> ${sistemaIA.gerarRespostaPersonalizada('rafael', 'Recomendação de visagismo')}</p>
+                    <p style="font-size:12px;color:var(--text-muted);">Faça o quiz para sugestões personalizadas!</p>
+                  `, '', 'Recepcionista - IA');
                   appendButtons([
                     { label: '📋 Fazer quiz', action: 'iniciar_quiz', class: 'primary', data: { agente: agenteAnalise } },
                     { label: '❓ Tirar dúvidas', action: 'iniciar_duvidas', class: 'outline', data: { agente: agenteAnalise } },
-                    { label: '🔙 Voltar', action: `voltar_menu`, class: 'outline', data: { agente: agenteAnalise } }
+                    { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agenteAnalise } }
                   ]);
                 }, 500);
               });
@@ -2851,7 +2839,7 @@
         case 'compartilhar':
           const agenteShare = data?.agente || estado.especialista_ativo;
           addUserMessage('👥 Compartilhar');
-          setTimeout(() => compartilharResultado(agenteShare, ['Resultado do HairOS']), 500);
+          setTimeout(() => compartilharResultado(agenteShare, ['Resultado HairOS com IA']), 500);
           break;
 
         case 'voltar_menu':
@@ -2861,9 +2849,7 @@
             estado.quiz_pergunta_atual = 0;
             estado.quiz_respostas = {};
           }
-          if (estado.duvidas_ativo) {
-            estado.duvidas_ativo = null;
-          }
+          if (estado.duvidas_ativo) estado.duvidas_ativo = null;
           if (agenteVoltar) mostrarOpcoesAgente(agenteVoltar);
           break;
 
@@ -2875,15 +2861,14 @@
           estado.usuario.foto = true;
           addUserMessage('📸 Foto enviada!');
           setTimeout(() => {
-            addMessage('helena', 'Ótimo! Sua foto foi recebida. 📸 Vamos reunir os especialistas para analisar.', '', 'Recepcionista');
+            addMessage('helena', 'Ótimo! Sua foto foi recebida. 📸 Vamos reunir os especialistas com IA.', '', 'Recepcionista');
             setTimeout(() => {
               executarReuniao(() => {
                 setTimeout(() => {
                   addMessage('helena', `
-                    <p>🎯 <strong>Agora vamos entender melhor o que você deseja!</strong></p>
-                    <p>Faça o <strong>quiz</strong> para completar sua análise e receber 3 sugestões de cortes com imagens.</p>
-                    <p style="font-size:12px;color:var(--text-muted);">Ou tire dúvidas com os especialistas.</p>
-                  `, '', 'Recepcionista');
+                    <p>🎯 <strong>Análise com IA concluída!</strong></p>
+                    <p>Faça o <strong>quiz</strong> para receber 3 sugestões personalizadas com imagens.</p>
+                  `, '', 'Recepcionista - IA');
                   appendButtons([
                     { label: '📋 Fazer quiz', action: 'iniciar_quiz', class: 'primary', data: { agente: 'arthur' } },
                     { label: '❓ Tirar dúvidas', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'arthur' } },
@@ -2903,9 +2888,9 @@
 
         case 'menu_history':
           closeMenu();
-          let htmlHistory = '<p>📊 <strong>Seu Histórico de Interações</strong></p>';
+          let htmlHistory = '<p>📊 <strong>Histórico com IA</strong></p>';
           if (estado.historico.length === 0) {
-            htmlHistory += '<p style="font-size:12px;color:var(--text-muted);">Nenhuma interação registrada ainda.</p>';
+            htmlHistory += '<p style="font-size:12px;color:var(--text-muted);">Nenhuma interação ainda.</p>';
           } else {
             htmlHistory += `<p style="font-size:12px;color:var(--text-muted);">Total: ${estado.historico.length} interações</p>`;
             estado.historico.slice(0, 15).forEach(item => {
@@ -2914,7 +2899,7 @@
               htmlHistory += `
                 <div class="history-item">
                   <span class="history-agente">${icon} ${agente}</span>
-                  <div>${item.texto ? item.texto.substring(0, 80) + (item.texto.length > 80 ? '...' : '') : 'Interação'}</div>
+                  <div>${item.texto ? item.texto.substring(0, 80) : 'Interação'}</div>
                   <span class="history-date">${item.data || ''}</span>
                 </div>
               `;
@@ -2922,13 +2907,13 @@
           }
           addMessage('helena', htmlHistory, '', 'Histórico');
           appendButtons([
-            { label: '🗑️ Limpar histórico', onclick: function() {
-              estado.historico = [];
-              localStorage.setItem('hairos-historico', JSON.stringify([]));
-              atualizarMenuHistorico();
-              atualizarBadgeHistorico();
-              addMessage('helena', '🧹 Histórico limpo com sucesso!', '', 'Histórico');
-            }, class: 'outline' },
+            { label: '🗑️ Limpar', onclick: function() {
+                estado.historico = [];
+                localStorage.setItem('hairos-historico', JSON.stringify([]));
+                atualizarMenuHistorico();
+                atualizarBadgeHistorico();
+                addMessage('helena', '🧹 Histórico limpo!', '', 'Histórico');
+              }, class: 'outline' },
             { label: '🔙 Voltar', action: 'ir_para_helena', class: 'outline' }
           ]);
           break;
@@ -2936,18 +2921,16 @@
         case 'menu_help':
           closeMenu();
           addMessage('helena', `
-            <p>💡 <strong>Dicas rápidas - HairOS</strong></p>
-            <p>• 📸 <strong>Envie uma foto</strong> para análise personalizada</p>
-            <p>• 🎙️ <strong>Reunião dos especialistas</strong> — Arthur, Isabella e Rafael analisam sua foto</p>
-            <p>• 📋 <strong>Quiz de 5 perguntas</strong> para completar sua análise</p>
-            <p>• ✂️ <strong>3 sugestões de cortes</strong> com imagens após o quiz</p>
-            <p>• ❓ <strong>5 dúvidas frequentes</strong> por especialista</p>
-            <p>• 🛒 <strong>Catálogo de produtos</strong> recomendados para seu estilo</p>
-            <p>• 👥 <strong>Compartilhamento social</strong> — WhatsApp, Instagram, Twitter</p>
-            <p>• 📊 <strong>Histórico do cliente</strong> — todas as interações salvas</p>
-            <p>• Clique no <strong>logo</strong> ou nos <strong>especialistas</strong> para saber mais</p>
-            <p>• Use o menu ☰ para trocar tema ou ver histórico ✨</p>
-          `, '', 'Recepcionista - Ajuda');
+            <p>💡 <strong>HairOS com IA e Personalidades</strong></p>
+            <p>• 🧠 Cada especialista tem IA própria</p>
+            <p>• 🎭 Cada um tem personalidade única</p>
+            <p>• 📸 Envie foto para análise</p>
+            <p>• 📋 Quiz para sugestões personalizadas</p>
+            <p>• ❓ Dúvidas frequentes</p>
+            <p>• 🛒 Produtos recomendados</p>
+            <p>• 👥 Compartilhe resultados</p>
+            <p>• Clique no logo para voltar</p>
+          `, '', 'Ajuda');
           break;
 
         case 'ver_sugestoes':
@@ -2961,7 +2944,24 @@
     }
 
     // ============================================================
-    // 23. INPUT DO USUÁRIO
+    // 24. FUNÇÕES DE APOIO
+    // ============================================================
+    function pedirFotoPrimeiro(agenteId) {
+      const nome = AGENTES[agenteId]?.nome || 'especialista';
+      addMessage('helena', `
+        <p>Para o ${nome} analisar, <strong>envie uma foto</strong> primeiro. 📸</p>
+        <div class="photo-upload">
+          <button class="btn primary" onclick="document.getElementById('fileInput').click()">📷 Enviar Foto</button>
+        </div>
+      `, '', 'Recepcionista');
+      appendButtons([
+        { label: '📸 Enviar foto', action: 'enviar_foto', class: 'primary' },
+        { label: '👋 Voltar', action: `ir_para_${agenteId}`, class: 'outline' }
+      ]);
+    }
+
+    // ============================================================
+    // 25. INPUT DO USUÁRIO
     // ============================================================
     const userInput = document.getElementById('userInput');
     const sendBtn = document.getElementById('sendBtn');
@@ -2973,7 +2973,7 @@
       if (estado.meeting_ativa) {
         addUserMessage(text);
         setTimeout(() => {
-          addMessage('helena', '⏳ Aguarde um momento, nossa equipe está em reunião analisando sua foto!', '', 'Recepcionista');
+          addMessage('helena', '⏳ Aguarde, equipe em reunião com IA!', '', 'Recepcionista');
         }, 500);
         userInput.value = '';
         return;
@@ -2990,8 +2990,7 @@
         if (quiz && idx < quiz.perguntas.length) {
           const pergunta = quiz.perguntas[idx];
           const opcaoEncontrada = pergunta.opcoes.find(op =>
-            lower.includes(op.label.toLowerCase()) ||
-            lower.includes(op.valor.toLowerCase())
+            lower.includes(op.label.toLowerCase()) || lower.includes(op.valor.toLowerCase())
           );
           if (opcaoEncontrada) {
             responderQuiz(estado.quiz_ativo, idx, opcaoEncontrada.valor);
@@ -3006,114 +3005,28 @@
         }
       }
 
-      if (lower.includes('sugestao') || lower.includes('sugestão') || lower.includes('cortes')) {
-        if (estado.especialista_ativo) {
-          verSugestoes(estado.especialista_ativo);
-        }
+      const agenteId = estado.especialista_ativo || 'helena';
+      
+      // Verificar se precisa redirecionar para outro agente
+      const agenteAdequado = sistemaIA.encontrarAgenteAdequado(text);
+      
+      if (agenteAdequado && agenteAdequado !== agenteId && agenteId !== 'helena') {
+        const redirecionamento = `🔀 A IA identificou que ${AGENTES[agenteAdequado].nome} é mais adequado para essa pergunta.`;
+        addMessage(agenteId, redirecionamento, '', '🧠 IA');
+        setTimeout(() => {
+          const resposta = sistemaIA.gerarRespostaPersonalizada(agenteAdequado, text);
+          addMessage(agenteAdequado, resposta, '', `${AGENTES[agenteAdequado].role} - IA`);
+          if (estado.especialista_ativo !== agenteAdequado) {
+            estado.especialista_ativo = agenteAdequado;
+            updateIndicators(agenteAdequado);
+          }
+        }, 500);
         return;
       }
 
-      if (lower.includes('quiz') || lower.includes('teste') || lower.includes('pergunta')) {
-        if (estado.especialista_ativo && QUIZ[estado.especialista_ativo]) {
-          setTimeout(() => iniciarQuiz(estado.especialista_ativo), 500);
-        } else {
-          addMessage('helena', 'Qual especialista você quer consultar? Escolha abaixo:', '', 'Recepcionista');
-          appendButtons([
-            { label: '✂️ Arthur', action: 'ir_para_arthur', class: 'primary' },
-            { label: '🎨 Isabella', action: 'ir_para_isabella', class: 'outline' },
-            { label: '👤 Rafael', action: 'ir_para_rafael', class: 'outline' }
-          ]);
-        }
-        return;
-      }
-
-      if (lower.includes('duvida') || lower.includes('pergunta') || lower.includes('?')) {
-        if (estado.especialista_ativo && DUVIDAS[estado.especialista_ativo]) {
-          setTimeout(() => iniciarDuvidas(estado.especialista_ativo), 500);
-        } else {
-          addMessage('helena', 'Qual especialista você quer consultar? Escolha abaixo:', '', 'Recepcionista');
-          appendButtons([
-            { label: '✂️ Arthur', action: 'ir_para_arthur', class: 'primary' },
-            { label: '🎨 Isabella', action: 'ir_para_isabella', class: 'outline' },
-            { label: '👤 Rafael', action: 'ir_para_rafael', class: 'outline' }
-          ]);
-        }
-        return;
-      }
-
-      if (lower.includes('produto') || lower.includes('comprar') || lower.includes('catalogo') || lower.includes('catálogo')) {
-        if (estado.especialista_ativo && estado.especialista_ativo !== 'helena') {
-          setTimeout(() => mostrarProdutos(estado.especialista_ativo), 500);
-        } else {
-          addMessage('helena', 'Qual especialista você quer consultar para ver produtos?', '', 'Recepcionista');
-          appendButtons([
-            { label: '✂️ Arthur', action: 'ir_para_arthur', class: 'primary' },
-            { label: '🎨 Isabella', action: 'ir_para_isabella', class: 'outline' },
-            { label: '👤 Rafael', action: 'ir_para_rafael', class: 'outline' }
-          ]);
-        }
-        return;
-      }
-
-      if (lower.includes('compartilhar') || lower.includes('compartilha')) {
-        if (estado.especialista_ativo) {
-          setTimeout(() => compartilharResultado(estado.especialista_ativo, ['Resultado do HairOS']), 500);
-        } else {
-          setTimeout(() => compartilharResultado('helena', ['Descubra seu estilo com o HairOS! 🥰']), 500);
-        }
-        return;
-      }
-
-      if (lower.includes('historico') || lower.includes('histórico')) {
-        handleAction('menu_history');
-        return;
-      }
-
-      if (estado.especialista_ativo && estado.especialista_ativo !== 'helena') {
-        const agente = estado.especialista_ativo;
-        if (lower.includes('analisar') || lower.includes('imagem') || lower.includes('foto')) {
-          handleAction('analisar_imagem', { agente });
-        } else if (lower.includes('voltar') || lower.includes('menu')) {
-          mostrarOpcoesAgente(agente);
-        } else {
-          const respostas = {
-            arthur: 'Posso te ajudar com análise de imagem, quiz, dúvidas, produtos ou compartilhamento. O que você prefere? ✂️',
-            isabella: 'Posso te ajudar com análise de imagem, quiz, dúvidas, produtos ou compartilhamento. O que você prefere? 🎨',
-            rafael: 'Posso te ajudar com análise de imagem, quiz, dúvidas, produtos ou compartilhamento. O que você prefere? 👤'
-          };
-          addMessage(agente, respostas[agente] || 'Como posso te ajudar hoje? 😊', '', AGENTES[agente].role);
-          mostrarOpcoesAgente(agente);
-        }
-        return;
-      }
-
-      if (lower.includes('corte') || lower.includes('tesoura')) {
-        handleAction('ir_para_arthur');
-      } else if (lower.includes('cor') || lower.includes('pintar') || lower.includes('balayage')) {
-        handleAction('ir_para_isabella');
-      } else if (lower.includes('rosto') || lower.includes('estilo') || lower.includes('imagem') || lower.includes('visag')) {
-        handleAction('ir_para_rafael');
-      } else {
-        addMessage('helena', `
-          <p>Que legal! 🥰</p>
-          <p>Posso te ajudar com:</p>
-          <p>• 📸 <strong>Enviar foto</strong> para análise dos especialistas</p>
-          <p>• ✂️ Cortes com o <strong>Arthur</strong></p>
-          <p>• 🎨 Cores com a <strong>Isabella</strong></p>
-          <p>• 👤 Visagismo com o <strong>Rafael</strong></p>
-          <p>• 📋 <strong>Quiz de 5 perguntas</strong> para sugestões de cortes</p>
-          <p>• ❓ <strong>5 dúvidas frequentes</strong> por especialista</p>
-          <p>• 🛒 <strong>Catálogo de produtos</strong> recomendados</p>
-          <p>• 👥 <strong>Compartilhamento social</strong></p>
-          <p style="font-size:12px;color:var(--text-muted);">Escolha uma opção abaixo:</p>
-        `, '', 'Recepcionista');
-        appendButtons([
-          { label: '📸 Enviar foto', action: 'enviar_foto', class: 'primary' },
-          { label: '✂️ Arthur', action: 'ir_para_arthur', class: 'outline' },
-          { label: '🎨 Isabella', action: 'ir_para_isabella', class: 'outline' },
-          { label: '👤 Rafael', action: 'ir_para_rafael', class: 'outline' }
-        ]);
-      }
+      // Gerar resposta do agente atual
+      const resposta = sistemaIA.gerarRespostaPersonalizada(agenteId, text);
+      addMessage(agenteId, resposta, '', `${AGENTES[agenteId].role} - IA`);
     }
 
     userInput.addEventListener('keydown', (e) => {
@@ -3122,9 +3035,9 @@
     sendBtn.addEventListener('click', handleUserText);
 
     // ============================================================
-    // 24. UPLOAD AVATAR
+    // 26. UPLOAD AVATAR
     // ============================================================
-    function triggerAvatarUpload() {
+    document.getElementById('profileUploadBtn').addEventListener('click', function() {
       const input = document.createElement('input');
       input.type = 'file';
       input.accept = 'image/*';
@@ -3139,51 +3052,37 @@
             document.querySelectorAll('.avatar.user, .profile-avatar').forEach(el => {
               el.style.backgroundImage = `url('${url}')`;
             });
-            document.getElementById('profileAvatar').style.backgroundImage = `url('${url}')`;
-            addUserMessage('🖼️ Meu novo avatar!');
-            setTimeout(() => {
-              addMessage('helena', 'Que legal! Agora seu perfil está ainda mais personalizado. 🥰', '', 'Recepcionista');
-            }, 400);
+            addUserMessage('🖼️ Avatar atualizado!');
             closeMenu();
           };
           reader.readAsDataURL(file);
         }
       };
       input.click();
-    }
-
-    document.getElementById('profileUploadBtn').addEventListener('click', triggerAvatarUpload);
-
-    // ============================================================
-    // 25. MENU - AÇÕES
-    // ============================================================
-    document.getElementById('menuReset').addEventListener('click', () => {
-      reiniciar();
     });
 
-    document.getElementById('menuHistory').addEventListener('click', () => {
-      handleAction('menu_history');
-    });
-
+    // ============================================================
+    // 27. MENU - AÇÕES
+    // ============================================================
+    document.getElementById('menuReset').addEventListener('click', reiniciar);
+    document.getElementById('menuHistory').addEventListener('click', () => handleAction('menu_history'));
     document.getElementById('menuHelp').addEventListener('click', () => {
       closeMenu();
       addMessage('helena', `
-        <p>💡 <strong>Dicas rápidas - HairOS</strong></p>
-        <p>• 📸 <strong>Envie uma foto</strong> para análise personalizada</p>
-        <p>• 🎙️ <strong>Reunião dos especialistas</strong> — Arthur, Isabella e Rafael analisam sua foto</p>
-        <p>• 📋 <strong>Quiz de 5 perguntas</strong> para completar sua análise</p>
-        <p>• ✂️ <strong>3 sugestões de cortes</strong> com imagens após o quiz</p>
-        <p>• ❓ <strong>5 dúvidas frequentes</strong> por especialista</p>
-        <p>• 🛒 <strong>Catálogo de produtos</strong> recomendados para seu estilo</p>
-        <p>• 👥 <strong>Compartilhamento social</strong> — WhatsApp, Instagram, Twitter</p>
-        <p>• 📊 <strong>Histórico do cliente</strong> — todas as interações salvas</p>
-        <p>• Clique no <strong>logo</strong> ou nos <strong>especialistas</strong> para saber mais</p>
-        <p>• Use o menu ☰ para trocar tema ou ver histórico ✨</p>
-      `, '', 'Recepcionista - Ajuda');
+        <p>💡 <strong>HairOS com IA e Personalidades</strong></p>
+        <p>• 🧠 Cada especialista tem IA própria</p>
+        <p>• 🎭 Cada um tem personalidade única</p>
+        <p>• 📸 Envie foto para análise</p>
+        <p>• 📋 Quiz para sugestões personalizadas</p>
+        <p>• ❓ Dúvidas frequentes</p>
+        <p>• 🛒 Produtos recomendados</p>
+        <p>• 👥 Compartilhe resultados</p>
+        <p>• Clique no logo para voltar</p>
+      `, '', 'Ajuda');
     });
 
     // ============================================================
-    // 26. REINICIAR
+    // 28. REINICIAR
     // ============================================================
     function reiniciar() {
       estado = {
@@ -3191,8 +3090,6 @@
         especialista_ativo: null,
         usuario: {
           foto: false,
-          corte: null,
-          cor: null,
           avatarUrl: estado.usuario.avatarUrl,
           quiz: { arthur: {}, isabella: {}, rafael: {} },
           nome: 'Cliente'
@@ -3202,7 +3099,7 @@
           helena: { interacoes: 0 },
           arthur: { interacoes: 0 },
           isabella: { interacoes: 0 },
-          rafael: { interacoes: 0 },
+          rafael: { interacoes: 0 }
         },
         ultima_pergunta: null,
         historico: estado.historico,
@@ -3210,9 +3107,8 @@
         quiz_pergunta_atual: 0,
         quiz_respostas: {},
         duvidas_ativo: null,
-        duvidas_pergunta_atual: 0,
         analise_realizada: false,
-        sugestoes_cortes: [],
+        sugestoes_cortes: []
       };
       const msgs = messagesEl.querySelectorAll('.message, .divider, .meeting-badge');
       msgs.forEach(el => el.remove());
@@ -3221,26 +3117,29 @@
     }
 
     // ============================================================
-    // 27. BOAS-VINDAS
+    // 29. BOAS-VINDAS
     // ============================================================
     function boasVindas() {
-      addMeetingBadge('👋 HAIROS — CONSULTORIA CAPILAR INTELIGENTE');
+      addMeetingBadge('🧠 HAIROS — IA com Personalidades Únicas');
+
+      const saudacaoIA = sistemaIA.gerarRespostaPersonalizada('helena', 'Saudação inicial');
+
       addMessage('helena', `
-        <p>Oi! Tudo bem? Sou a <strong>Helena</strong>, sua recepcionista. 🥰</p>
-        <p>Para começar, <strong>me envie uma foto do seu cabelo</strong> para que nossa equipe de especialistas possa analisar.</p>
+        <p>${saudacaoIA}</p>
+        <p>Para começar, <strong>me envie uma foto</strong> para análise completa com IA.</p>
         <div class="photo-upload">
-          <button class="btn primary" onclick="document.getElementById('fileInput').click()" style="flex:1;border:none;padding:8px 16px;border-radius:24px;font-size:13px;cursor:pointer;font-family:inherit;">
-            📷 Enviar Foto
-          </button>
+          <button class="btn primary" onclick="document.getElementById('fileInput').click()">📷 Enviar Foto</button>
         </div>
-        <p style="margin-top:8px;font-size:12px;color:var(--text-muted);">Após enviar, os especialistas farão uma reunião para analisar!</p>
-      `, '', 'Recepcionista - Boas-vindas');
+        <p style="font-size:12px;color:var(--text-muted);">Os especialistas com personalidades únicas vão analisar!</p>
+      `, '', 'Recepcionista - IA');
+
       appendButtons([
         { label: '📸 Enviar foto', action: 'enviar_foto', class: 'primary' },
-        { label: '✂️ Arthur (Cortes)', action: 'ir_para_arthur', class: 'outline' },
-        { label: '🎨 Isabella (Cores)', action: 'ir_para_isabella', class: 'outline' },
-        { label: '👤 Rafael (Visagismo)', action: 'ir_para_rafael', class: 'outline' }
+        { label: '✂️ Arthur', action: 'ir_para_arthur', class: 'outline' },
+        { label: '🎨 Isabella', action: 'ir_para_isabella', class: 'outline' },
+        { label: '👤 Rafael', action: 'ir_para_rafael', class: 'outline' }
       ]);
+
       estado.passo = 'boas_vindas';
 
       const existingInput = document.getElementById('fileInput');
@@ -3250,7 +3149,7 @@
         input.id = 'fileInput';
         input.accept = 'image/*';
         input.style.display = 'none';
-        input.addEventListener('change', function(e) {
+        input.addEventListener('change', function() {
           if (this.files && this.files[0]) handleAction('foto_enviada');
         });
         document.body.appendChild(input);
@@ -3261,16 +3160,14 @@
     }
 
     // ============================================================
-    // 28. INICIALIZAÇÃO
+    // 30. INICIALIZAÇÃO
     // ============================================================
     document.addEventListener('DOMContentLoaded', () => {
-      // Landing visível, chat oculto
       landingPage.classList.remove('hidden');
       chatContainer.classList.remove('active');
 
       setTimeout(() => {
-        const allAgents = ['helena', 'arthur', 'isabella', 'rafael'];
-        animateAgentConversation(allAgents, 2000);
+        animateAgentConversation(['helena', 'arthur', 'isabella', 'rafael'], 2000);
       }, 600);
 
       window.ver_sugestoes = function(data) {
@@ -3281,10 +3178,12 @@
       atualizarMenuHistorico();
       atualizarBadgeHistorico();
 
-      // Pré-carregar boas-vindas para quando o chat for ativado
+      console.log('🧠 HairOS com IA e Personalidades Únicas iniciado!');
+      console.log('👤 Especialistas:', Object.keys(AGENTES).filter(k => k !== 'system').join(', '));
+      console.log('🎭 Cada um com personalidade, vocabulário e emoções próprias!');
+
       setTimeout(boasVindas, 400);
     });
-
   </script>
 </body>
 </html>
