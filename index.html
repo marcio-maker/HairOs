@@ -59,6 +59,11 @@
       --product-border: #e8e0da;
       --loading-overlay: rgba(0,0,0,0.5);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --menu-bg: #1a1a1a;
+      --menu-text: #ffffff;
+      --menu-hover: #2a2a2a;
+      --menu-border: #333;
+      --menu-section: rgba(255,255,255,0.08);
     }
 
     [data-theme="dark"] {
@@ -109,6 +114,11 @@
       --scrollbar-thumb: #555;
       --product-bg: #1a1a1a;
       --product-border: #333;
+      --menu-bg: #0d0d0d;
+      --menu-text: #f0f0f0;
+      --menu-hover: #2a2a2a;
+      --menu-border: #333;
+      --menu-section: rgba(255,255,255,0.05);
     }
 
     * {
@@ -132,7 +142,7 @@
     }
 
     /* ============================================================
-       PÁGINA INICIAL (LANDING) - MOBILE FIRST
+       PÁGINA INICIAL (LANDING)
        ============================================================ */
     .landing-page {
       width: 100%;
@@ -186,7 +196,6 @@
     }
     .landing-header .menu-hamburger:hover { opacity: 0.7; }
 
-    /* HERO - Mobile First */
     .hero {
       padding: 40px 20px 32px;
       background: var(--bg-messages);
@@ -249,7 +258,6 @@
       50% { transform: scale(1.03); box-shadow: 0 0 40px rgba(108,92,231,0.5); }
     }
 
-    /* CARROSSÉIS - Mobile First */
     .carousels-section {
       padding: 32px 16px 40px;
       background: var(--bg-chat);
@@ -342,7 +350,6 @@
       transform: scale(1.04);
     }
 
-    /* FOOTER */
     .landing-footer {
       background: var(--bg-header);
       color: var(--text-header-muted);
@@ -409,7 +416,7 @@
     }
 
     /* ============================================================
-       CHAT CONTAINER - MOBILE FIRST
+       CHAT CONTAINER
        ============================================================ */
     .chat-container {
       width: 100%;
@@ -430,12 +437,12 @@
     }
 
     /* ============================================================
-       MENU LATERAL
+       MENU LATERAL COMPLETO
        ============================================================ */
     .menu-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.5);
       z-index: 99;
       opacity: 0;
       pointer-events: none;
@@ -446,94 +453,83 @@
     .menu-panel {
       position: fixed;
       top: 0; left: 0;
-      width: 280px;
-      max-width: 80%;
+      width: 300px;
+      max-width: 85%;
       height: 100%;
-      background: var(--bg-menu);
+      background: var(--menu-bg);
       box-shadow: var(--shadow-menu);
       z-index: 100;
       transform: translateX(-110%);
       transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
-      padding: 20px 16px;
+      padding: 16px 12px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 4px;
       border-radius: 0 20px 20px 0;
       overflow-y: auto;
     }
     .menu-panel.open { transform: translateX(0); }
 
-    .menu-panel .menu-header {
+    .menu-panel::-webkit-scrollbar { width: 3px; }
+    .menu-panel::-webkit-scrollbar-thumb {
+      background: var(--text-muted);
+      border-radius: 3px;
+    }
+
+    .menu-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding-bottom: 12px;
-      border-bottom: 1px solid var(--border-menu);
+      border-bottom: 1px solid var(--menu-border);
+      flex-shrink: 0;
     }
-    .menu-panel .menu-header span {
-      font-size: 16px;
+    .menu-header .menu-logo {
+      font-size: 18px;
       font-weight: 700;
-      color: var(--text-menu);
+      color: var(--menu-text);
     }
-    .menu-panel .menu-close {
+    .menu-header .menu-logo span { color: #d4a574; }
+    .menu-header .menu-close {
       background: none; border: none;
       color: var(--text-header-muted);
-      font-size: 22px;
+      font-size: 24px;
       cursor: pointer;
-      padding: 4px;
-    }
-    .menu-panel .menu-close:hover { color: var(--text-header); }
-
-    .menu-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      color: var(--text-menu);
-      cursor: pointer;
+      padding: 4px 8px;
       transition: 0.2s;
-      border: none;
-      background: transparent;
-      font-family: inherit;
-      font-size: 14px;
-      width: 100%;
-      text-align: left;
     }
-    .menu-item:hover { background: var(--bg-menu-item-hover); }
-    .menu-item .icon { font-size: 18px; width: 28px; text-align: center; }
-    .menu-item .label { flex: 1; }
-    .menu-item .badge {
-      font-size: 11px;
-      background: rgba(212,165,116,0.25);
-      color: var(--text-accent);
-      padding: 2px 10px;
-      border-radius: 12px;
-    }
-    .menu-divider { height: 1px; background: var(--border-menu); margin: 4px 0; }
+    .menu-header .menu-close:hover { color: var(--text-header); }
 
     .menu-profile {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 8px 4px;
-      margin-bottom: 4px;
+      padding: 8px 4px 12px;
+      border-bottom: 1px solid var(--menu-border);
+      flex-shrink: 0;
     }
     .menu-profile .profile-avatar {
-      width: 44px; height: 44px;
+      width: 48px; height: 48px;
       border-radius: 50%;
       background: var(--avatar-user);
       background-size: cover;
       background-position: center;
       flex-shrink: 0;
-      border: 2px solid var(--border-menu);
+      border: 2px solid var(--menu-border);
     }
-    .menu-profile .profile-name { color: var(--text-menu); font-weight: 600; font-size: 14px; }
-    .menu-profile .profile-sub { color: var(--text-header-muted); font-size: 11px; }
+    .menu-profile .profile-info { flex: 1; }
+    .menu-profile .profile-name {
+      color: var(--menu-text);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .menu-profile .profile-sub {
+      color: var(--text-header-muted);
+      font-size: 11px;
+    }
     .menu-profile .profile-upload {
-      margin-left: auto;
       background: none;
-      border: 1px solid var(--border-menu);
+      border: 1px solid var(--menu-border);
       color: var(--text-header-muted);
       padding: 4px 10px;
       border-radius: 16px;
@@ -544,42 +540,224 @@
       white-space: nowrap;
     }
     .menu-profile .profile-upload:hover {
-      background: var(--bg-menu-item-hover);
-      color: var(--text-menu);
+      background: var(--menu-hover);
+      color: var(--menu-text);
     }
 
-    .menu-panel .menu-history {
-      max-height: 130px;
+    /* Seções do Menu */
+    .menu-section {
+      padding: 4px 0;
+    }
+    .menu-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 8px 12px 4px;
+      margin-top: 4px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      color: var(--menu-text);
+      cursor: pointer;
+      transition: 0.2s;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 13px;
+      width: 100%;
+      text-align: left;
+      position: relative;
+    }
+    .menu-item:hover { background: var(--menu-hover); }
+    .menu-item:active { transform: scale(0.97); }
+    .menu-item .icon {
+      font-size: 18px;
+      width: 28px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .menu-item .label { flex: 1; }
+    .menu-item .badge {
+      font-size: 10px;
+      background: rgba(212,165,116,0.2);
+      color: var(--text-accent);
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .menu-item .badge-primary {
+      background: var(--bg-btn-accent);
+      color: #fff;
+    }
+    .menu-item .shortcut {
+      font-size: 10px;
+      color: var(--text-muted);
+      opacity: 0.5;
+    }
+
+    .menu-divider {
+      height: 1px;
+      background: var(--menu-border);
+      margin: 4px 8px;
+      flex-shrink: 0;
+    }
+
+    .menu-sub {
+      padding-left: 20px;
+    }
+    .menu-sub .menu-item {
+      font-size: 12px;
+      padding: 6px 14px 6px 8px;
+    }
+    .menu-sub .menu-item .icon { font-size: 14px; width: 24px; }
+
+    .menu-history {
+      max-height: 100px;
       overflow-y: auto;
       padding: 4px 0;
     }
-    .menu-panel .menu-history::-webkit-scrollbar { width: 3px; }
-    .menu-panel .menu-history::-webkit-scrollbar-thumb {
+    .menu-history::-webkit-scrollbar { width: 2px; }
+    .menu-history::-webkit-scrollbar-thumb {
       background: var(--text-muted);
-      border-radius: 3px;
+      border-radius: 2px;
     }
-    .menu-panel .menu-history .history-empty {
+    .menu-history .history-empty {
       color: var(--text-muted);
-      font-size: 12px;
+      font-size: 11px;
       text-align: center;
       padding: 8px 0;
     }
-    .history-item {
-      padding: 8px 12px;
-      border-left: 3px solid var(--text-accent);
-      margin: 4px 0;
-      background: var(--bg-tag);
-      border-radius: 0 8px 8px 0;
-      font-size: 12px;
+    .menu-history .history-item {
+      padding: 6px 10px;
+      border-left: 2px solid var(--text-accent);
+      margin: 2px 0;
+      background: var(--menu-hover);
+      border-radius: 0 6px 6px 0;
+      font-size: 11px;
       color: var(--text-secondary);
     }
-    .history-item .history-date {
-      font-size: 10px;
-      color: var(--text-muted);
-    }
-    .history-item .history-agente {
+    .menu-history .history-item .history-agente {
       font-weight: 600;
       color: var(--text-accent);
+    }
+    .menu-history .history-item .history-date {
+      font-size: 9px;
+      color: var(--text-muted);
+    }
+
+    /* ============================================================
+       MODAL
+       ============================================================ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      padding: 16px;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal-content {
+      background: var(--bg-chat);
+      border-radius: 24px;
+      max-width: 400px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-modal);
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      padding: 0;
+      position: relative;
+    }
+    .modal-overlay.open .modal-content {
+      transform: scale(1) translateY(0);
+    }
+    .modal-content .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.2s;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .modal-content .modal-close:hover {
+      background: rgba(0,0,0,0.7);
+      transform: rotate(90deg);
+    }
+    .modal-content .modal-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 24px 24px 0 0;
+      display: block;
+    }
+    .modal-content .modal-body {
+      padding: 20px 22px 24px;
+    }
+    .modal-content .modal-body .modal-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+    .modal-content .modal-body .modal-subtitle {
+      font-size: 12px;
+      color: var(--text-accent);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .modal-content .modal-body .modal-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+      white-space: pre-line;
+    }
+    .modal-content .modal-body .modal-btn {
+      background: var(--bg-btn-primary);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+      width: 100%;
+    }
+    .modal-content .modal-body .modal-btn:hover {
+      background: var(--bg-btn-primary-hover);
+      transform: translateY(-2px);
     }
 
     /* ============================================================
@@ -709,113 +887,6 @@
       pointer-events: none;
     }
     .agent-indicators .indicator:hover .agent-label { opacity: 1; }
-
-    /* ============================================================
-       MODAL (Página Inicial)
-       ============================================================ */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-      padding: 16px;
-    }
-    .modal-overlay.open {
-      opacity: 1;
-      pointer-events: all;
-    }
-    .modal-content {
-      background: var(--bg-chat);
-      border-radius: 24px;
-      max-width: 400px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: var(--shadow-modal);
-      transform: scale(0.9) translateY(20px);
-      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      padding: 0;
-      position: relative;
-    }
-    .modal-overlay.open .modal-content {
-      transform: scale(1) translateY(0);
-    }
-    .modal-content .modal-close {
-      position: absolute;
-      top: 12px;
-      right: 16px;
-      background: rgba(0,0,0,0.5);
-      border: none;
-      color: #fff;
-      font-size: 20px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: 0.2s;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      line-height: 1;
-    }
-    .modal-content .modal-close:hover {
-      background: rgba(0,0,0,0.7);
-      transform: rotate(90deg);
-    }
-    .modal-content .modal-image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 24px 24px 0 0;
-      display: block;
-    }
-    .modal-content .modal-body {
-      padding: 20px 22px 24px;
-    }
-    .modal-content .modal-body .modal-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 2px;
-    }
-    .modal-content .modal-body .modal-subtitle {
-      font-size: 12px;
-      color: var(--text-accent);
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-    .modal-content .modal-body .modal-text {
-      font-size: 14px;
-      line-height: 1.6;
-      color: var(--text-secondary);
-      margin-bottom: 14px;
-    }
-    .modal-content .modal-body .modal-btn {
-      background: var(--bg-btn-primary);
-      color: #fff;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 30px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s;
-      font-family: inherit;
-      width: 100%;
-    }
-    .modal-content .modal-body .modal-btn:hover {
-      background: var(--bg-btn-primary-hover);
-      transform: translateY(-2px);
-    }
 
     /* ============================================================
        MESSAGES
@@ -1245,7 +1316,7 @@
     }
 
     /* ============================================================
-       RESPONSIVO - TABLETS E DESKTOP
+       RESPONSIVO
        ============================================================ */
     @media (min-width: 600px) {
       body { padding: 20px; }
@@ -1276,7 +1347,6 @@
       .carousels-grid { grid-template-columns: repeat(4, 1fr); max-width: 1100px; }
     }
 
-    /* Ajustes para telas muito pequenas */
     @media (max-width: 380px) {
       .hero h1 { font-size: 1.6rem; }
       .hero p { font-size: 0.9rem; }
@@ -1288,7 +1358,6 @@
       .chat-input .send-btn { width: 36px; height: 36px; font-size: 14px; }
     }
 
-    /* Safe area para notches */
     @supports (padding: max(0px)) {
       .chat-input {
         padding-bottom: max(14px, env(safe-area-inset-bottom));
@@ -1328,7 +1397,6 @@
     <section class="carousels-section">
       <h2>✨ Nossos Especialistas</h2>
       <div class="carousels-grid">
-        <!-- Card 1: Helena -->
         <div class="carousel-card" data-modal="helena">
           <img class="carousel-img" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&h=300&fit=crop&crop=face" alt="Helena" loading="lazy" />
           <div class="carousel-body">
@@ -1338,7 +1406,6 @@
             <button class="btn-saiba" data-modal="helena">Saiba mais</button>
           </div>
         </div>
-        <!-- Card 2: Arthur -->
         <div class="carousel-card" data-modal="arthur">
           <img class="carousel-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=face" alt="Arthur" loading="lazy" />
           <div class="carousel-body">
@@ -1348,7 +1415,6 @@
             <button class="btn-saiba" data-modal="arthur">Saiba mais</button>
           </div>
         </div>
-        <!-- Card 3: Isabella -->
         <div class="carousel-card" data-modal="isabella">
           <img class="carousel-img" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=300&fit=crop&crop=face" alt="Isabella" loading="lazy" />
           <div class="carousel-body">
@@ -1358,7 +1424,6 @@
             <button class="btn-saiba" data-modal="isabella">Saiba mais</button>
           </div>
         </div>
-        <!-- Card 4: Rafael -->
         <div class="carousel-card" data-modal="rafael">
           <img class="carousel-img" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=300&fit=crop&crop=face" alt="Rafael" loading="lazy" />
           <div class="carousel-body">
@@ -1382,7 +1447,7 @@
   </div>
 
   <!-- ============================================================
-  MODAL DA PÁGINA INICIAL
+  MODAL
   ============================================================ -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-content" id="modalContent">
@@ -1428,47 +1493,141 @@
       </div>
     </div>
 
-    <!-- MENU LATERAL -->
+    <!-- ============================================================
+    MENU LATERAL COMPLETO
+    ============================================================ -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-panel" id="menuPanel">
+      <!-- Header -->
       <div class="menu-header">
-        <span>⚙️ Menu</span>
+        <div class="menu-logo">Hair<span>OS</span></div>
         <button class="menu-close" id="menuClose">✕</button>
       </div>
+
+      <!-- Perfil -->
       <div class="menu-profile">
         <div class="profile-avatar" id="profileAvatar" style="background-image: var(--user-avatar, url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face'));"></div>
-        <div>
-          <div class="profile-name">Cliente</div>
+        <div class="profile-info">
+          <div class="profile-name" id="profileName">Cliente</div>
           <div class="profile-sub">Sua foto de perfil</div>
         </div>
         <button class="profile-upload" id="profileUploadBtn">📷</button>
       </div>
+
+      <!-- Principal -->
+      <div class="menu-section">
+        <div class="menu-section-title">📋 Principal</div>
+        <button class="menu-item" id="menuHome">
+          <span class="icon">🏠</span>
+          <span class="label">Início</span>
+          <span class="shortcut">⌘1</span>
+        </button>
+        <button class="menu-item" id="menuChat">
+          <span class="icon">💬</span>
+          <span class="label">Chat</span>
+          <span class="badge">Online</span>
+        </button>
+        <button class="menu-item" id="menuHelp">
+          <span class="icon">❓</span>
+          <span class="label">Ajuda</span>
+          <span class="badge">Dicas</span>
+        </button>
+      </div>
+
       <div class="menu-divider"></div>
-      <button class="menu-item" id="menuThemeToggle">
-        <span class="icon" id="menuThemeIcon">🌙</span>
-        <span class="label" id="menuThemeLabel">Modo escuro</span>
-        <span class="badge" id="menuThemeBadge">Alternar</span>
-      </button>
+
+      <!-- Especialistas -->
+      <div class="menu-section">
+        <div class="menu-section-title">👤 Especialistas</div>
+        <button class="menu-item" id="menuHelena">
+          <span class="icon">👋</span>
+          <span class="label">Helena</span>
+          <span class="badge">Recepcionista</span>
+        </button>
+        <button class="menu-item" id="menuArthur">
+          <span class="icon">✂️</span>
+          <span class="label">Arthur</span>
+          <span class="badge">Cortes</span>
+        </button>
+        <button class="menu-item" id="menuIsabella">
+          <span class="icon">🎨</span>
+          <span class="label">Isabella</span>
+          <span class="badge">Cores</span>
+        </button>
+        <button class="menu-item" id="menuRafael">
+          <span class="icon">👤</span>
+          <span class="label">Rafael</span>
+          <span class="badge">Visagismo</span>
+        </button>
+      </div>
+
       <div class="menu-divider"></div>
-      <button class="menu-item" id="menuHistory">
-        <span class="icon">📊</span>
-        <span class="label">Meu Histórico</span>
-        <span class="badge" id="historyBadge">0</span>
-      </button>
-      <button class="menu-item" id="menuReset">
-        <span class="icon">🔄</span>
-        <span class="label">Nova consulta</span>
-        <span class="badge">Reiniciar</span>
-      </button>
-      <button class="menu-item" id="menuHelp">
-        <span class="icon">❓</span>
-        <span class="label">Ajuda</span>
-        <span class="badge">Dicas</span>
-      </button>
+
+      <!-- Funcionalidades -->
+      <div class="menu-section">
+        <div class="menu-section-title">⚡ Funcionalidades</div>
+        <button class="menu-item" id="menuQuiz">
+          <span class="icon">📋</span>
+          <span class="label">Quizzes</span>
+          <span class="badge">3 disponíveis</span>
+        </button>
+        <button class="menu-item" id="menuDuvidas">
+          <span class="icon">❓</span>
+          <span class="label">Dúvidas Frequentes</span>
+          <span class="badge">15+</span>
+        </button>
+        <button class="menu-item" id="menuProdutos">
+          <span class="icon">🛒</span>
+          <span class="label">Produtos</span>
+          <span class="badge">12 itens</span>
+        </button>
+        <button class="menu-item" id="menuCursos">
+          <span class="icon">🎓</span>
+          <span class="label">Cursos</span>
+          <span class="badge badge-primary">Novo</span>
+        </button>
+        <button class="menu-item" id="menuPlanos">
+          <span class="icon">💎</span>
+          <span class="label">Planos</span>
+          <span class="badge badge-primary">Premium</span>
+        </button>
+        <button class="menu-item" id="menuBiblioteca">
+          <span class="icon">📚</span>
+          <span class="label">Biblioteca</span>
+          <span class="badge">+100</span>
+        </button>
+      </div>
+
       <div class="menu-divider"></div>
-      <div style="font-size:11px;color:var(--text-muted);padding:4px 8px;">📊 Histórico de interações</div>
-      <div class="menu-history" id="menuHistoryList">
-        <div class="history-empty">Nenhuma interação ainda</div>
+
+      <!-- Configurações -->
+      <div class="menu-section">
+        <div class="menu-section-title">⚙️ Configurações</div>
+        <button class="menu-item" id="menuThemeToggle">
+          <span class="icon" id="menuThemeIcon">🌙</span>
+          <span class="label" id="menuThemeLabel">Modo escuro</span>
+          <span class="badge" id="menuThemeBadge">Alternar</span>
+        </button>
+        <button class="menu-item" id="menuHistorico">
+          <span class="icon">📊</span>
+          <span class="label">Histórico</span>
+          <span class="badge" id="historyBadge">0</span>
+        </button>
+        <button class="menu-item" id="menuReset">
+          <span class="icon">🔄</span>
+          <span class="label">Reiniciar</span>
+          <span class="badge">Limpar</span>
+        </button>
+      </div>
+
+      <div class="menu-divider"></div>
+
+      <!-- Histórico recente -->
+      <div class="menu-section">
+        <div class="menu-section-title">📜 Histórico Recente</div>
+        <div class="menu-history" id="menuHistoryList">
+          <div class="history-empty">Nenhuma interação ainda</div>
+        </div>
       </div>
     </div>
 
@@ -1514,6 +1673,8 @@
         themeIcon.textContent = isDark ? '☀️' : '🌙';
         themeLabel.textContent = isDark ? 'Modo claro' : 'Modo escuro';
         themeBadge.textContent = isDark ? 'Claro' : 'Escuro';
+        const menuIcon = document.querySelector('#menuThemeToggle .icon');
+        if (menuIcon) menuIcon.textContent = isDark ? '☀️' : '🌙';
       }
       setTheme(currentTheme);
       themeToggle.addEventListener('click', () => {
@@ -1541,7 +1702,7 @@
     document.getElementById('landingMenuBtn').addEventListener('click', openMenu);
 
     // ============================================================
-    // 3. MODAL DA PÁGINA INICIAL
+    // 3. MODAL
     // ============================================================
     const modalData = {
       helena: {
@@ -1619,10 +1780,8 @@
       if (e.key === 'Escape') closeModal();
     });
 
-    // Abrir modal ao clicar nos cards ou botões "Saiba mais"
     document.querySelectorAll('.carousel-card, .btn-saiba').forEach(el => {
       el.addEventListener('click', function(e) {
-        // Se clicou no botão, pega o data-modal do botão, senão do card
         let modalKey = this.dataset.modal;
         if (!modalKey && this.closest('.carousel-card')) {
           modalKey = this.closest('.carousel-card').dataset.modal;
@@ -1982,7 +2141,38 @@
     };
 
     // ============================================================
-    // 10. ESTADO + HISTÓRICO
+    // 10. CURSOS
+    // ============================================================
+    const CURSOS = [
+      { id: 'c1', titulo: 'Fundamentos do Corte', desc: 'Aprenda técnicas básicas de corte profissional', duracao: '4h', nivel: 'Iniciante', icone: '✂️' },
+      { id: 'c2', titulo: 'Coloração Avançada', desc: 'Técnicas de coloração e harmonização de tons', duracao: '6h', nivel: 'Intermediário', icone: '🎨' },
+      { id: 'c3', titulo: 'Visagismo Profissional', desc: 'Análise facial e criação de imagem personalizada', duracao: '5h', nivel: 'Avançado', icone: '👤' },
+      { id: 'c4', titulo: 'Tendências em Cortes 2024', desc: 'As melhores técnicas e estilos da temporada', duracao: '3h', nivel: 'Intermediário', icone: '🔥' },
+      { id: 'c5', titulo: 'Cuidados Capilares', desc: 'Tratamentos e produtos para cabelos saudáveis', duracao: '2h', nivel: 'Iniciante', icone: '💆' }
+    ];
+
+    // ============================================================
+    // 11. PLANOS
+    // ============================================================
+    const PLANOS = [
+      { id: 'p1', nome: 'Básico', preco: 'Grátis', desc: 'Acesso ao chat com especialistas IA', cor: '#4ade80' },
+      { id: 'p2', nome: 'Essencial', preco: 'R$ 29,90/mês', desc: 'Quizzes, produtos e dúvidas ilimitadas', cor: '#60a5fa' },
+      { id: 'p3', nome: 'Premium', preco: 'R$ 59,90/mês', desc: 'Cursos, biblioteca e consultoria personalizada', cor: '#d4a574' }
+    ];
+
+    // ============================================================
+    // 12. BIBLIOTECA
+    // ============================================================
+    const BIBLIOTECA = [
+      { id: 'b1', titulo: 'Ebook: Guia de Cortes', desc: 'Guia completo com os melhores cortes para cada tipo de rosto', categoria: 'Ebook' },
+      { id: 'b2', titulo: 'Guia de Cores', desc: 'Como escolher a cor ideal para seu tom de pele', categoria: 'Guia' },
+      { id: 'b3', titulo: 'Tendências 2024', desc: 'As principais tendências em cabelos e estilo', categoria: 'Tendências' },
+      { id: 'b4', titulo: 'Rotina de Cuidados', desc: 'Passo a passo para cabelos saudáveis', categoria: 'Guia' },
+      { id: 'b5', titulo: 'Visagismo: Teoria e Prática', desc: 'Fundamentos do visagismo para profissionais', categoria: 'Ebook' }
+    ];
+
+    // ============================================================
+    // 13. ESTADO + HISTÓRICO
     // ============================================================
     let historico = JSON.parse(localStorage.getItem('hairos-historico') || '[]');
 
@@ -2009,11 +2199,13 @@
       quiz_respostas: {},
       duvidas_ativo: null,
       analise_realizada: false,
-      sugestoes_cortes: []
+      sugestoes_cortes: [],
+      aguardando_confirmacao: null,
+      produtos_carrinho: []
     };
 
     // ============================================================
-    // 11. FUNÇÕES DE HISTÓRICO
+    // 14. FUNÇÕES DE HISTÓRICO
     // ============================================================
     function salvarHistorico(entrada) {
       const entry = { data: new Date().toLocaleString(), ...entrada };
@@ -2032,13 +2224,13 @@
         return;
       }
       let html = '';
-      estado.historico.slice(0, 10).forEach(item => {
+      estado.historico.slice(0, 5).forEach(item => {
         const agente = AGENTES[item.agente]?.nome || item.agente || 'Sistema';
         const icon = AGENTES[item.agente]?.emoji || '💬';
         html += `
           <div class="history-item">
             <span class="history-agente">${icon} ${agente}</span>
-            <div>${item.texto ? item.texto.substring(0, 60) + (item.texto.length > 60 ? '...' : '') : 'Interação'}</div>
+            <div>${item.texto ? item.texto.substring(0, 50) + (item.texto.length > 50 ? '...' : '') : 'Interação'}</div>
             <span class="history-date">${item.data || ''}</span>
           </div>
         `;
@@ -2052,7 +2244,7 @@
     }
 
     // ============================================================
-    // 12. RENDERIZAÇÃO CHAT
+    // 15. RENDERIZAÇÃO CHAT
     // ============================================================
     const messagesEl = document.getElementById('messages');
     const indicators = document.querySelectorAll('.indicator');
@@ -2092,7 +2284,7 @@
     }
 
     // ============================================================
-    // 13. SISTEMA DE IA COM PERSONALIDADES
+    // 16. SISTEMA DE IA
     // ============================================================
     const sistemaIA = {
       agentes: {},
@@ -2106,29 +2298,39 @@
         const agente = AGENTES[agenteId];
         if (!agente) return null;
 
+        const lowerMsg = mensagem.toLowerCase();
         let resposta = '';
 
         const respostasEspecificas = {
           'helena': {
-            'direcionar': 'Posso te direcionar para Arthur (cortes), Isabella (cores) ou Rafael (visagismo).'
+            'corte': 'Ah, que bom que você quer saber sobre cortes! Vou te apresentar ao Arthur, nosso especialista. ✂️',
+            'cor': 'Que legal! Para cores, nossa Isabella é a melhor. Vamos chamá-la! 🎨',
+            'visagismo': 'O Rafael é o mestre do visagismo. Ele vai te ajudar com isso! 👤',
+            'foto': 'Sim, me envie uma foto para que possamos analisar com IA! 📸',
+            'produto': 'Os produtos recomendados são incríveis! Vou te mostrar a loja. 🛒'
           },
           'arthur': {
-            'oval': 'Rosto oval combina com tudo! Short Bob e Butterfly são top!',
-            'quadrado': 'Rosto quadrado: cortes com camadas e franja lateral suavizam.',
-            'redondo': 'Rosto redondo: volume no topo alonga. Pixie assimétrico é show!',
-            'liso': 'Cabelo liso: cortes retos ou camadas leves para movimento.'
+            'corte': 'Que legal você perguntar sobre cortes! Vamos analisar o que combina com você. ✂️',
+            'bob': 'O Short Bob é incrível! Dá um ar moderno e versátil.',
+            'pixie': 'O Pixie é ousado e cheio de atitude! Perfeito para quem quer um visual impactante.',
+            'butterfly': 'O Butterfly é super elegante! As camadas suaves criam movimento.',
+            'shaggy': 'O Shaggy é rock\'n\'roll! Camadas desconectadas e muita textura.'
           },
           'isabella': {
-            'quente': 'Tons quentes: mel, caramelo e cobre realçam sua pele!',
-            'frio': 'Tons frios: loiro platinado e castanho gelado são perfeitos!'
+            'cor': 'Cores são minha paixão! Vamos encontrar a cor perfeita para você. 🎨',
+            'mel': 'Mel com reflexos é lindo! Ilumina o rosto e é super natural.',
+            'caramelo': 'Caramelo é sofisticado e elegante! Combina com muita gente.',
+            'cobre': 'Cobre é vibrante e cheio de atitude! Fica incrível em pele morena.',
+            'loiro': 'Loiro platinado é moderno e iluminado! Perfeito para pele fria.'
           },
           'rafael': {
-            'oval': 'Rosto oval é versátil e equilibrado. Qualquer estilo combina!',
-            'quadrado': 'Rosto quadrado transmite poder. Suavize com linhas curvas.'
+            'rosto': 'O formato do rosto é essencial para o visagismo. Vamos analisar! 👤',
+            'visagismo': 'Visagismo é a arte de harmonizar. Vou te ajudar nisso.',
+            'harmonia': 'A harmonia é a chave para uma imagem equilibrada e autêntica.',
+            'proporção': 'As proporções faciais definem o estilo ideal para você.'
           }
         };
 
-        const lowerMsg = mensagem.toLowerCase();
         for (let [chave, respostaEsp] of Object.entries(respostasEspecificas[agenteId] || {})) {
           if (lowerMsg.includes(chave)) {
             resposta = this.aplicarPersonalidade(respostaEsp, agenteId);
@@ -2140,22 +2342,26 @@
           'helena': [
             'Que pergunta interessante, querido! Vamos explorar isso juntos? 🥰',
             'Ah, fique tranquilo! Vou te ajudar com isso, viu? 💕',
-            'Que bom que você perguntou! Isso é algo que adoro falar! 🌸'
+            'Que bom que você perguntou! Isso é algo que adoro falar! 🌸',
+            'Vamos com calma, vou te explicar tudo direitinho. 😊'
           ],
           'arthur': [
             'Massa! Essa pergunta é show! Vamos criar algo irado! ✂️',
             'Top! Isso me lembra um corte que fiz mês passado... 🔥',
-            'Olha que legal você perguntar isso! Vamos explorar! 💇'
+            'Olha que legal você perguntar isso! Vamos explorar! 💇',
+            'Perfeito! Adoro quando me perguntam sobre isso! ⭐'
           ],
           'isabella': [
             'Ai, que pergunta linda! Vamos colorir isso juntos! 🎨',
             'Maravilhoso você ter perguntado isso! Vamos explorar! 🌈',
-            'Sensacional! Essa pergunta tem tanta profundidade! 💜'
+            'Sensacional! Essa pergunta tem tanta profundidade! 💜',
+            'Uau! Que pergunta incrível! Vamos mergulhar nisso! ✨'
           ],
           'rafael': [
             'Interessante... Essa pergunta revela uma busca profunda. 👤',
             'Refletindo sobre isso... A resposta pode te surpreender. 🙏',
-            'A harmonia está na pergunta em si. Vamos explorar juntos? ✨'
+            'A harmonia está na pergunta em si. Vamos explorar juntos? ✨',
+            'Que pergunta filosófica! Vamos refletir sobre isso. 💫'
           ]
         };
 
@@ -2190,9 +2396,9 @@
 
       encontrarAgenteAdequado(mensagem) {
         const palavrasChave = {
-          'arthur': ['corte', 'tesoura', 'short bob', 'pixie', 'butterfly', 'shaggy', 'cabelo'],
-          'isabella': ['cor', 'pintar', 'mel', 'caramelo', 'cobre', 'loiro', 'tons', 'coloração'],
-          'rafael': ['rosto', 'visagismo', 'proporção', 'harmonia', 'formato', 'feições']
+          'arthur': ['corte', 'tesoura', 'short bob', 'pixie', 'butterfly', 'shaggy', 'cabelo', 'fio', 'densidade', 'movimento', 'camadas'],
+          'isabella': ['cor', 'pintar', 'mel', 'caramelo', 'cobre', 'loiro', 'tons', 'coloração', 'pigmento', 'tinta', 'luzes', 'reflexos'],
+          'rafael': ['rosto', 'visagismo', 'proporção', 'harmonia', 'formato', 'feições', 'queixo', 'mandíbula', 'testa', 'maçãs']
         };
 
         const lowerMsg = mensagem.toLowerCase();
@@ -2228,7 +2434,7 @@
     sistemaIA.inicializar();
 
     // ============================================================
-    // 14. FUNÇÕES DE MENSAGEM
+    // 17. FUNÇÕES DE MENSAGEM
     // ============================================================
     function addMessage(agenteId, html, extraClass = '', contexto = null, imagens = null) {
       const agente = AGENTES[agenteId];
@@ -2359,7 +2565,7 @@
     }
 
     // ============================================================
-    // 15. REUNIÃO
+    // 18. REUNIÃO
     // ============================================================
     function executarReuniao(callback) {
       estado.meeting_ativa = true;
@@ -2414,7 +2620,7 @@
     }
 
     // ============================================================
-    // 16. QUIZ
+    // 19. QUIZ
     // ============================================================
     function iniciarQuiz(agenteId) {
       const quiz = QUIZ[agenteId];
@@ -2422,7 +2628,7 @@
 
       if (!estado.usuario.foto) {
         addMessage('helena', `
-          <p>Para fazer o quiz, <strong>preciso que você envie uma foto</strong> primeiro. 📸</p>
+          <p>Para fazer o quiz, <strong>precisa enviar uma foto</strong> primeiro. 📸</p>
           <div class="photo-upload">
             <button class="btn primary" onclick="document.getElementById('fileInput').click()">📷 Enviar Foto</button>
           </div>
@@ -2449,6 +2655,7 @@
         addMessage(agenteId, `
           <p>${quiz.titulo}</p>
           <p>Vamos descobrir o que combina com você! São 5 perguntas. 🥰</p>
+          <p style="font-size:11px;color:var(--text-muted);">Responda com atenção!</p>
         `, '', 'Início do quiz');
         mostrarPerguntaQuiz(agenteId);
       }, 800);
@@ -2576,7 +2783,7 @@
     }
 
     // ============================================================
-    // 17. DÚVIDAS
+    // 20. DÚVIDAS
     // ============================================================
     function iniciarDuvidas(agenteId) {
       const duvidas = DUVIDAS[agenteId];
@@ -2633,7 +2840,7 @@
     }
 
     // ============================================================
-    // 18. PRODUTOS
+    // 21. PRODUTOS
     // ============================================================
     function mostrarProdutos(agenteId) {
       const produtos = PRODUTOS[agenteId] || PRODUTOS.arthur;
@@ -2649,19 +2856,19 @@
               <div class="product-desc">${p.desc}</div>
               <div class="product-price">${p.preco}</div>
             </div>
-            <button class="product-btn" onclick="window.adicionarAoCarrinho('${p.nome}', '${p.preco}')">Comprar</button>
+            <button class="product-btn" onclick="window.adicionarAoCarrinho('${p.nome}', '${p.preco}', '${agenteId}')">Comprar</button>
           </div>
         `;
       });
 
       addMessage(agenteId, html, '', '🛒 Catálogo');
 
-      window.adicionarAoCarrinho = function(nome, preco) {
+      window.adicionarAoCarrinho = function(nome, preco, agente) {
         addUserMessage(`🛒 Adicionar: ${nome} - ${preco}`);
-        addMessage(agenteId, `<p>✅ <strong>${nome}</strong> adicionado ao carrinho!</p><p>💳 Total: ${preco}</p>`, '', 'Carrinho');
+        addMessage(agente || 'helena', `<p>✅ <strong>${nome}</strong> adicionado ao carrinho!</p><p>💳 Total: ${preco}</p>`, '', 'Carrinho');
         appendButtons([
-          { label: '🔙 Voltar aos produtos', onclick: function() { mostrarProdutos(agenteId); }, class: 'outline' },
-          { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agenteId } }
+          { label: '🔙 Voltar aos produtos', onclick: function() { mostrarProdutos(agente || estado.especialista_ativo); }, class: 'outline' },
+          { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agente || estado.especialista_ativo } }
         ]);
         salvarHistorico({ agente: 'carrinho', texto: `Adicionou ${nome} - ${preco}` });
       };
@@ -2672,7 +2879,7 @@
     }
 
     // ============================================================
-    // 19. COMPARTILHAR
+    // 22. COMPARTILHAR
     // ============================================================
     function compartilharResultado(agenteId, recomendacoes) {
       const nomeAgente = AGENTES[agenteId]?.nome || 'HairOS';
@@ -2728,7 +2935,7 @@
     }
 
     // ============================================================
-    // 20. TROCAR AGENTE
+    // 23. TROCAR AGENTE
     // ============================================================
     function trocarAgente(agenteId) {
       if (estado.quiz_ativo) {
@@ -2762,7 +2969,7 @@
     }
 
     // ============================================================
-    // 21. MOSTRAR OPÇÕES DO AGENTE
+    // 24. MOSTRAR OPÇÕES DO AGENTE
     // ============================================================
     function mostrarOpcoesAgente(agenteId) {
       const botoes = [];
@@ -2827,7 +3034,7 @@
     }
 
     // ============================================================
-    // 22. VER SUGESTÕES
+    // 25. VER SUGESTÕES
     // ============================================================
     function verSugestoes(agenteId) {
       if (!estado.analise_realizada || estado.sugestoes_cortes.length === 0) {
@@ -2865,7 +3072,114 @@
     }
 
     // ============================================================
-    // 23. HANDLER DE AÇÕES
+    // 26. CURSOS
+    // ============================================================
+    function mostrarCursos() {
+      let html = `<p>🎓 <strong>Cursos HairOS</strong></p><p style="font-size:12px;color:var(--text-muted);">Aprenda com os melhores!</p>`;
+      CURSOS.forEach(c => {
+        html += `
+          <div class="product-card">
+            <div class="product-icon">${c.icone}</div>
+            <div class="product-info">
+              <div class="product-name">${c.titulo}</div>
+              <div class="product-desc">${c.desc}</div>
+              <div style="font-size:10px;color:var(--text-accent);">
+                ⏱️ ${c.duracao} · ${c.nivel}
+              </div>
+            </div>
+            <button class="product-btn" onclick="window.inscreverCurso('${c.titulo}')">Inscrever</button>
+          </div>
+        `;
+      });
+
+      addMessage('helena', html, '', '🎓 Cursos');
+
+      window.inscreverCurso = function(titulo) {
+        addUserMessage(`🎓 Inscrever-se em: ${titulo}`);
+        addMessage('helena', `✅ <strong>Inscrição confirmada!</strong> Você está matriculado em "${titulo}". 🎉`, '', 'Matrícula');
+        salvarHistorico({ agente: 'cursos', texto: `Inscrito em ${titulo}` });
+        appendButtons([
+          { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: estado.especialista_ativo || 'helena' } }
+        ]);
+      };
+
+      appendButtons([
+        { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: estado.especialista_ativo || 'helena' } }
+      ]);
+    }
+
+    // ============================================================
+    // 27. PLANOS
+    // ============================================================
+    function mostrarPlanos() {
+      let html = `<p>💎 <strong>Planos HairOS</strong></p><p style="font-size:12px;color:var(--text-muted);">Escolha o plano ideal para você!</p>`;
+      PLANOS.forEach(p => {
+        html += `
+          <div class="product-card" style="border-left: 4px solid ${p.cor};">
+            <div class="product-icon">${p.id === 'p1' ? '🆓' : p.id === 'p2' ? '⭐' : '👑'}</div>
+            <div class="product-info">
+              <div class="product-name">${p.nome}</div>
+              <div class="product-desc">${p.desc}</div>
+              <div style="font-weight:700;color:var(--text-accent);">${p.preco}</div>
+            </div>
+            <button class="product-btn" onclick="window.assinarPlano('${p.nome}')">Assinar</button>
+          </div>
+        `;
+      });
+
+      addMessage('helena', html, '', '💎 Planos');
+
+      window.assinarPlano = function(nome) {
+        addUserMessage(`💎 Assinar: ${nome}`);
+        addMessage('helena', `✅ <strong>Assinatura confirmada!</strong> Bem-vindo ao plano "${nome}". 🎉`, '', 'Assinatura');
+        salvarHistorico({ agente: 'planos', texto: `Assinou ${nome}` });
+        appendButtons([
+          { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: estado.especialista_ativo || 'helena' } }
+        ]);
+      };
+
+      appendButtons([
+        { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: estado.especialista_ativo || 'helena' } }
+      ]);
+    }
+
+    // ============================================================
+    // 28. BIBLIOTECA
+    // ============================================================
+    function mostrarBiblioteca() {
+      let html = `<p>📚 <strong>Biblioteca HairOS</strong></p><p style="font-size:12px;color:var(--text-muted);">Conteúdo exclusivo para você!</p>`;
+      BIBLIOTECA.forEach(b => {
+        html += `
+          <div class="product-card">
+            <div class="product-icon">${b.categoria === 'Ebook' ? '📖' : b.categoria === 'Guia' ? '📋' : '🔥'}</div>
+            <div class="product-info">
+              <div class="product-name">${b.titulo}</div>
+              <div class="product-desc">${b.desc}</div>
+              <div style="font-size:10px;color:var(--text-accent);">${b.categoria}</div>
+            </div>
+            <button class="product-btn" onclick="window.abrirBiblioteca('${b.titulo}')">Abrir</button>
+          </div>
+        `;
+      });
+
+      addMessage('helena', html, '', '📚 Biblioteca');
+
+      window.abrirBiblioteca = function(titulo) {
+        addUserMessage(`📚 Abrir: ${titulo}`);
+        addMessage('helena', `📖 <strong>${titulo}</strong> está disponível para leitura! ✨`, '', 'Biblioteca');
+        salvarHistorico({ agente: 'biblioteca', texto: `Abriu ${titulo}` });
+        appendButtons([
+          { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: estado.especialista_ativo || 'helena' } }
+        ]);
+      };
+
+      appendButtons([
+        { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: estado.especialista_ativo || 'helena' } }
+      ]);
+    }
+
+    // ============================================================
+    // 29. HANDLER DE AÇÕES (Tema de Cores removido)
     // ============================================================
     function handleAction(action, data) {
       removeLastButtons();
@@ -3029,6 +3343,9 @@
             <p>• ❓ Dúvidas frequentes</p>
             <p>• 🛒 Produtos recomendados</p>
             <p>• 👥 Compartilhe resultados</p>
+            <p>• 🎓 Cursos exclusivos</p>
+            <p>• 💎 Planos Premium</p>
+            <p>• 📚 Biblioteca com +100 conteúdos</p>
             <p>• Clique no logo para voltar</p>
           `, '', 'Ajuda');
           break;
@@ -3038,13 +3355,33 @@
           if (agenteSug) verSugestoes(agenteSug);
           break;
 
+        case 'ver_cursos':
+          addUserMessage('🎓 Ver cursos');
+          setTimeout(() => mostrarCursos(), 500);
+          break;
+
+        case 'ver_planos':
+          addUserMessage('💎 Ver planos');
+          setTimeout(() => mostrarPlanos(), 500);
+          break;
+
+        case 'ver_biblioteca':
+          addUserMessage('📚 Ver biblioteca');
+          setTimeout(() => mostrarBiblioteca(), 500);
+          break;
+
+        case 'ir_para_home':
+          closeMenu();
+          mostrarLanding();
+          break;
+
         default:
           console.log('Ação não reconhecida:', action);
       }
     }
 
     // ============================================================
-    // 24. FUNÇÕES DE APOIO
+    // 30. FUNÇÕES DE APOIO
     // ============================================================
     function pedirFotoPrimeiro(agenteId) {
       const nome = AGENTES[agenteId]?.nome || 'especialista';
@@ -3061,7 +3398,7 @@
     }
 
     // ============================================================
-    // 25. INPUT DO USUÁRIO
+    // 31. INPUT DO USUÁRIO
     // ============================================================
     const userInput = document.getElementById('userInput');
     const sendBtn = document.getElementById('sendBtn');
@@ -3133,7 +3470,7 @@
     sendBtn.addEventListener('click', handleUserText);
 
     // ============================================================
-    // 26. UPLOAD AVATAR
+    // 32. UPLOAD AVATAR
     // ============================================================
     document.getElementById('profileUploadBtn').addEventListener('click', function() {
       const input = document.createElement('input');
@@ -3160,27 +3497,86 @@
     });
 
     // ============================================================
-    // 27. MENU - AÇÕES
+    // 33. MENU - TODOS OS ITENS
     // ============================================================
-    document.getElementById('menuReset').addEventListener('click', reiniciar);
-    document.getElementById('menuHistory').addEventListener('click', () => handleAction('menu_history'));
-    document.getElementById('menuHelp').addEventListener('click', () => {
+    // Principal
+    document.getElementById('menuHome').addEventListener('click', () => handleAction('ir_para_home'));
+    document.getElementById('menuChat').addEventListener('click', () => {
       closeMenu();
-      addMessage('helena', `
-        <p>💡 <strong>HairOS com IA e Personalidades</strong></p>
-        <p>• 🧠 Cada especialista tem IA própria</p>
-        <p>• 🎭 Cada um tem personalidade única</p>
-        <p>• 📸 Envie foto para análise</p>
-        <p>• 📋 Quiz para sugestões personalizadas</p>
-        <p>• ❓ Dúvidas frequentes</p>
-        <p>• 🛒 Produtos recomendados</p>
-        <p>• 👥 Compartilhe resultados</p>
-        <p>• Clique no logo para voltar</p>
-      `, '', 'Ajuda');
+      if (estado.especialista_ativo) {
+        mostrarOpcoesAgente(estado.especialista_ativo);
+      } else {
+        trocarAgente('helena');
+      }
+    });
+    document.getElementById('menuHelp').addEventListener('click', () => handleAction('menu_help'));
+
+    // Especialistas
+    document.getElementById('menuHelena').addEventListener('click', () => handleAction('ir_para_helena'));
+    document.getElementById('menuArthur').addEventListener('click', () => handleAction('ir_para_arthur'));
+    document.getElementById('menuIsabella').addEventListener('click', () => handleAction('ir_para_isabella'));
+    document.getElementById('menuRafael').addEventListener('click', () => handleAction('ir_para_rafael'));
+
+    // Funcionalidades
+    document.getElementById('menuQuiz').addEventListener('click', () => {
+      closeMenu();
+      const agente = estado.especialista_ativo || 'helena';
+      if (agente === 'helena') {
+        addMessage('helena', 'Qual quiz você quer fazer? 🥰', '', 'Quiz');
+        appendButtons([
+          { label: '✂️ Arthur - Cortes', action: 'iniciar_quiz', class: 'outline', data: { agente: 'arthur' } },
+          { label: '🎨 Isabella - Cores', action: 'iniciar_quiz', class: 'outline', data: { agente: 'isabella' } },
+          { label: '👤 Rafael - Visagismo', action: 'iniciar_quiz', class: 'outline', data: { agente: 'rafael' } },
+          { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agente } }
+        ]);
+      } else {
+        handleAction('iniciar_quiz', { agente: agente });
+      }
     });
 
+    document.getElementById('menuDuvidas').addEventListener('click', () => {
+      closeMenu();
+      const agente = estado.especialista_ativo || 'helena';
+      if (agente === 'helena') {
+        addMessage('helena', 'Escolha o especialista para dúvidas:', '', 'Dúvidas');
+        appendButtons([
+          { label: '✂️ Arthur - Cortes', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'arthur' } },
+          { label: '🎨 Isabella - Cores', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'isabella' } },
+          { label: '👤 Rafael - Visagismo', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'rafael' } },
+          { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agente } }
+        ]);
+      } else {
+        handleAction('iniciar_duvidas', { agente: agente });
+      }
+    });
+
+    document.getElementById('menuProdutos').addEventListener('click', () => {
+      closeMenu();
+      const agente = estado.especialista_ativo || 'arthur';
+      handleAction('ver_produtos', { agente: agente });
+    });
+
+    document.getElementById('menuCursos').addEventListener('click', () => {
+      closeMenu();
+      handleAction('ver_cursos');
+    });
+
+    document.getElementById('menuPlanos').addEventListener('click', () => {
+      closeMenu();
+      handleAction('ver_planos');
+    });
+
+    document.getElementById('menuBiblioteca').addEventListener('click', () => {
+      closeMenu();
+      handleAction('ver_biblioteca');
+    });
+
+    // Configurações
+    document.getElementById('menuHistorico').addEventListener('click', () => handleAction('menu_history'));
+    document.getElementById('menuReset').addEventListener('click', reiniciar);
+
     // ============================================================
-    // 28. REINICIAR
+    // 34. REINICIAR
     // ============================================================
     function reiniciar() {
       estado = {
@@ -3206,7 +3602,9 @@
         quiz_respostas: {},
         duvidas_ativo: null,
         analise_realizada: false,
-        sugestoes_cortes: []
+        sugestoes_cortes: [],
+        aguardando_confirmacao: null,
+        produtos_carrinho: []
       };
       const msgs = messagesEl.querySelectorAll('.message, .divider, .meeting-badge');
       msgs.forEach(el => el.remove());
@@ -3215,7 +3613,7 @@
     }
 
     // ============================================================
-    // 29. BOAS-VINDAS
+    // 35. BOAS-VINDAS
     // ============================================================
     function boasVindas() {
       addMeetingBadge('🧠 HAIROS — IA com Personalidades');
@@ -3229,6 +3627,7 @@
           <button class="btn primary" onclick="document.getElementById('fileInput').click()">📷 Enviar Foto</button>
         </div>
         <p style="font-size:12px;color:var(--text-muted);">Os especialistas com personalidades únicas vão analisar!</p>
+        <p style="font-size:11px;color:var(--text-muted);">💡 Use o menu ☰ para acessar todas as funcionalidades</p>
       `, '', 'Recepcionista - IA');
 
       appendButtons([
@@ -3258,7 +3657,7 @@
     }
 
     // ============================================================
-    // 30. INICIALIZAÇÃO
+    // 36. INICIALIZAÇÃO
     // ============================================================
     document.addEventListener('DOMContentLoaded', () => {
       landingPage.classList.remove('hidden');
@@ -3273,12 +3672,29 @@
         if (agente) verSugestoes(agente);
       };
 
+      window.inscreverCurso = function(titulo) {
+        // já implementado
+      };
+
+      window.assinarPlano = function(nome) {
+        // já implementado
+      };
+
+      window.abrirBiblioteca = function(titulo) {
+        // já implementado
+      };
+
+      window.adicionarAoCarrinho = function(nome, preco, agente) {
+        // já implementado
+      };
+
       atualizarMenuHistorico();
       atualizarBadgeHistorico();
 
       console.log('🧠 HairOS com IA e Personalidades iniciado!');
       console.log('👤 Especialistas:', Object.keys(AGENTES).filter(k => k !== 'system').join(', '));
       console.log('🎭 Cada um com personalidade, vocabulário e emoções próprias!');
+      console.log('📋 Menu com: Especialistas, Quizzes, Dúvidas, Produtos, Cursos, Planos, Biblioteca, Tema Escuro/Claro');
 
       setTimeout(boasVindas, 400);
     });
