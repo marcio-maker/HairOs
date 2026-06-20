@@ -443,7 +443,7 @@
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.5);
-      z-index: 99;
+      z-index: 999;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
@@ -458,7 +458,7 @@
       height: 100%;
       background: var(--menu-bg);
       box-shadow: var(--shadow-menu);
-      z-index: 100;
+      z-index: 1000;
       transform: translateX(-110%);
       transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
       padding: 16px 12px;
@@ -609,15 +609,6 @@
       flex-shrink: 0;
     }
 
-    .menu-sub {
-      padding-left: 20px;
-    }
-    .menu-sub .menu-item {
-      font-size: 12px;
-      padding: 6px 14px 6px 8px;
-    }
-    .menu-sub .menu-item .icon { font-size: 14px; width: 24px; }
-
     .menu-history {
       max-height: 100px;
       overflow-y: auto;
@@ -661,7 +652,7 @@
       background: rgba(0,0,0,0.6);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      z-index: 1000;
+      z-index: 2000;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1379,7 +1370,7 @@
   </div>
 
   <!-- ============================================================
-  PÁGINA INICIAL (LANDING)
+  PÁGINA INICIAL (LANDING) COM MENU COMPLETO
   ============================================================ -->
   <div class="landing-page" id="landingPage">
     <header class="landing-header">
@@ -1387,6 +1378,143 @@
       <button class="menu-hamburger" id="landingMenuBtn" aria-label="Menu">☰</button>
     </header>
 
+    <!-- ========== MENU LATERAL COMPLETO DA LANDING ========== -->
+    <div class="menu-overlay" id="menuOverlayLanding"></div>
+    <div class="menu-panel" id="menuPanelLanding">
+      <!-- Header do Menu -->
+      <div class="menu-header">
+        <div class="menu-logo">Hair<span>OS</span></div>
+        <button class="menu-close" id="menuCloseLanding">✕</button>
+      </div>
+
+      <!-- Perfil -->
+      <div class="menu-profile">
+        <div class="profile-avatar" id="profileAvatarLanding" style="background-image: var(--user-avatar, url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face'));"></div>
+        <div class="profile-info">
+          <div class="profile-name" id="profileNameLanding">Cliente</div>
+          <div class="profile-sub">Sua foto de perfil</div>
+        </div>
+        <button class="profile-upload" id="profileUploadBtnLanding">📷</button>
+      </div>
+
+      <!-- Principal -->
+      <div class="menu-section">
+        <div class="menu-section-title">📋 Principal</div>
+        <button class="menu-item" id="menuHomeLanding">
+          <span class="icon">🏠</span>
+          <span class="label">Início</span>
+          <span class="shortcut">⌘1</span>
+        </button>
+        <button class="menu-item" id="menuChatLanding">
+          <span class="icon">💬</span>
+          <span class="label">Chat</span>
+          <span class="badge">Online</span>
+        </button>
+        <button class="menu-item" id="menuHelpLanding">
+          <span class="icon">❓</span>
+          <span class="label">Ajuda</span>
+          <span class="badge">Dicas</span>
+        </button>
+      </div>
+
+      <div class="menu-divider"></div>
+
+      <!-- Especialistas -->
+      <div class="menu-section">
+        <div class="menu-section-title">👤 Especialistas</div>
+        <button class="menu-item" id="menuHelenaLanding">
+          <span class="icon">👋</span>
+          <span class="label">Helena</span>
+          <span class="badge">Recepcionista</span>
+        </button>
+        <button class="menu-item" id="menuArthurLanding">
+          <span class="icon">✂️</span>
+          <span class="label">Arthur</span>
+          <span class="badge">Cortes</span>
+        </button>
+        <button class="menu-item" id="menuIsabellaLanding">
+          <span class="icon">🎨</span>
+          <span class="label">Isabella</span>
+          <span class="badge">Cores</span>
+        </button>
+        <button class="menu-item" id="menuRafaelLanding">
+          <span class="icon">👤</span>
+          <span class="label">Rafael</span>
+          <span class="badge">Visagismo</span>
+        </button>
+      </div>
+
+      <div class="menu-divider"></div>
+
+      <!-- Funcionalidades -->
+      <div class="menu-section">
+        <div class="menu-section-title">⚡ Funcionalidades</div>
+        <button class="menu-item" id="menuQuizLanding">
+          <span class="icon">📋</span>
+          <span class="label">Quizzes</span>
+          <span class="badge">3 disponíveis</span>
+        </button>
+        <button class="menu-item" id="menuDuvidasLanding">
+          <span class="icon">❓</span>
+          <span class="label">Dúvidas Frequentes</span>
+          <span class="badge">15+</span>
+        </button>
+        <button class="menu-item" id="menuProdutosLanding">
+          <span class="icon">🛒</span>
+          <span class="label">Produtos</span>
+          <span class="badge">12 itens</span>
+        </button>
+        <button class="menu-item" id="menuCursosLanding">
+          <span class="icon">🎓</span>
+          <span class="label">Cursos</span>
+          <span class="badge badge-primary">Novo</span>
+        </button>
+        <button class="menu-item" id="menuPlanosLanding">
+          <span class="icon">💎</span>
+          <span class="label">Planos</span>
+          <span class="badge badge-primary">Premium</span>
+        </button>
+        <button class="menu-item" id="menuBibliotecaLanding">
+          <span class="icon">📚</span>
+          <span class="label">Biblioteca</span>
+          <span class="badge">+100</span>
+        </button>
+      </div>
+
+      <div class="menu-divider"></div>
+
+      <!-- Configurações -->
+      <div class="menu-section">
+        <div class="menu-section-title">⚙️ Configurações</div>
+        <button class="menu-item" id="menuThemeToggleLanding">
+          <span class="icon" id="menuThemeIconLanding">🌙</span>
+          <span class="label" id="menuThemeLabelLanding">Modo escuro</span>
+          <span class="badge" id="menuThemeBadgeLanding">Alternar</span>
+        </button>
+        <button class="menu-item" id="menuHistoricoLanding">
+          <span class="icon">📊</span>
+          <span class="label">Histórico</span>
+          <span class="badge" id="historyBadgeLanding">0</span>
+        </button>
+        <button class="menu-item" id="menuResetLanding">
+          <span class="icon">🔄</span>
+          <span class="label">Reiniciar</span>
+          <span class="badge">Limpar</span>
+        </button>
+      </div>
+
+      <div class="menu-divider"></div>
+
+      <!-- Histórico recente -->
+      <div class="menu-section">
+        <div class="menu-section-title">📜 Histórico Recente</div>
+        <div class="menu-history" id="menuHistoryListLanding">
+          <div class="history-empty">Nenhuma interação ainda</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
     <section class="hero">
       <h1>Seu estilo, <span>inteligência</span> e <span>beleza</span></h1>
       <p>Conectamos você a especialistas em cortes, cores e visagismo. Uma experiência personalizada e inteligente.</p>
@@ -1394,6 +1522,7 @@
       <div class="ia-feature">🧠 Especialistas com IA e Personalidades Únicas</div>
     </section>
 
+    <!-- Carousel de Especialistas -->
     <section class="carousels-section">
       <h2>✨ Nossos Especialistas</h2>
       <div class="carousels-grid">
@@ -1436,6 +1565,7 @@
       </div>
     </section>
 
+    <!-- Footer -->
     <footer class="landing-footer">
       <p><strong>HairOS</strong> — Consultoria capilar inteligente</p>
       <div class="footer-links">
@@ -1494,7 +1624,7 @@
     </div>
 
     <!-- ============================================================
-    MENU LATERAL COMPLETO
+    MENU LATERAL COMPLETO DO CHAT
     ============================================================ -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-panel" id="menuPanel">
@@ -1675,8 +1805,17 @@
         themeBadge.textContent = isDark ? 'Claro' : 'Escuro';
         const menuIcon = document.querySelector('#menuThemeToggle .icon');
         if (menuIcon) menuIcon.textContent = isDark ? '☀️' : '🌙';
+        
+        // Sincronizar com o menu da landing
+        const iconLanding = document.getElementById('menuThemeIconLanding');
+        const labelLanding = document.getElementById('menuThemeLabelLanding');
+        const badgeLanding = document.getElementById('menuThemeBadgeLanding');
+        if (iconLanding) iconLanding.textContent = isDark ? '☀️' : '🌙';
+        if (labelLanding) labelLanding.textContent = isDark ? 'Modo claro' : 'Modo escuro';
+        if (badgeLanding) badgeLanding.textContent = isDark ? 'Claro' : 'Escuro';
       }
       setTheme(currentTheme);
+      
       themeToggle.addEventListener('click', () => {
         setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         closeMenu();
@@ -1684,7 +1823,7 @@
     })();
 
     // ============================================================
-    // 2. MENU
+    // 2. MENU DO CHAT
     // ============================================================
     const menuBtn = document.getElementById('menuBtn');
     const menuClose = document.getElementById('menuClose');
@@ -1699,10 +1838,38 @@
     menuOverlay.addEventListener('click', closeMenu);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
-    document.getElementById('landingMenuBtn').addEventListener('click', openMenu);
+    // ============================================================
+    // 3. MENU DA LANDING PAGE
+    // ============================================================
+    const landingMenuBtn = document.getElementById('landingMenuBtn');
+    const menuOverlayLanding = document.getElementById('menuOverlayLanding');
+    const menuPanelLanding = document.getElementById('menuPanelLanding');
+    const menuCloseLanding = document.getElementById('menuCloseLanding');
+
+    function openMenuLanding() {
+      if (menuPanelLanding) menuPanelLanding.classList.add('open');
+      if (menuOverlayLanding) menuOverlayLanding.classList.add('open');
+    }
+
+    function closeMenuLanding() {
+      if (menuPanelLanding) menuPanelLanding.classList.remove('open');
+      if (menuOverlayLanding) menuOverlayLanding.classList.remove('open');
+    }
+
+    if (landingMenuBtn) {
+      landingMenuBtn.addEventListener('click', openMenuLanding);
+    }
+
+    if (menuCloseLanding) {
+      menuCloseLanding.addEventListener('click', closeMenuLanding);
+    }
+
+    if (menuOverlayLanding) {
+      menuOverlayLanding.addEventListener('click', closeMenuLanding);
+    }
 
     // ============================================================
-    // 3. MODAL
+    // 4. MODAL
     // ============================================================
     const modalData = {
       helena: {
@@ -1794,7 +1961,7 @@
     });
 
     // ============================================================
-    // 4. NAVEGAÇÃO
+    // 5. NAVEGAÇÃO
     // ============================================================
     const landingPage = document.getElementById('landingPage');
     const chatContainer = document.getElementById('app');
@@ -1802,6 +1969,7 @@
     function mostrarChat() {
       landingPage.classList.add('hidden');
       chatContainer.classList.add('active');
+      closeMenuLanding();
     }
 
     function mostrarLanding() {
@@ -1821,7 +1989,7 @@
     document.getElementById('logoBtn').addEventListener('click', mostrarLanding);
 
     // ============================================================
-    // 5. AGENTES
+    // 6. AGENTES
     // ============================================================
     const AGENTES = {
       helena: {
@@ -1876,7 +2044,7 @@
     };
 
     // ============================================================
-    // 6. IMAGENS
+    // 7. IMAGENS
     // ============================================================
     const HAIR_IMAGES = {
       short_bob: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&h=300&fit=crop',
@@ -1897,7 +2065,7 @@
     };
 
     // ============================================================
-    // 7. PRODUTOS
+    // 8. PRODUTOS
     // ============================================================
     const PRODUTOS = {
       arthur: [
@@ -1921,7 +2089,7 @@
     };
 
     // ============================================================
-    // 8. QUIZ
+    // 9. QUIZ
     // ============================================================
     const QUIZ = {
       arthur: {
@@ -2102,7 +2270,7 @@
     };
 
     // ============================================================
-    // 9. DÚVIDAS
+    // 10. DÚVIDAS
     // ============================================================
     const DUVIDAS = {
       arthur: {
@@ -2141,7 +2309,7 @@
     };
 
     // ============================================================
-    // 10. CURSOS
+    // 11. CURSOS
     // ============================================================
     const CURSOS = [
       { id: 'c1', titulo: 'Fundamentos do Corte', desc: 'Aprenda técnicas básicas de corte profissional', duracao: '4h', nivel: 'Iniciante', icone: '✂️' },
@@ -2152,7 +2320,7 @@
     ];
 
     // ============================================================
-    // 11. PLANOS
+    // 12. PLANOS
     // ============================================================
     const PLANOS = [
       { id: 'p1', nome: 'Básico', preco: 'Grátis', desc: 'Acesso ao chat com especialistas IA', cor: '#4ade80' },
@@ -2161,7 +2329,7 @@
     ];
 
     // ============================================================
-    // 12. BIBLIOTECA
+    // 13. BIBLIOTECA
     // ============================================================
     const BIBLIOTECA = [
       { id: 'b1', titulo: 'Ebook: Guia de Cortes', desc: 'Guia completo com os melhores cortes para cada tipo de rosto', categoria: 'Ebook' },
@@ -2172,7 +2340,7 @@
     ];
 
     // ============================================================
-    // 13. ESTADO + HISTÓRICO
+    // 14. ESTADO + HISTÓRICO
     // ============================================================
     let historico = JSON.parse(localStorage.getItem('hairos-historico') || '[]');
 
@@ -2205,7 +2373,7 @@
     };
 
     // ============================================================
-    // 14. FUNÇÕES DE HISTÓRICO
+    // 15. FUNÇÕES DE HISTÓRICO
     // ============================================================
     function salvarHistorico(entrada) {
       const entry = { data: new Date().toLocaleString(), ...entrada };
@@ -2236,15 +2404,40 @@
         `;
       });
       container.innerHTML = html;
+      
+      // Atualizar também o histórico da landing
+      const containerLanding = document.getElementById('menuHistoryListLanding');
+      if (containerLanding) {
+        if (estado.historico.length === 0) {
+          containerLanding.innerHTML = '<div class="history-empty">Nenhuma interação ainda</div>';
+        } else {
+          let htmlLanding = '';
+          estado.historico.slice(0, 5).forEach(item => {
+            const agente = AGENTES[item.agente]?.nome || item.agente || 'Sistema';
+            const icon = AGENTES[item.agente]?.emoji || '💬';
+            htmlLanding += `
+              <div class="history-item">
+                <span class="history-agente">${icon} ${agente}</span>
+                <div>${item.texto ? item.texto.substring(0, 50) + (item.texto.length > 50 ? '...' : '') : 'Interação'}</div>
+                <span class="history-date">${item.data || ''}</span>
+              </div>
+            `;
+          });
+          containerLanding.innerHTML = htmlLanding;
+        }
+      }
     }
 
     function atualizarBadgeHistorico() {
       const badge = document.getElementById('historyBadge');
       if (badge) badge.textContent = estado.historico.length;
+      
+      const badgeLanding = document.getElementById('historyBadgeLanding');
+      if (badgeLanding) badgeLanding.textContent = estado.historico.length;
     }
 
     // ============================================================
-    // 15. RENDERIZAÇÃO CHAT
+    // 16. RENDERIZAÇÃO CHAT
     // ============================================================
     const messagesEl = document.getElementById('messages');
     const indicators = document.querySelectorAll('.indicator');
@@ -2284,7 +2477,7 @@
     }
 
     // ============================================================
-    // 16. SISTEMA DE IA
+    // 17. SISTEMA DE IA
     // ============================================================
     const sistemaIA = {
       agentes: {},
@@ -2434,7 +2627,7 @@
     sistemaIA.inicializar();
 
     // ============================================================
-    // 17. FUNÇÕES DE MENSAGEM
+    // 18. FUNÇÕES DE MENSAGEM
     // ============================================================
     function addMessage(agenteId, html, extraClass = '', contexto = null, imagens = null) {
       const agente = AGENTES[agenteId];
@@ -2565,7 +2758,7 @@
     }
 
     // ============================================================
-    // 18. REUNIÃO
+    // 19. REUNIÃO
     // ============================================================
     function executarReuniao(callback) {
       estado.meeting_ativa = true;
@@ -2620,7 +2813,7 @@
     }
 
     // ============================================================
-    // 19. QUIZ
+    // 20. QUIZ
     // ============================================================
     function iniciarQuiz(agenteId) {
       const quiz = QUIZ[agenteId];
@@ -2783,7 +2976,7 @@
     }
 
     // ============================================================
-    // 20. DÚVIDAS
+    // 21. DÚVIDAS
     // ============================================================
     function iniciarDuvidas(agenteId) {
       const duvidas = DUVIDAS[agenteId];
@@ -2840,7 +3033,7 @@
     }
 
     // ============================================================
-    // 21. PRODUTOS
+    // 22. PRODUTOS
     // ============================================================
     function mostrarProdutos(agenteId) {
       const produtos = PRODUTOS[agenteId] || PRODUTOS.arthur;
@@ -2879,7 +3072,7 @@
     }
 
     // ============================================================
-    // 22. COMPARTILHAR
+    // 23. COMPARTILHAR
     // ============================================================
     function compartilharResultado(agenteId, recomendacoes) {
       const nomeAgente = AGENTES[agenteId]?.nome || 'HairOS';
@@ -2935,7 +3128,7 @@
     }
 
     // ============================================================
-    // 23. TROCAR AGENTE
+    // 24. TROCAR AGENTE
     // ============================================================
     function trocarAgente(agenteId) {
       if (estado.quiz_ativo) {
@@ -2969,7 +3162,7 @@
     }
 
     // ============================================================
-    // 24. MOSTRAR OPÇÕES DO AGENTE
+    // 25. MOSTRAR OPÇÕES DO AGENTE
     // ============================================================
     function mostrarOpcoesAgente(agenteId) {
       const botoes = [];
@@ -3034,7 +3227,7 @@
     }
 
     // ============================================================
-    // 25. VER SUGESTÕES
+    // 26. VER SUGESTÕES
     // ============================================================
     function verSugestoes(agenteId) {
       if (!estado.analise_realizada || estado.sugestoes_cortes.length === 0) {
@@ -3072,7 +3265,7 @@
     }
 
     // ============================================================
-    // 26. CURSOS
+    // 27. CURSOS
     // ============================================================
     function mostrarCursos() {
       let html = `<p>🎓 <strong>Cursos HairOS</strong></p><p style="font-size:12px;color:var(--text-muted);">Aprenda com os melhores!</p>`;
@@ -3109,7 +3302,7 @@
     }
 
     // ============================================================
-    // 27. PLANOS
+    // 28. PLANOS
     // ============================================================
     function mostrarPlanos() {
       let html = `<p>💎 <strong>Planos HairOS</strong></p><p style="font-size:12px;color:var(--text-muted);">Escolha o plano ideal para você!</p>`;
@@ -3144,7 +3337,7 @@
     }
 
     // ============================================================
-    // 28. BIBLIOTECA
+    // 29. BIBLIOTECA
     // ============================================================
     function mostrarBiblioteca() {
       let html = `<p>📚 <strong>Biblioteca HairOS</strong></p><p style="font-size:12px;color:var(--text-muted);">Conteúdo exclusivo para você!</p>`;
@@ -3179,7 +3372,7 @@
     }
 
     // ============================================================
-    // 29. HANDLER DE AÇÕES (Tema de Cores removido)
+    // 30. HANDLER DE AÇÕES
     // ============================================================
     function handleAction(action, data) {
       removeLastButtons();
@@ -3381,7 +3574,7 @@
     }
 
     // ============================================================
-    // 30. FUNÇÕES DE APOIO
+    // 31. FUNÇÕES DE APOIO
     // ============================================================
     function pedirFotoPrimeiro(agenteId) {
       const nome = AGENTES[agenteId]?.nome || 'especialista';
@@ -3398,7 +3591,7 @@
     }
 
     // ============================================================
-    // 31. INPUT DO USUÁRIO
+    // 32. INPUT DO USUÁRIO
     // ============================================================
     const userInput = document.getElementById('userInput');
     const sendBtn = document.getElementById('sendBtn');
@@ -3470,7 +3663,7 @@
     sendBtn.addEventListener('click', handleUserText);
 
     // ============================================================
-    // 32. UPLOAD AVATAR
+    // 33. UPLOAD AVATAR - CHAT
     // ============================================================
     document.getElementById('profileUploadBtn').addEventListener('click', function() {
       const input = document.createElement('input');
@@ -3484,7 +3677,7 @@
             const url = ev.target.result;
             estado.usuario.avatarUrl = url;
             document.documentElement.style.setProperty('--user-avatar', `url('${url}')`);
-            document.querySelectorAll('.avatar.user, .profile-avatar').forEach(el => {
+            document.querySelectorAll('.avatar.user, .profile-avatar, #profileAvatarLanding').forEach(el => {
               el.style.backgroundImage = `url('${url}')`;
             });
             addUserMessage('🖼️ Avatar atualizado!');
@@ -3497,7 +3690,33 @@
     });
 
     // ============================================================
-    // 33. MENU - TODOS OS ITENS
+    // 34. UPLOAD AVATAR - LANDING
+    // ============================================================
+    document.getElementById('profileUploadBtnLanding')?.addEventListener('click', function() {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (ev) => {
+            const url = ev.target.result;
+            estado.usuario.avatarUrl = url;
+            document.documentElement.style.setProperty('--user-avatar', `url('${url}')`);
+            document.querySelectorAll('.avatar.user, .profile-avatar, #profileAvatarLanding').forEach(el => {
+              el.style.backgroundImage = `url('${url}')`;
+            });
+            closeMenuLanding();
+          };
+          reader.readAsDataURL(file);
+        }
+      };
+      input.click();
+    });
+
+    // ============================================================
+    // 35. MENU - TODOS OS ITENS DO CHAT
     // ============================================================
     // Principal
     document.getElementById('menuHome').addEventListener('click', () => handleAction('ir_para_home'));
@@ -3576,7 +3795,178 @@
     document.getElementById('menuReset').addEventListener('click', reiniciar);
 
     // ============================================================
-    // 34. REINICIAR
+    // 36. MENU - TODOS OS ITENS DA LANDING
+    // ============================================================
+    // Principal
+    document.getElementById('menuHomeLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarLanding();
+    });
+
+    document.getElementById('menuChatLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => {
+        if (estado.especialista_ativo) {
+          mostrarOpcoesAgente(estado.especialista_ativo);
+        } else {
+          trocarAgente('helena');
+        }
+      }, 500);
+    });
+
+    document.getElementById('menuHelpLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => {
+        addMessage('helena', `
+          <p>💡 <strong>HairOS com IA e Personalidades</strong></p>
+          <p>• 🧠 Cada especialista tem IA própria</p>
+          <p>• 🎭 Cada um tem personalidade única</p>
+          <p>• 📸 Envie foto para análise</p>
+          <p>• 📋 Quiz para sugestões personalizadas</p>
+          <p>• ❓ Dúvidas frequentes</p>
+          <p>• 🛒 Produtos recomendados</p>
+          <p>• 👥 Compartilhe resultados</p>
+          <p>• 🎓 Cursos exclusivos</p>
+          <p>• 💎 Planos Premium</p>
+          <p>• 📚 Biblioteca com +100 conteúdos</p>
+          <p>• Clique no logo para voltar</p>
+        `, '', 'Ajuda');
+      }, 500);
+    });
+
+    // Especialistas da Landing
+    document.getElementById('menuHelenaLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => trocarAgente('helena'), 500);
+    });
+
+    document.getElementById('menuArthurLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => trocarAgente('arthur'), 500);
+    });
+
+    document.getElementById('menuIsabellaLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => trocarAgente('isabella'), 500);
+    });
+
+    document.getElementById('menuRafaelLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => trocarAgente('rafael'), 500);
+    });
+
+    // Funcionalidades da Landing
+    document.getElementById('menuQuizLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => {
+        const agente = estado.especialista_ativo || 'helena';
+        if (agente === 'helena') {
+          addMessage('helena', 'Qual quiz você quer fazer? 🥰', '', 'Quiz');
+          appendButtons([
+            { label: '✂️ Arthur - Cortes', action: 'iniciar_quiz', class: 'outline', data: { agente: 'arthur' } },
+            { label: '🎨 Isabella - Cores', action: 'iniciar_quiz', class: 'outline', data: { agente: 'isabella' } },
+            { label: '👤 Rafael - Visagismo', action: 'iniciar_quiz', class: 'outline', data: { agente: 'rafael' } },
+            { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agente } }
+          ]);
+        } else {
+          handleAction('iniciar_quiz', { agente: agente });
+        }
+      }, 500);
+    });
+
+    document.getElementById('menuDuvidasLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => {
+        const agente = estado.especialista_ativo || 'helena';
+        if (agente === 'helena') {
+          addMessage('helena', 'Escolha o especialista para dúvidas:', '', 'Dúvidas');
+          appendButtons([
+            { label: '✂️ Arthur - Cortes', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'arthur' } },
+            { label: '🎨 Isabella - Cores', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'isabella' } },
+            { label: '👤 Rafael - Visagismo', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'rafael' } },
+            { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agente } }
+          ]);
+        } else {
+          handleAction('iniciar_duvidas', { agente: agente });
+        }
+      }, 500);
+    });
+
+    document.getElementById('menuProdutosLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => {
+        const agente = estado.especialista_ativo || 'arthur';
+        handleAction('ver_produtos', { agente: agente });
+      }, 500);
+    });
+
+    document.getElementById('menuCursosLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => handleAction('ver_cursos'), 500);
+    });
+
+    document.getElementById('menuPlanosLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => handleAction('ver_planos'), 500);
+    });
+
+    document.getElementById('menuBibliotecaLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => handleAction('ver_biblioteca'), 500);
+    });
+
+    // Configurações da Landing
+    document.getElementById('menuThemeToggleLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      // Alternar tema escuro/claro
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('hairos-theme', newTheme);
+      
+      // Atualizar ícones do chat
+      const icon = document.getElementById('menuThemeIcon');
+      const label = document.getElementById('menuThemeLabel');
+      const badge = document.getElementById('menuThemeBadge');
+      if (icon) icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+      if (label) label.textContent = newTheme === 'dark' ? 'Modo claro' : 'Modo escuro';
+      if (badge) badge.textContent = newTheme === 'dark' ? 'Claro' : 'Escuro';
+      
+      // Atualizar ícones da landing
+      const iconLanding = document.getElementById('menuThemeIconLanding');
+      const labelLanding = document.getElementById('menuThemeLabelLanding');
+      const badgeLanding = document.getElementById('menuThemeBadgeLanding');
+      if (iconLanding) iconLanding.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+      if (labelLanding) labelLanding.textContent = newTheme === 'dark' ? 'Modo claro' : 'Modo escuro';
+      if (badgeLanding) badgeLanding.textContent = newTheme === 'dark' ? 'Claro' : 'Escuro';
+    });
+
+    document.getElementById('menuHistoricoLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => handleAction('menu_history'), 500);
+    });
+
+    document.getElementById('menuResetLanding')?.addEventListener('click', () => {
+      closeMenuLanding();
+      mostrarChat();
+      setTimeout(() => reiniciar(), 500);
+    });
+
+    // ============================================================
+    // 37. REINICIAR
     // ============================================================
     function reiniciar() {
       estado = {
@@ -3610,10 +4000,11 @@
       msgs.forEach(el => el.remove());
       setTimeout(() => boasVindas(), 300);
       closeMenu();
+      closeMenuLanding();
     }
 
     // ============================================================
-    // 35. BOAS-VINDAS
+    // 38. BOAS-VINDAS
     // ============================================================
     function boasVindas() {
       addMeetingBadge('🧠 HAIROS — IA com Personalidades');
@@ -3657,7 +4048,7 @@
     }
 
     // ============================================================
-    // 36. INICIALIZAÇÃO
+    // 39. INICIALIZAÇÃO
     // ============================================================
     document.addEventListener('DOMContentLoaded', () => {
       landingPage.classList.remove('hidden');
