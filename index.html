@@ -1023,10 +1023,10 @@
       background-repeat: no-repeat;
       text-indent: -9999px;
     }
-    .avatar.helena { background-image: url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=80&h=80&fit=crop&crop=face'); }
-    .avatar.arthur { background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face'); }
-    .avatar.isabella { background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=80&h=80&fit=crop&crop=face'); }
-    .avatar.rafael { background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face'); }
+    .avatar.helena { background-image: url('helena_card.jpg'); background-size: cover; }
+    .avatar.arthur { background-image: url('arthur_card.jpg'); background-size: cover; }
+    .avatar.isabella { background-image: url('isabella_card.jpg'); background-size: cover; }
+    .avatar.rafael { background-image: url('rafael_card.jpg'); background-size: cover; }
     .avatar.user {
       background-image: var(--user-avatar, url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face'));
       background-size: cover;
@@ -1222,6 +1222,17 @@
     .quick-buttons .btn.success:hover {
       background: #22c55e;
       border-color: #22c55e;
+    }
+    .quick-buttons .btn.done {
+      background: #94a3b8;
+      color: #fff;
+      border-color: #94a3b8;
+      cursor: default;
+      opacity: 0.7;
+    }
+    .quick-buttons .btn.done:hover {
+      background: #94a3b8;
+      transform: none;
     }
 
     .divider {
@@ -1639,12 +1650,12 @@
       <div class="ia-feature">🧠 Especialistas com IA e Personalidades Únicas</div>
     </section>
 
-    <!-- Carousel de Especialistas -->
+    <!-- Carousel de Especialistas com imagens oficiais -->
     <section class="carousels-section">
       <h2>✨ Nossos Especialistas</h2>
       <div class="carousels-grid">
         <div class="carousel-card" data-modal="helena">
-          <img class="carousel-img" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&h=300&fit=crop&crop=face" alt="Helena" loading="lazy" />
+          <img class="carousel-img" src="helena_card.jpg" alt="Helena" loading="lazy" />
           <div class="carousel-body">
             <h3>🧭 Helena</h3>
             <div class="personality-tag">🎭 Acolhedora · Maternal · Empática</div>
@@ -1653,7 +1664,7 @@
           </div>
         </div>
         <div class="carousel-card" data-modal="arthur">
-          <img class="carousel-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=face" alt="Arthur" loading="lazy" />
+          <img class="carousel-img" src="arthur_card.jpg" alt="Arthur" loading="lazy" />
           <div class="carousel-body">
             <h3>✂️ Arthur</h3>
             <div class="personality-tag">🎭 Criativo · Técnico · Observador</div>
@@ -1662,7 +1673,7 @@
           </div>
         </div>
         <div class="carousel-card" data-modal="isabella">
-          <img class="carousel-img" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=300&fit=crop&crop=face" alt="Isabella" loading="lazy" />
+          <img class="carousel-img" src="isabella_card.jpg" alt="Isabella" loading="lazy" />
           <div class="carousel-body">
             <h3>🎨 Isabella</h3>
             <div class="personality-tag">🎭 Artística · Detalhista · Passional</div>
@@ -1671,7 +1682,7 @@
           </div>
         </div>
         <div class="carousel-card" data-modal="rafael">
-          <img class="carousel-img" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=300&fit=crop&crop=face" alt="Rafael" loading="lazy" />
+          <img class="carousel-img" src="rafael_card.jpg" alt="Rafael" loading="lazy" />
           <div class="carousel-body">
             <h3>👤 Rafael</h3>
             <div class="personality-tag">🎭 Filósofo · Analítico · Equilibrado</div>
@@ -1728,19 +1739,19 @@
       <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
       <div class="logo" id="logoBtn">Hair<span>OS</span></div>
       <div class="agent-indicators" id="agentIndicators">
-        <span class="indicator active" data-agent="helena" style="background-image:url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=60&h=60&fit=crop&crop=face');">
+        <span class="indicator active" data-agent="helena" style="background-image:url('helena_card.jpg'); background-size:cover; background-position:center;">
           <span class="wave-ring"></span>
           <span class="agent-label">Helena</span>
         </span>
-        <span class="indicator" data-agent="arthur" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face');">
+        <span class="indicator" data-agent="arthur" style="background-image:url('arthur_card.jpg'); background-size:cover; background-position:center;">
           <span class="wave-ring"></span>
           <span class="agent-label">Arthur</span>
         </span>
-        <span class="indicator" data-agent="isabella" style="background-image:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=60&h=60&fit=crop&crop=face');">
+        <span class="indicator" data-agent="isabella" style="background-image:url('isabella_card.jpg'); background-size:cover; background-position:center;">
           <span class="wave-ring"></span>
           <span class="agent-label">Isabella</span>
         </span>
-        <span class="indicator" data-agent="rafael" style="background-image:url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=60&h=60&fit=crop&crop=face');">
+        <span class="indicator" data-agent="rafael" style="background-image:url('rafael_card.jpg'); background-size:cover; background-position:center;">
           <span class="wave-ring"></span>
           <span class="agent-label">Rafael</span>
         </span>
@@ -2035,28 +2046,28 @@
     // ============================================================
     const modalData = {
       helena: {
-        image: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&h=400&fit=crop&crop=face',
+        image: 'helena_card.jpg',
         title: 'Helena',
         subtitle: '🧭 Recepcionista — Acolhimento e Direcionamento',
         text: 'Helena é a porta de entrada do HairOS. Com sua abordagem acolhedora e organizada, ela escuta suas necessidades e direciona você para o especialista certo. Sua missão é garantir que você se sinta acolhido e guiado desde o primeiro momento.\n\n🎭 Personalidade: Acolhedora, Maternal e Empática.',
         btnText: '👋 Falar com Helena'
       },
       arthur: {
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=face',
+        image: 'arthur_card.jpg',
         title: 'Arthur',
         subtitle: '✂️ Especialista em Cortes — Técnica e Execução',
         text: 'Arthur é um verdadeiro artista dos cortes. Ele recebe o diagnóstico de Rafael e transforma em solução técnica. Analisa a estrutura do seu cabelo, densidade, textura e movimento para criar o corte que valoriza seu rosto e personalidade. Técnico e criativo, ele transforma cada cabelo em uma obra de arte.\n\n🎭 Personalidade: Criativo, Técnico e Observador.',
         btnText: '✂️ Falar com Arthur'
       },
       isabella: {
-        image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&h=400&fit=crop&crop=face',
+        image: 'isabella_card.jpg',
         title: 'Isabella',
         subtitle: '🎨 Especialista em Cores — Harmonia e Pigmentos',
         text: 'Isabella é apaixonada por cores! Ela harmoniza tons com seu tom de pele e personalidade, criando composições únicas. Com seu olhar artístico e detalhista, ela transforma sua cor em uma verdadeira expressão de quem você é.\n\n🎭 Personalidade: Artística, Detalhista e Passional.',
         btnText: '🎨 Falar com Isabella'
       },
       rafael: {
-        image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=400&fit=crop&crop=face',
+        image: 'rafael_card.jpg',
         title: 'Rafael',
         subtitle: '👤 Especialista em Visagismo — Diagnóstico e Imagem',
         text: 'Rafael é um mestre do visagismo. Ele estuda proporções faciais, traços e personalidade para criar um perfil visual completo. Analítico e filosófico, ele acredita que cada rosto tem uma história única a contar. Seu diagnóstico é a base para as recomendações técnicas de Arthur e Isabella.\n\n🎭 Personalidade: Filósofo, Analítico e Equilibrado.',
@@ -2565,6 +2576,7 @@
       quiz_respostas: {},
       duvidas_ativo: null,
       analise_realizada: false,
+      analise_ja_feita: false, // NOVO: flag para saber se já fez análise
       sugestoes_cortes: [],
       aguardando_confirmacao: null,
       produtos_carrinho: []
@@ -2966,6 +2978,7 @@
     // ============================================================
     function executarReuniao(callback) {
       estado.meeting_ativa = true;
+      estado.analise_ja_feita = true; // MARCA QUE A ANÁLISE FOI FEITA
       let delay = 1000;
       addMeetingBadge('🎙️ REUNIÃO DOS ESPECIALISTAS', true);
       removeLastButtons();
@@ -3367,13 +3380,14 @@
     }
 
     // ============================================================
-    // 26. MOSTRAR OPÇÕES DO AGENTE
+    // 26. MOSTRAR OPÇÕES DO AGENTE - COM CONTROLE DE ANÁLISE
     // ============================================================
     function mostrarOpcoesAgente(agenteId) {
       const botoes = [];
       const temFoto = estado.usuario.foto;
       const temQuiz = estado.usuario.quiz[agenteId] && Object.keys(estado.usuario.quiz[agenteId]).length > 0;
       const temAnalise = estado.analise_realizada;
+      const analiseJaFeita = estado.analise_ja_feita;
 
       switch (agenteId) {
         case 'helena':
@@ -3386,8 +3400,17 @@
           break;
 
         case 'rafael':
+          // Só mostra "Analisar imagem" se NUNCA tiver feito análise
+          if (!analiseJaFeita) {
+            botoes.push(
+              { label: '🔍 Analisar imagem', action: 'analisar_imagem', class: 'primary', data: { agente: 'rafael' } }
+            );
+          } else {
+            botoes.push(
+              { label: '✅ Análise já realizada', class: 'done', disabled: true }
+            );
+          }
           botoes.push(
-            { label: '🔍 Analisar imagem', action: 'analisar_imagem', class: 'primary', data: { agente: 'rafael' } },
             { label: '📋 Fazer quiz', action: 'iniciar_quiz', class: 'accent', data: { agente: 'rafael' } },
             { label: '❓ Tirar dúvidas', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'rafael' } },
             { label: '🛒 Ver produtos', action: 'ver_produtos', class: 'outline', data: { agente: 'rafael' } },
@@ -3400,8 +3423,16 @@
           break;
 
         case 'arthur':
+          if (!analiseJaFeita) {
+            botoes.push(
+              { label: '🔍 Analisar imagem', action: 'analisar_imagem', class: 'primary', data: { agente: 'arthur' } }
+            );
+          } else {
+            botoes.push(
+              { label: '✅ Análise já realizada', class: 'done', disabled: true }
+            );
+          }
           botoes.push(
-            { label: '🔍 Analisar imagem', action: 'analisar_imagem', class: 'primary', data: { agente: 'arthur' } },
             { label: '📋 Fazer quiz', action: 'iniciar_quiz', class: 'accent', data: { agente: 'arthur' } },
             { label: '❓ Tirar dúvidas', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'arthur' } },
             { label: '🛒 Ver produtos', action: 'ver_produtos', class: 'outline', data: { agente: 'arthur' } },
@@ -3414,8 +3445,16 @@
           break;
 
         case 'isabella':
+          if (!analiseJaFeita) {
+            botoes.push(
+              { label: '🔍 Analisar imagem', action: 'analisar_imagem', class: 'primary', data: { agente: 'isabella' } }
+            );
+          } else {
+            botoes.push(
+              { label: '✅ Análise já realizada', class: 'done', disabled: true }
+            );
+          }
           botoes.push(
-            { label: '🔍 Analisar imagem', action: 'analisar_imagem', class: 'primary', data: { agente: 'isabella' } },
             { label: '📋 Fazer quiz', action: 'iniciar_quiz', class: 'accent', data: { agente: 'isabella' } },
             { label: '❓ Tirar dúvidas', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'isabella' } },
             { label: '🛒 Ver produtos', action: 'ver_produtos', class: 'outline', data: { agente: 'isabella' } },
@@ -4207,6 +4246,7 @@
         quiz_respostas: {},
         duvidas_ativo: null,
         analise_realizada: false,
+        analise_ja_feita: false, // RESETA A FLAG
         sugestoes_cortes: [],
         aguardando_confirmacao: null,
         produtos_carrinho: []
