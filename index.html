@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
   <title>HairOS — Salão Inteligente</title>
+
   <style>
     /* ============================================================
-       VARIÁVEIS E TEMA (MANTIDO ORIGINAL)
+       VARIÁVEIS E TEMA
        ============================================================ */
     :root {
       --bg-body: #f5f0eb;
@@ -159,7 +160,7 @@
     }
 
     /* ============================================================
-       LANDING PAGE (MANTIDO ORIGINAL)
+       LANDING PAGE
        ============================================================ */
     .landing-page {
       width: 100%;
@@ -279,8 +280,6 @@
       0%,100% { transform: scale(1); box-shadow: 0 0 20px rgba(108,92,231,0.3); }
       50% { transform: scale(1.03); box-shadow: 0 0 40px rgba(108,92,231,0.5); }
     }
-
-    /* REMOVIDO O JOURNEY STEPS */
 
     .carousels-section {
       padding: 32px 16px 40px;
@@ -850,7 +849,7 @@
     }
 
     /* ============================================================
-       CHAT HEADER (AVATARES SEM ICONS)
+       CHAT HEADER
        ============================================================ */
     .chat-header {
       background: var(--bg-header);
@@ -1521,7 +1520,7 @@
   </div>
 
   <!-- ============================================================
-  LANDING PAGE (SEM JOURNEY STEPS)
+  LANDING PAGE
   ============================================================ -->
   <div class="landing-page" id="landingPage">
     <header class="landing-header">
@@ -1581,7 +1580,7 @@
       </div>
     </div>
 
-    <!-- Hero (SEM JOURNEY STEPS) -->
+    <!-- Hero -->
     <section class="hero">
       <span class="hero-eyebrow">HairOS</span>
       <h1>O time certo pra cada <em>fio</em>, cor e formato de rosto.</h1>
@@ -1678,7 +1677,7 @@
       <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
       <div class="logo" id="logoBtn">Hair<span>OS</span></div>
 
-      <!-- AGENT INDICATORS (APENAS AVATARES, SEM ICONS) -->
+      <!-- AGENT INDICATORS -->
       <div class="agent-indicators" id="agentIndicators">
         <span class="indicator active" data-agent="helena" style="background-image:url('helena_card.jpg'); background-size:cover; background-position:center;">
           <span class="wave-ring"></span>
@@ -1771,7 +1770,7 @@
   </div>
 
   <!-- ============================================================
-  SCRIPT COMPLETO (FIEL AO ORIGINAL COM 9 IMAGENS: CURTO, MÉDIO, LONGO, MORENA ILUMINADA, LOIRA, RUIVA, FRANJA, SEM FRANJA, TOPETE)
+  SCRIPT COMPLETO
   ============================================================ -->
   <script>
     // ============================================================
@@ -2060,21 +2059,23 @@
     const AGENT_ORDER = ['helena', 'rafael', 'arthur', 'isabella'];
 
     // ============================================================
-    // 7. IMAGENS (9 IMAGENS FINAIS)
+    // 7. IMAGENS UNSPLASH (3 POR ESPECIALISTA)
     // ============================================================
     const HAIR_IMAGES = {
-      // Cortes
-      curto: 'https://images.unsplash.com/photo-1522338140262-f46f5913618a?w=400&h=300&fit=crop',
-      medio: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&h=300&fit=crop',
-      longo: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&h=300&fit=crop',
-      // Cores
-      morena_iluminada: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&h=300&fit=crop',
-      loira: 'https://images.unsplash.com/photo-1522338140262-f46f5913618a?w=400&h=300&fit=crop',
-      ruiva: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=300&fit=crop',
-      // Estilos
-      com_franja: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&h=300&fit=crop',
-      sem_franja: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&h=300&fit=crop',
-      com_topete: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop'
+      // Rafael - Visagismo
+      visagismo_oval: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&h=300&fit=crop',
+      visagismo_quadrado: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop',
+      visagismo_redondo: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=300&fit=crop',
+      
+      // Arthur - Cortes
+      short_bob: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&h=300&fit=crop',
+      butterfly: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&h=300&fit=crop',
+      pixie: 'https://images.unsplash.com/photo-1522338140262-f46f5913618a?w=400&h=300&fit=crop',
+      
+      // Isabella - Cores
+      mel: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&h=300&fit=crop',
+      caramelo: 'https://images.unsplash.com/photo-1562107610-a0e7fa563d8d?w=400&h=300&fit=crop',
+      cobre: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=300&fit=crop'
     };
 
     // ============================================================
@@ -2102,7 +2103,7 @@
     };
 
     // ============================================================
-    // 9. QUIZZES
+    // 9. QUIZZES (COM 3 IMAGENS UNSPLASH NO RESULTADO)
     // ============================================================
     const QUIZ = {
       rafael: {
@@ -2137,6 +2138,18 @@
           else if (o === 'autoconfianca') r.push('💪 Busca por autoconfiança e autenticidade');
           else if (o === 'impacto') r.push('🔥 Busca por impacto e presença');
           return r;
+        },
+        getImagens: function(respostas) {
+          const f = respostas.q1 || '';
+          const mapa = {
+            'oval': HAIR_IMAGES.visagismo_oval,
+            'quadrado': HAIR_IMAGES.visagismo_quadrado,
+            'redondo': HAIR_IMAGES.visagismo_redondo,
+            'coracao': HAIR_IMAGES.visagismo_oval,
+            'diamante': HAIR_IMAGES.visagismo_quadrado
+          };
+          const img = mapa[f] || HAIR_IMAGES.visagismo_oval;
+          return [img, img, img];
         }
       },
       arthur: {
@@ -2169,6 +2182,12 @@
           else if (c === 'medio') r.push('✂️ Médio: versátil, combina com diversos estilos');
           else if (c === 'longo') r.push('✂️ Longo: elegante, permite várias possibilidades de penteado');
           return r;
+        },
+        getImagens: function(respostas) {
+          const c = respostas.q5 || '';
+          if (c === 'curto') return [HAIR_IMAGES.pixie, HAIR_IMAGES.short_bob, HAIR_IMAGES.butterfly];
+          if (c === 'medio') return [HAIR_IMAGES.short_bob, HAIR_IMAGES.butterfly, HAIR_IMAGES.pixie];
+          return [HAIR_IMAGES.short_bob, HAIR_IMAGES.butterfly, HAIR_IMAGES.pixie];
         }
       },
       isabella: {
@@ -2199,12 +2218,18 @@
           else if (m === 'media') r.push('⏳ Manutenção média: retoques a cada 2-3 meses');
           else if (m === 'alta') r.push('💈 Alta manutenção: retoques mensais e cuidados intensos');
           return r;
+        },
+        getImagens: function(respostas) {
+          const s = respostas.q1 || '', e = respostas.q4 || '';
+          if (s === 'quente' || e === 'natural') return [HAIR_IMAGES.mel, HAIR_IMAGES.caramelo, HAIR_IMAGES.cobre];
+          if (s === 'frio') return [HAIR_IMAGES.mel, HAIR_IMAGES.caramelo, HAIR_IMAGES.cobre];
+          return [HAIR_IMAGES.mel, HAIR_IMAGES.caramelo, HAIR_IMAGES.cobre];
         }
       }
     };
 
     // ============================================================
-    // 10. DÚVIDAS (MANTIDO ORIGINAL)
+    // 10. DÚVIDAS
     // ============================================================
     const DUVIDAS = {
       arthur: {
@@ -2243,7 +2268,7 @@
     };
 
     // ============================================================
-    // 11. CURSOS, PLANOS, BIBLIOTECA (MANTIDO ORIGINAL)
+    // 11. CURSOS, PLANOS, BIBLIOTECA
     // ============================================================
     const CURSOS = [
       { id: 'c1', titulo: 'Fundamentos do Corte', desc: 'Aprenda técnicas básicas de corte profissional', duracao: '4h', nivel: 'Iniciante', icone: '✂️' },
@@ -2716,7 +2741,7 @@
     }
 
     // ============================================================
-    // 18. QUIZ (MANTIDO ORIGINAL)
+    // 18. QUIZ (COM 3 IMAGENS UNSPLASH)
     // ============================================================
     function iniciarQuiz(agenteId) {
       const quiz = QUIZ[agenteId];
@@ -2819,6 +2844,7 @@
       const quiz = QUIZ[agenteId];
       const respostas = estado.quiz_respostas;
       const recomendacoes = quiz.resultado(respostas);
+      const imagens = quiz.getImagens(respostas);
 
       estado.analise_realizada = true;
       estado.etapas_concluidas[agenteId] = true;
@@ -2830,6 +2856,20 @@
       `;
       recomendacoes.forEach(r => { html += `<li>${r}</li>`; });
       html += `</ul>`;
+
+      // Adiciona as 3 imagens
+      html += `<p style="margin-top:8px;font-weight:600;">📸 3 Sugestões visuais:</p>`;
+      html += `<div class="hair-grid-3">`;
+      imagens.forEach(img => {
+        html += `
+          <div>
+            <img src="${img}" class="hair-image" alt="Sugestão visual" loading="lazy" onclick="openImagePreview('${img}', 'Sugestão visual')" />
+            <div class="hair-label">Clique para ampliar</div>
+          </div>
+        `;
+      });
+      html += `</div>`;
+      html += `<p style="font-size:10px;color:var(--text-muted);">🖱️ Clique nas imagens para ampliar</p>`;
 
       addMessage(agenteId, html, '', `Resultado do quiz`);
 
@@ -2879,7 +2919,7 @@
     }
 
     // ============================================================
-    // 19. DÚVIDAS (MANTIDO ORIGINAL)
+    // 19. DÚVIDAS
     // ============================================================
     function iniciarDuvidas(agenteId) {
       const duvidas = DUVIDAS[agenteId];
@@ -2936,7 +2976,7 @@
     }
 
     // ============================================================
-    // 20. PRODUTOS (MANTIDO ORIGINAL)
+    // 20. PRODUTOS
     // ============================================================
     function mostrarProdutos(agenteId) {
       const produtos = PRODUTOS[agenteId] || PRODUTOS.arthur;
@@ -2975,7 +3015,7 @@
     }
 
     // ============================================================
-    // 21. COMPARTILHAR (MANTIDO ORIGINAL)
+    // 21. COMPARTILHAR
     // ============================================================
     function compartilharResultado(agenteId, recomendacoes) {
       const nomeAgente = AGENTES[agenteId]?.nome || 'HairOS';
@@ -3060,35 +3100,31 @@
     }
 
     // ============================================================
-    // 23. SIMULADOR COMPLETO - 9 IMAGENS (CURTO, MÉDIO, LONGO, MORENA ILUMINADA, LOIRA, RUIVA, FRANJA, SEM FRANJA, TOPETE)
+    // 23. SIMULADOR COMPLETO
     // ============================================================
     function gerarPromptSimulacaoCompleta() {
       const respostasRafael = estado.usuario.quiz.rafael || {};
       const respostasArthur = estado.usuario.quiz.arthur || {};
       const respostasIsabella = estado.usuario.quiz.isabella || {};
 
-      // Dados do Rafael (Visagismo)
       const formato = respostasRafael.q1 || 'oval';
       const caracteristica = respostasRafael.q2 || 'olhos';
       const percepcao = respostasRafael.q3 || 'autoridade';
       const linhas = respostasRafael.q4 || 'suave';
       const objetivo = respostasRafael.q5 || 'renovacao';
 
-      // Dados do Arthur (Cortes)
       const textura = respostasArthur.q1 || 'ondulado';
       const densidade = respostasArthur.q2 || 'medio';
       const volume = respostasArthur.q3 || 'volume_medio';
       const manutencao = respostasArthur.q4 || 'media';
       const comprimento = respostasArthur.q5 || 'medio';
 
-      // Dados da Isabella (Cores)
       const subtom = respostasIsabella.q1 || 'neutro';
       const sol = respostasIsabella.q2 || 'mista';
       const olhos = respostasIsabella.q3 || 'castanho_escuro';
       const estiloCor = respostasIsabella.q4 || 'natural';
       const manutencaoCor = respostasIsabella.q5 || 'media';
 
-      // Mapeia para descrições
       const mapFormato = {
         'oval': 'Oval - versátil e equilibrado',
         'quadrado': 'Quadrado - linhas fortes e marcantes',
@@ -3110,7 +3146,6 @@
         'neutro': 'Neutro - versátil, ambos funcionam'
       };
 
-      // Monta o prompt completo com 9 imagens
       let prompt = `🧑‍🎨 **SIMULADOR DE VISAGISMO PROFISSIONAL - 9 IMAGENS**
 
 📋 **ANÁLISE COMPLETA DO PERFIL:**
@@ -3140,64 +3175,33 @@
 
 🎯 **9 IMAGENS PERSONALIZADAS:**
 
-**1️⃣ CURTO**
-Corte curto (acima das orelhas) + cor recomendada
-${comprimento === 'curto' ? '✅ Já indicado no seu quiz!' : '💡 Sugestão para quem quer praticidade'}
-
-**2️⃣ MÉDIO**
-Corte médio (no queixo/ombros) + cor recomendada
-${comprimento === 'medio' ? '✅ Já indicado no seu quiz!' : '💡 Sugestão versátil'}
-
-**3️⃣ LONGO**
-Corte longo (abaixo dos ombros) + cor recomendada
-${comprimento === 'longo' ? '✅ Já indicado no seu quiz!' : '💡 Sugestão para quem ama cabelo comprido'}
-
-**4️⃣ MORENA ILUMINADA**
-${subtom === 'quente' ? '✅ Tons quentes (mel/caramelo)' : subtom === 'frio' ? '✅ Tons frios (castanho gelado)' : '✅ Tom neutro com luzes'}
-
-**5️⃣ LOIRA**
-${subtom === 'quente' ? '✅ Loiro dourado/mel' : subtom === 'frio' ? '✅ Loiro platinado' : '✅ Loiro equilibrado'}
-
-**6️⃣ RUIVA**
-${subtom === 'quente' ? '✅ Cobre acobreado intenso' : subtom === 'frio' ? '✅ Ruivo acinzentado' : '✅ Ruivo equilibrado'}
-
-**7️⃣ COM FRANJA**
-${['oval', 'coracao', 'longo'].includes(formato) ? '✅ Franja recomendada para seu rosto!' : '💡 Franja para equilibrar suas proporções'}
-
-**8️⃣ SEM FRANJA**
-${['quadrado', 'redondo'].includes(formato) ? '✅ Sem franja valoriza seu rosto!' : '💡 Testa livre para um visual limpo'}
-
-**9️⃣ COM TOPETE**
-${['redondo', 'quadrado'].includes(formato) ? '✅ Topete alonga e equilibra!' : '💡 Volume no topo para elegância'}
+**1️⃣ CURTO** - Corte curto + cor recomendada
+**2️⃣ MÉDIO** - Corte médio + cor recomendada
+**3️⃣ LONGO** - Corte longo + cor recomendada
+**4️⃣ MORENA ILUMINADA** - Castanho com luzes
+**5️⃣ LOIRA** - Loiro platinado/dourado
+**6️⃣ RUIVA** - Cobre acobreado
+**7️⃣ COM FRANJA** - Franja reta/lateral
+**8️⃣ SEM FRANJA** - Testa livre
+**9️⃣ COM TOPETE** - Volume no topo
 
 ---
 
-🖼️ **INSTRUÇÕES CRÍTICAS:**
-1. ✅ Use EXCLUSIVAMENTE a foto anexada como base
-2. ✅ Preserve IDENTIDADE FACIAL (olhos, nariz, boca, pele)
-3. ✅ Mantenha o MESMO enquadramento da foto original
-4. ✅ Modifique APENAS o cabelo (corte, comprimento, volume, cor, franja, topete)
-5. ✅ Fundo neutro profissional
-6. ✅ Resolução 4K, formato vertical 9:16
-7. ✅ Estilo fotorealista extremo
-8. ✅ Gere 9 imagens INDIVIDUAIS (não grade)
+🖼️ **INSTRUÇÕES:**
+1. Use a foto anexada como base
+2. Preserve IDENTIDADE FACIAL
+3. Modifique APENAS o cabelo
+4. Fundo neutro profissional
+5. Resolução 4K, vertical 9:16
+6. Gere 9 imagens INDIVIDUAIS
 
-📌 **INSTRUÇÕES FINAIS:**
-- Anexe a foto original
-- Gere 9 imagens SEPARADAS
-- Cada imagem mostra o MESMO rosto com uma variação diferente
-- Mantenha a identidade facial em TODAS as imagens
-- Apenas o cabelo (corte + cor + franja + topete) deve mudar
-
-🔗 **Ferramentas sugeridas:** Gemini, ChatGPT, Midjourney, DALL-E, Leonardo AI
-
-💡 **Dica:** Use uma foto bem iluminada para melhores resultados!`;
+🔗 **Ferramentas sugeridas:** Gemini, ChatGPT, Midjourney, DALL-E, Leonardo AI`;
 
       return prompt;
     }
 
     // ============================================================
-    // 24. MOSTRAR OPÇÕES DO AGENTE (MANTIDO ORIGINAL)
+    // 24. MOSTRAR OPÇÕES DO AGENTE
     // ============================================================
     function mostrarOpcoesAgente(agenteId) {
       const botoes = [];
@@ -3263,7 +3267,7 @@ ${['redondo', 'quadrado'].includes(formato) ? '✅ Topete alonga e equilibra!' :
     }
 
     // ============================================================
-    // 25. HANDLER DE AÇÕES (MANTIDO ORIGINAL)
+    // 25. HANDLER DE AÇÕES
     // ============================================================
     function handleAction(action, data) {
       removeLastButtons();
@@ -3337,7 +3341,8 @@ ${['redondo', 'quadrado'].includes(formato) ? '✅ Topete alonga e equilibra!' :
                 setTimeout(() => {
                   addMessage('helena', `
                     <p>🎯 <strong>Análise com IA concluída!</strong></p>
-                    <p>Faça os <strong>quizzes</strong> para receber sugestões personalizadas.</p>
+                    <p>Faça os <strong>quizzes</strong> para receber sugestões personalizadas com imagens.</p>
+                    <p style="font-size:10px;color:var(--text-muted);">🖱️ Clique nas imagens para ampliar</p>
                   `, '', 'Recepcionista - IA');
                   appendButtons([
                     { label: '👤 Rafael (Visagismo)', action: 'ir_para_rafael', class: 'primary' },
@@ -3411,7 +3416,7 @@ ${['redondo', 'quadrado'].includes(formato) ? '✅ Topete alonga e equilibra!' :
                 </p>
               </div>
               
-              <p style="font-size:9px;color:var(--text-muted);">🖼️ Resultado: 9 imagens individuais (curto, médio, longo, morena iluminada, loira, ruiva, com franja, sem franja, com topete)</p>
+              <p style="font-size:9px;color:var(--text-muted);">🖼️ Resultado: 9 imagens individuais</p>
             `, '', '🎯 Simulador');
             
             navigator.clipboard.writeText(prompt).then(() => {
@@ -3538,7 +3543,7 @@ ${['redondo', 'quadrado'].includes(formato) ? '✅ Topete alonga e equilibra!' :
     }
 
     // ============================================================
-    // 26. CURSOS, PLANOS, BIBLIOTECA (MANTIDO ORIGINAL)
+    // 26. CURSOS, PLANOS, BIBLIOTECA
     // ============================================================
     function mostrarCursos() {
       let html = `<p>🎓 <strong>Cursos HairOS</strong></p><p style="font-size:12px;color:var(--text-muted);">Aprenda com os melhores!</p>`;
@@ -3613,7 +3618,7 @@ ${['redondo', 'quadrado'].includes(formato) ? '✅ Topete alonga e equilibra!' :
     }
 
     // ============================================================
-    // 27. INPUT DO USUÁRIO (MANTIDO ORIGINAL)
+    // 27. INPUT DO USUÁRIO
     // ============================================================
     const userInput = document.getElementById('userInput');
     const sendBtn = document.getElementById('sendBtn');
@@ -3701,7 +3706,7 @@ ${['redondo', 'quadrado'].includes(formato) ? '✅ Topete alonga e equilibra!' :
     sendBtn.addEventListener('click', handleUserText);
 
     // ============================================================
-    // 28. UPLOAD AVATAR (MANTIDO ORIGINAL)
+    // 28. UPLOAD AVATAR
     // ============================================================
     document.getElementById('profileUploadBtn').addEventListener('click', function() {
       const input = document.createElement('input');
@@ -3751,7 +3756,7 @@ ${['redondo', 'quadrado'].includes(formato) ? '✅ Topete alonga e equilibra!' :
     });
 
     // ============================================================
-    // 29. MENU - ITENS DO CHAT (MANTIDO ORIGINAL)
+    // 29. MENU - ITENS DO CHAT
     // ============================================================
     document.getElementById('menuHome').addEventListener('click', () => handleAction('ir_para_home'));
     document.getElementById('menuChat').addEventListener('click', () => {
@@ -3826,7 +3831,7 @@ ${['redondo', 'quadrado'].includes(formato) ? '✅ Topete alonga e equilibra!' :
     document.getElementById('menuReset').addEventListener('click', reiniciar);
 
     // ============================================================
-    // 30. MENU - ITENS DA LANDING (MANTIDO ORIGINAL)
+    // 30. MENU - ITENS DA LANDING
     // ============================================================
     document.getElementById('menuHomeLanding')?.addEventListener('click', () => { closeMenuLanding(); mostrarLanding(); });
     document.getElementById('menuChatLanding')?.addEventListener('click', () => {
@@ -3964,7 +3969,7 @@ ${['redondo', 'quadrado'].includes(formato) ? '✅ Topete alonga e equilibra!' :
     });
 
     // ============================================================
-    // 31. REINICIAR (MANTIDO ORIGINAL)
+    // 31. REINICIAR
     // ============================================================
     function reiniciar() {
       if (confirm('Reiniciar todo o atendimento? Isso apaga seu progresso.')) {
@@ -4008,7 +4013,7 @@ ${['redondo', 'quadrado'].includes(formato) ? '✅ Topete alonga e equilibra!' :
     }
 
     // ============================================================
-    // 32. BOAS-VINDAS (MANTIDO ORIGINAL)
+    // 32. BOAS-VINDAS
     // ============================================================
     function boasVindas() {
       addMeetingBadge('🧠 HAIROS — IA com Personalidades');
@@ -4024,6 +4029,7 @@ ${['redondo', 'quadrado'].includes(formato) ? '✅ Topete alonga e equilibra!' :
         <p style="font-size:11px;color:var(--text-muted);">Os especialistas com personalidades únicas vão analisar!</p>
         <p style="font-size:10px;color:var(--text-muted);">💡 Use o menu ☰ para acessar todas as funcionalidades</p>
         <p style="font-size:10px;color:var(--text-accent);">🎯 Para gerar a simulação: faça os 3 quizzes + envie foto!</p>
+        <p style="font-size:10px;color:var(--text-muted);">🖱️ Clique nas imagens para ampliar</p>
       `, '', 'Recepcionista - IA');
 
       appendButtons([
@@ -4082,7 +4088,7 @@ ${['redondo', 'quadrado'].includes(formato) ? '✅ Topete alonga e equilibra!' :
 
       console.log('🧠 HairOS Premium com IA e Personalidades iniciado!');
       console.log('👤 Especialistas:', Object.keys(AGENTES).filter(k => k !== 'system').join(', '));
-      console.log('🎯 Simulação: 3 quizzes + foto = 9 imagens (curto, médio, longo, morena iluminada, loira, ruiva, com franja, sem franja, com topete)');
+      console.log('🎯 Simulação: 3 quizzes + foto = 9 imagens');
       console.log('🎭 Cada um com personalidade, vocabulário e emoções próprias!');
       console.log('🖱️ Clique nas imagens para ampliar');
 
