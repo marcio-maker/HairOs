@@ -48,6 +48,7 @@
       --shadow-chat: 0 20px 60px rgba(0,0,0,0.12);
       --shadow-menu: 0 8px 30px rgba(0,0,0,0.4);
       --shadow-modal: 0 25px 80px rgba(0,0,0,0.5);
+      --shadow-image-preview: 0 25px 80px rgba(0,0,0,0.6);
       --avatar-helena: linear-gradient(135deg, #e8b4a0, #d49a82);
       --avatar-arthur: linear-gradient(135deg, #7ec8d4, #4a9aa8);
       --avatar-isabella: linear-gradient(135deg, #f0a8c4, #d4789a);
@@ -105,6 +106,7 @@
       --shadow-chat: 0 20px 60px rgba(0,0,0,0.5);
       --shadow-menu: 0 8px 30px rgba(0,0,0,0.7);
       --shadow-modal: 0 25px 80px rgba(0,0,0,0.7);
+      --shadow-image-preview: 0 25px 80px rgba(0,0,0,0.8);
       --avatar-helena: linear-gradient(135deg, #c4947a, #b8834a);
       --avatar-arthur: linear-gradient(135deg, #5a9aa8, #3a7a88);
       --avatar-isabella: linear-gradient(135deg, #d4789a, #b85a7a);
@@ -142,7 +144,7 @@
     }
 
     /* ============================================================
-       PÁGINA INICIAL (LANDING)
+       PÁGINA INICIAL (LANDING) - MOBILE FIRST
        ============================================================ */
     .landing-page {
       width: 100%;
@@ -164,7 +166,7 @@
 
     .landing-header {
       background: var(--bg-header);
-      padding: 14px 20px;
+      padding: 12px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -172,10 +174,11 @@
       position: sticky;
       top: 0;
       z-index: 50;
+      min-height: 52px;
     }
 
     .landing-header .logo {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       cursor: pointer;
       user-select: none;
@@ -186,7 +189,7 @@
       background: none;
       border: none;
       color: var(--text-header);
-      font-size: 26px;
+      font-size: 24px;
       cursor: pointer;
       padding: 4px 8px;
       transition: 0.2s;
@@ -197,26 +200,26 @@
     .landing-header .menu-hamburger:hover { opacity: 0.7; }
 
     .hero {
-      padding: 40px 20px 32px;
+      padding: 28px 16px 24px;
       background: var(--bg-messages);
       text-align: center;
       border-bottom: 1px solid var(--border-input);
     }
 
     .hero h1 {
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       line-height: 1.2;
     }
     .hero h1 span { color: var(--text-accent); }
 
     .hero p {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--text-secondary);
       max-width: 600px;
-      margin: 0 auto 24px;
+      margin: 0 auto 18px;
       line-height: 1.6;
       padding: 0 4px;
     }
@@ -225,17 +228,19 @@
       background: var(--bg-btn-primary);
       color: #fff;
       border: none;
-      padding: 14px 36px;
+      padding: 12px 28px;
       border-radius: 40px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       cursor: pointer;
       transition: 0.2s;
       font-family: inherit;
       box-shadow: 0 4px 16px rgba(0,0,0,0.15);
       width: 100%;
-      max-width: 320px;
+      max-width: 280px;
+      touch-action: manipulation;
     }
+    .hero .btn-hero:active { transform: scale(0.97); }
     .hero .btn-hero:hover {
       background: var(--bg-btn-primary-hover);
       transform: translateY(-2px);
@@ -243,13 +248,13 @@
     }
 
     .hero .ia-feature {
-      margin-top: 16px;
+      margin-top: 12px;
       display: inline-block;
       background: linear-gradient(135deg, #6c5ce7, #a29bfe);
       color: #fff;
-      padding: 6px 18px;
+      padding: 5px 14px;
       border-radius: 30px;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       font-weight: 600;
       animation: ia-pulse 2s ease-in-out infinite;
     }
@@ -259,29 +264,29 @@
     }
 
     .carousels-section {
-      padding: 32px 16px 40px;
+      padding: 24px 12px 32px;
       background: var(--bg-chat);
     }
 
     .carousels-section h2 {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: var(--text-primary);
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     .carousels-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 16px;
       max-width: 500px;
       margin: 0 auto;
     }
 
     .carousel-card {
       background: var(--bg-messages);
-      border-radius: 20px;
+      border-radius: 16px;
       overflow: hidden;
       box-shadow: var(--shadow-bubble);
       border: 1px solid var(--border-input);
@@ -296,28 +301,28 @@
 
     .carousel-card .carousel-img {
       width: 100%;
-      height: 180px;
+      height: 160px;
       object-fit: cover;
       background: var(--bg-tag);
       display: block;
     }
 
     .carousel-card .carousel-body {
-      padding: 16px 16px 18px;
+      padding: 14px 14px 16px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
     .carousel-card .carousel-body h3 {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--text-primary);
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .carousel-card .carousel-body .personality-tag {
-      font-size: 10px;
+      font-size: 9px;
       color: var(--text-accent);
       font-weight: 600;
       margin-bottom: 4px;
@@ -325,10 +330,10 @@
     }
 
     .carousel-card .carousel-body p {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--text-secondary);
       line-height: 1.5;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       flex: 1;
     }
 
@@ -336,15 +341,17 @@
       background: var(--bg-btn-accent);
       color: #fff;
       border: none;
-      padding: 8px 20px;
+      padding: 6px 16px;
       border-radius: 30px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
       cursor: pointer;
       transition: 0.2s;
       font-family: inherit;
       align-self: flex-start;
+      touch-action: manipulation;
     }
+    .carousel-card .carousel-body .btn-saiba:active { transform: scale(0.95); }
     .carousel-card .carousel-body .btn-saiba:hover {
       background: var(--bg-btn-accent-hover);
       transform: scale(1.04);
@@ -353,24 +360,24 @@
     .landing-footer {
       background: var(--bg-header);
       color: var(--text-header-muted);
-      padding: 20px 16px;
+      padding: 16px 12px;
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       border-top: 1px solid var(--border-menu);
     }
     .landing-footer strong { color: var(--text-header); }
     .landing-footer .footer-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-top: 6px;
+      gap: 16px;
+      margin-top: 4px;
       flex-wrap: wrap;
     }
     .landing-footer .footer-links a {
       color: var(--text-header-muted);
       text-decoration: none;
       transition: 0.2s;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
     }
     .landing-footer .footer-links a:hover { color: var(--text-accent); }
 
@@ -388,7 +395,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.5s ease;
@@ -398,8 +405,8 @@
       pointer-events: all;
     }
     .loading-spinner {
-      width: 50px;
-      height: 50px;
+      width: 44px;
+      height: 44px;
       border: 4px solid rgba(212,165,116,0.2);
       border-top-color: #d4a574;
       border-radius: 50%;
@@ -408,15 +415,15 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     .loading-overlay p {
       color: #fff;
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: 500;
       letter-spacing: 1px;
       text-align: center;
-      padding: 0 20px;
+      padding: 0 16px;
     }
 
     /* ============================================================
-       CHAT CONTAINER
+       CHAT CONTAINER - MOBILE FIRST
        ============================================================ */
     .chat-container {
       width: 100%;
@@ -437,7 +444,7 @@
     }
 
     /* ============================================================
-       MENU LATERAL COMPLETO
+       MENU LATERAL COMPLETO - MOBILE FIRST
        ============================================================ */
     .menu-overlay {
       position: fixed;
@@ -453,18 +460,18 @@
     .menu-panel {
       position: fixed;
       top: 0; left: 0;
-      width: 300px;
-      max-width: 85%;
+      width: 280px;
+      max-width: 80%;
       height: 100%;
       background: var(--menu-bg);
       box-shadow: var(--shadow-menu);
       z-index: 1000;
       transform: translateX(-110%);
       transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
-      padding: 16px 12px;
+      padding: 14px 10px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 2px;
       border-radius: 0 20px 20px 0;
       overflow-y: auto;
     }
@@ -480,12 +487,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 12px;
+      padding-bottom: 10px;
       border-bottom: 1px solid var(--menu-border);
       flex-shrink: 0;
     }
     .menu-header .menu-logo {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--menu-text);
     }
@@ -493,7 +500,7 @@
     .menu-header .menu-close {
       background: none; border: none;
       color: var(--text-header-muted);
-      font-size: 24px;
+      font-size: 22px;
       cursor: pointer;
       padding: 4px 8px;
       transition: 0.2s;
@@ -503,13 +510,13 @@
     .menu-profile {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 8px 4px 12px;
+      gap: 10px;
+      padding: 6px 4px 10px;
       border-bottom: 1px solid var(--menu-border);
       flex-shrink: 0;
     }
     .menu-profile .profile-avatar {
-      width: 48px; height: 48px;
+      width: 40px; height: 40px;
       border-radius: 50%;
       background: var(--avatar-user);
       background-size: cover;
@@ -521,19 +528,19 @@
     .menu-profile .profile-name {
       color: var(--menu-text);
       font-weight: 600;
-      font-size: 14px;
+      font-size: 13px;
     }
     .menu-profile .profile-sub {
       color: var(--text-header-muted);
-      font-size: 11px;
+      font-size: 10px;
     }
     .menu-profile .profile-upload {
       background: none;
       border: 1px solid var(--menu-border);
       color: var(--text-header-muted);
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: 16px;
-      font-size: 11px;
+      font-size: 10px;
       cursor: pointer;
       transition: 0.2s;
       font-family: inherit;
@@ -544,33 +551,32 @@
       color: var(--menu-text);
     }
 
-    /* Seções do Menu */
     .menu-section {
-      padding: 4px 0;
+      padding: 2px 0;
     }
     .menu-section-title {
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      padding: 8px 12px 4px;
-      margin-top: 4px;
+      padding: 6px 10px 2px;
+      margin-top: 2px;
     }
 
     .menu-item {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 10px 14px;
-      border-radius: 12px;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 10px;
       color: var(--menu-text);
       cursor: pointer;
       transition: 0.2s;
       border: none;
       background: transparent;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 12px;
       width: 100%;
       text-align: left;
       position: relative;
@@ -578,18 +584,18 @@
     .menu-item:hover { background: var(--menu-hover); }
     .menu-item:active { transform: scale(0.97); }
     .menu-item .icon {
-      font-size: 18px;
-      width: 28px;
+      font-size: 16px;
+      width: 24px;
       text-align: center;
       flex-shrink: 0;
     }
     .menu-item .label { flex: 1; }
     .menu-item .badge {
-      font-size: 10px;
+      font-size: 9px;
       background: rgba(212,165,116,0.2);
       color: var(--text-accent);
-      padding: 2px 10px;
-      border-radius: 12px;
+      padding: 2px 8px;
+      border-radius: 10px;
       font-weight: 600;
     }
     .menu-item .badge-primary {
@@ -597,7 +603,7 @@
       color: #fff;
     }
     .menu-item .shortcut {
-      font-size: 10px;
+      font-size: 9px;
       color: var(--text-muted);
       opacity: 0.5;
     }
@@ -605,14 +611,14 @@
     .menu-divider {
       height: 1px;
       background: var(--menu-border);
-      margin: 4px 8px;
+      margin: 2px 6px;
       flex-shrink: 0;
     }
 
     .menu-history {
-      max-height: 100px;
+      max-height: 80px;
       overflow-y: auto;
-      padding: 4px 0;
+      padding: 2px 0;
     }
     .menu-history::-webkit-scrollbar { width: 2px; }
     .menu-history::-webkit-scrollbar-thumb {
@@ -621,17 +627,17 @@
     }
     .menu-history .history-empty {
       color: var(--text-muted);
-      font-size: 11px;
+      font-size: 10px;
       text-align: center;
-      padding: 8px 0;
+      padding: 6px 0;
     }
     .menu-history .history-item {
-      padding: 6px 10px;
+      padding: 4px 8px;
       border-left: 2px solid var(--text-accent);
       margin: 2px 0;
       background: var(--menu-hover);
-      border-radius: 0 6px 6px 0;
-      font-size: 11px;
+      border-radius: 0 4px 4px 0;
+      font-size: 10px;
       color: var(--text-secondary);
     }
     .menu-history .history-item .history-agente {
@@ -639,12 +645,12 @@
       color: var(--text-accent);
     }
     .menu-history .history-item .history-date {
-      font-size: 9px;
+      font-size: 8px;
       color: var(--text-muted);
     }
 
     /* ============================================================
-       MODAL
+       MODAL - MOBILE FIRST
        ============================================================ */
     .modal-overlay {
       position: fixed;
@@ -659,7 +665,7 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.4s ease;
-      padding: 16px;
+      padding: 12px;
     }
     .modal-overlay.open {
       opacity: 1;
@@ -667,8 +673,8 @@
     }
     .modal-content {
       background: var(--bg-chat);
-      border-radius: 24px;
-      max-width: 400px;
+      border-radius: 20px;
+      max-width: 380px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
@@ -683,14 +689,14 @@
     }
     .modal-content .modal-close {
       position: absolute;
-      top: 12px;
-      right: 16px;
+      top: 10px;
+      right: 12px;
       background: rgba(0,0,0,0.5);
       border: none;
       color: #fff;
-      font-size: 20px;
-      width: 36px;
-      height: 36px;
+      font-size: 18px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       cursor: pointer;
       transition: 0.2s;
@@ -706,69 +712,158 @@
     }
     .modal-content .modal-image {
       width: 100%;
-      height: 200px;
+      height: 170px;
       object-fit: cover;
-      border-radius: 24px 24px 0 0;
+      border-radius: 20px 20px 0 0;
       display: block;
     }
     .modal-content .modal-body {
-      padding: 20px 22px 24px;
+      padding: 16px 18px 20px;
     }
     .modal-content .modal-body .modal-title {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--text-primary);
       margin-bottom: 2px;
     }
     .modal-content .modal-body .modal-subtitle {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-accent);
       font-weight: 500;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .modal-content .modal-body .modal-text {
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.6;
       color: var(--text-secondary);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       white-space: pre-line;
     }
     .modal-content .modal-body .modal-btn {
       background: var(--bg-btn-primary);
       color: #fff;
       border: none;
-      padding: 12px 28px;
+      padding: 10px 24px;
       border-radius: 30px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       transition: 0.2s;
       font-family: inherit;
       width: 100%;
+      touch-action: manipulation;
     }
+    .modal-content .modal-body .modal-btn:active { transform: scale(0.97); }
     .modal-content .modal-body .modal-btn:hover {
       background: var(--bg-btn-primary-hover);
       transform: translateY(-2px);
     }
 
     /* ============================================================
-       CHAT HEADER
+       IMAGE PREVIEW - MOBILE FIRST
+       ============================================================ */
+    .image-preview-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      padding: 16px;
+    }
+    .image-preview-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .image-preview-overlay .preview-content {
+      max-width: 92vw;
+      max-height: 85vh;
+      position: relative;
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .image-preview-overlay.open .preview-content {
+      transform: scale(1) translateY(0);
+    }
+    .image-preview-overlay .preview-content img {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 14px;
+      box-shadow: var(--shadow-image-preview);
+      object-fit: contain;
+      display: block;
+    }
+    .image-preview-overlay .preview-close {
+      position: absolute;
+      top: -44px;
+      right: -6px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .image-preview-overlay .preview-close:hover {
+      background: rgba(255,255,255,0.3);
+      transform: rotate(90deg);
+    }
+    .image-preview-overlay .preview-caption {
+      color: #fff;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      opacity: 0.8;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      padding: 0 8px;
+    }
+    @media (max-width: 480px) {
+      .image-preview-overlay .preview-close {
+        top: -38px;
+        right: -4px;
+        font-size: 20px;
+        width: 32px;
+        height: 32px;
+      }
+      .image-preview-overlay .preview-content img {
+        max-height: 65vh;
+      }
+    }
+
+    /* ============================================================
+       CHAT HEADER - MOBILE FIRST
        ============================================================ */
     .chat-header {
       background: var(--bg-header);
       color: var(--text-header);
-      padding: 12px 14px;
+      padding: 10px 12px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       flex-shrink: 0;
       transition: background 0.3s ease;
       position: relative;
       z-index: 10;
-      min-height: 56px;
+      min-height: 48px;
     }
     .chat-header .logo {
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 700;
       cursor: pointer;
       transition: opacity 0.2s;
@@ -779,17 +874,17 @@
     .chat-header .logo span { color: #d4a574; }
 
     .chat-header .status {
-      font-size: 10px;
+      font-size: 9px;
       color: var(--text-header-muted);
       margin-left: auto;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
       transition: color 0.3s ease;
       white-space: nowrap;
     }
     .chat-header .status .dot {
-      width: 6px; height: 6px;
+      width: 5px; height: 5px;
       background: #4ade80;
       border-radius: 50%;
       display: inline-block;
@@ -804,9 +899,9 @@
     .menu-btn {
       background: none; border: none;
       color: var(--text-header-muted);
-      font-size: 22px;
+      font-size: 20px;
       cursor: pointer;
-      padding: 4px;
+      padding: 2px;
       transition: 0.2s;
       display: flex;
       align-items: center;
@@ -816,12 +911,12 @@
 
     .agent-indicators {
       display: flex;
-      gap: 4px;
+      gap: 3px;
       align-items: center;
       flex-shrink: 0;
     }
     .agent-indicators .indicator {
-      width: 26px; height: 26px;
+      width: 22px; height: 22px;
       border-radius: 50%;
       background-size: cover;
       background-position: center;
@@ -836,16 +931,16 @@
     .agent-indicators .indicator.active {
       border-color: #d4a574;
       transform: scale(1.1);
-      box-shadow: 0 0 12px rgba(212,165,116,0.5);
+      box-shadow: 0 0 10px rgba(212,165,116,0.5);
     }
     .agent-indicators .indicator.speaking {
       animation: speak-pulse 0.8s ease-in-out infinite alternate;
       border-color: #4ade80;
-      box-shadow: 0 0 16px rgba(74,222,128,0.6);
+      box-shadow: 0 0 14px rgba(74,222,128,0.6);
     }
     @keyframes speak-pulse {
-      0% { transform: scale(1); box-shadow: 0 0 8px rgba(74,222,128,0.3); }
-      100% { transform: scale(1.12); box-shadow: 0 0 20px rgba(74,222,128,0.8); }
+      0% { transform: scale(1); box-shadow: 0 0 6px rgba(74,222,128,0.3); }
+      100% { transform: scale(1.1); box-shadow: 0 0 18px rgba(74,222,128,0.8); }
     }
     .agent-indicators .indicator .wave-ring {
       position: absolute;
@@ -860,18 +955,18 @@
     }
     @keyframes ring-wave {
       0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(1.6); opacity: 0; }
+      100% { transform: scale(1.5); opacity: 0; }
     }
     .agent-indicators .indicator .agent-label {
       position: absolute;
-      bottom: -14px;
+      bottom: -12px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 7px;
+      font-size: 6px;
       background: rgba(0,0,0,0.7);
       color: #fff;
-      padding: 1px 5px;
-      border-radius: 6px;
+      padding: 1px 4px;
+      border-radius: 4px;
       white-space: nowrap;
       opacity: 0;
       transition: opacity 0.2s;
@@ -880,15 +975,15 @@
     .agent-indicators .indicator:hover .agent-label { opacity: 1; }
 
     /* ============================================================
-       MESSAGES
+       MESSAGES - MOBILE FIRST
        ============================================================ */
     .messages {
       flex: 1;
       overflow-y: auto;
-      padding: 14px 12px 8px 12px;
+      padding: 10px 10px 6px 10px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       background: var(--bg-messages);
       transition: background 0.3s ease;
       -webkit-overflow-scrolling: touch;
@@ -901,7 +996,7 @@
 
     .message {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       max-width: 94%;
       animation: fade-in 0.3s ease;
     }
@@ -913,13 +1008,13 @@
     }
 
     .avatar {
-      width: 32px; height: 32px;
+      width: 28px; height: 28px;
       border-radius: 50%;
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 600;
       color: #fff;
       margin-top: 2px;
@@ -935,23 +1030,23 @@
     .avatar.user {
       background-image: var(--user-avatar, url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face'));
       background-size: cover;
-      font-size: 14px;
+      font-size: 12px;
       text-indent: -9999px;
     }
     .avatar.system {
       background: var(--avatar-system);
-      font-size: 12px;
+      font-size: 10px;
       text-indent: 0;
     }
 
     .bubble {
       background: var(--bg-bubble-bot);
-      padding: 10px 14px;
-      border-radius: 14px;
+      padding: 8px 12px;
+      border-radius: 12px;
       border-top-left-radius: 4px;
       box-shadow: var(--shadow-bubble);
       line-height: 1.5;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-bubble-bot);
       flex: 1;
       border: 1px solid var(--border-bubble);
@@ -961,49 +1056,49 @@
     .message.user .bubble {
       background: var(--bg-bubble-user);
       color: var(--text-bubble-user);
-      border-top-left-radius: 14px;
+      border-top-left-radius: 12px;
       border-top-right-radius: 4px;
       border-color: transparent;
     }
     .bubble .agent-name {
       font-weight: 700;
-      font-size: 11px;
+      font-size: 10px;
       display: block;
       margin-bottom: 1px;
       color: var(--text-primary);
     }
     .bubble .agent-role {
-      font-size: 10px;
+      font-size: 9px;
       color: var(--text-muted);
       font-weight: 400;
       display: block;
       margin-bottom: 2px;
     }
     .bubble .agent-desc {
-      font-size: 10px;
+      font-size: 9px;
       color: var(--text-accent);
       font-weight: 500;
       display: inline-block;
-      margin-bottom: 4px;
-      padding: 2px 10px;
+      margin-bottom: 3px;
+      padding: 2px 8px;
       background: var(--bg-tag-highlight);
-      border-radius: 8px;
+      border-radius: 6px;
     }
     .bubble .personality-badge {
-      font-size: 8px;
+      font-size: 7px;
       color: #6c5ce7;
       font-weight: 600;
       display: inline-block;
-      margin-left: 4px;
+      margin-left: 3px;
       background: rgba(108,92,231,0.12);
-      padding: 1px 8px;
-      border-radius: 10px;
+      padding: 1px 6px;
+      border-radius: 8px;
     }
     .bubble .text { margin-top: 2px; color: var(--text-primary); }
     .bubble .text p { margin-bottom: 4px; }
     .bubble .text p:last-child { margin-bottom: 0; }
     .bubble .agent-context {
-      font-size: 10px;
+      font-size: 9px;
       color: var(--text-muted);
       font-style: italic;
       margin-top: 4px;
@@ -1013,54 +1108,68 @@
 
     .hair-image {
       width: 100%;
-      border-radius: 12px;
-      margin: 6px 0 8px 0;
+      border-radius: 10px;
+      margin: 4px 0 6px 0;
       display: block;
       border: 1px solid var(--border-input);
-      max-height: 180px;
+      max-height: 160px;
       object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .hair-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .hair-image:active {
+      transform: scale(0.98);
     }
     .hair-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      margin: 6px 0 8px 0;
+      gap: 5px;
+      margin: 4px 0 6px 0;
     }
     .hair-grid .hair-image {
       margin: 0;
-      max-height: 100px;
+      max-height: 90px;
     }
     .hair-grid-3 {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 6px;
-      margin: 6px 0 8px 0;
+      gap: 5px;
+      margin: 4px 0 6px 0;
     }
     .hair-grid-3 .hair-image {
       margin: 0;
-      max-height: 90px;
+      max-height: 80px;
       border-radius: 8px;
     }
     .hair-grid-3 .hair-label {
       text-align: center;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 600;
       color: var(--text-accent);
       margin-top: 2px;
+    }
+    .hair-grid-3 .hair-desc {
+      font-size: 8px;
+      color: var(--text-muted);
+      text-align: center;
     }
 
     .quick-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
+      gap: 5px;
+      margin-top: 8px;
     }
     .quick-buttons .btn {
       background: var(--bg-btn-outline);
       border: 1.5px solid var(--border-btn-outline);
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
+      padding: 5px 10px;
+      border-radius: 18px;
+      font-size: 11px;
       color: var(--text-secondary);
       cursor: pointer;
       transition: 0.2s;
@@ -1117,7 +1226,7 @@
 
     .divider {
       text-align: center;
-      font-size: 9px;
+      font-size: 8px;
       color: var(--text-muted);
       padding: 2px 0;
       letter-spacing: 1px;
@@ -1131,11 +1240,11 @@
       text-align: center;
       background: var(--bg-meeting);
       color: var(--text-accent);
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-size: 9px;
       font-weight: 600;
-      margin: 4px 0;
+      margin: 3px 0;
       transition: background 0.3s ease, color 0.3s ease;
     }
     .meeting-badge .pulse-text {
@@ -1148,34 +1257,34 @@
 
     .photo-upload {
       display: flex;
-      gap: 8px;
-      margin-top: 6px;
+      gap: 6px;
+      margin-top: 4px;
       flex-wrap: wrap;
     }
-    .photo-upload .btn { flex: 1; justify-content: center; min-width: 80px; }
+    .photo-upload .btn { flex: 1; justify-content: center; min-width: 70px; }
 
     .chat-input {
-      padding: 10px 12px 14px 12px;
-      padding-bottom: calc(14px + var(--safe-bottom));
+      padding: 8px 10px 12px 10px;
+      padding-bottom: calc(12px + var(--safe-bottom));
       background: var(--bg-chat);
       border-top: 1px solid var(--border-input);
       display: flex;
-      gap: 8px;
+      gap: 6px;
       flex-shrink: 0;
       transition: background 0.3s ease, border-color 0.3s ease;
     }
     .chat-input input {
       flex: 1;
-      padding: 10px 14px;
+      padding: 8px 12px;
       border: 1.5px solid var(--border-input);
-      border-radius: 24px;
-      font-size: 13px;
+      border-radius: 20px;
+      font-size: 12px;
       outline: none;
       transition: 0.2s;
       font-family: inherit;
       background: var(--bg-input);
       color: var(--text-primary);
-      min-height: 42px;
+      min-height: 36px;
       -webkit-appearance: none;
     }
     .chat-input input:focus {
@@ -1184,16 +1293,16 @@
     }
     .chat-input input::placeholder {
       color: var(--text-muted);
-      font-size: 12px;
+      font-size: 11px;
     }
     .chat-input .send-btn {
       background: var(--bg-btn-primary);
       color: #fff;
       border: none;
-      width: 42px; height: 42px;
+      width: 36px; height: 36px;
       border-radius: 50%;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 14px;
       transition: 0.2s;
       display: flex;
       align-items: center;
@@ -1205,48 +1314,48 @@
     .chat-input .send-btn:hover { background: var(--bg-btn-primary-hover); }
 
     /* ============================================================
-       PRODUTOS
+       PRODUTOS - MOBILE FIRST
        ============================================================ */
     .product-card {
       background: var(--product-bg);
-      border-radius: 12px;
-      padding: 10px 12px;
-      margin: 6px 0;
+      border-radius: 10px;
+      padding: 8px 10px;
+      margin: 4px 0;
       border: 1px solid var(--product-border);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       transition: all 0.2s;
     }
     .product-card:active { transform: scale(0.98); }
     .product-card .product-icon {
-      font-size: 24px;
+      font-size: 20px;
       flex-shrink: 0;
-      width: 38px;
+      width: 32px;
       text-align: center;
     }
     .product-card .product-info { flex: 1; }
     .product-card .product-info .product-name {
       font-weight: 600;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-primary);
     }
     .product-card .product-info .product-desc {
-      font-size: 10px;
+      font-size: 9px;
       color: var(--text-muted);
     }
     .product-card .product-info .product-price {
       font-weight: 700;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-accent);
     }
     .product-card .product-btn {
       background: var(--bg-btn-accent);
       color: #fff;
       border: none;
-      padding: 4px 12px;
-      border-radius: 16px;
-      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 14px;
+      font-size: 9px;
       cursor: pointer;
       transition: 0.2s;
       font-family: inherit;
@@ -1261,17 +1370,17 @@
 
     .share-buttons {
       display: flex;
-      gap: 6px;
+      gap: 5px;
       flex-wrap: wrap;
-      margin-top: 8px;
+      margin-top: 6px;
     }
     .share-buttons .share-btn {
       flex: 1;
-      min-width: 56px;
-      padding: 8px 10px;
-      border-radius: 20px;
+      min-width: 48px;
+      padding: 6px 8px;
+      border-radius: 18px;
       border: none;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
       cursor: pointer;
       transition: 0.2s;
@@ -1279,7 +1388,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 4px;
+      gap: 3px;
       touch-action: manipulation;
     }
     .share-buttons .share-btn:active { transform: scale(0.95); }
@@ -1296,65 +1405,73 @@
       display: inline-block;
       background: linear-gradient(135deg, #6c5ce7, #a29bfe);
       color: #fff;
-      font-size: 7px;
+      font-size: 6px;
       font-weight: 700;
-      padding: 1px 7px;
-      border-radius: 10px;
-      margin-left: 4px;
+      padding: 1px 5px;
+      border-radius: 8px;
+      margin-left: 3px;
       letter-spacing: 0.3px;
       animation: ia-pulse 2s ease-in-out infinite;
       vertical-align: middle;
     }
 
     /* ============================================================
-       RESPONSIVO
+       RESPONSIVO - TABLETS E DESKTOP
        ============================================================ */
     @media (min-width: 600px) {
-      body { padding: 20px; }
+      body { padding: 16px; }
       .landing-page {
-        border-radius: 32px;
+        border-radius: 28px;
         box-shadow: var(--shadow-chat);
       }
-      .landing-header { padding: 16px 32px; }
-      .landing-header .logo { font-size: 24px; }
-      .hero { padding: 60px 32px 50px; }
-      .hero h1 { font-size: 2.6rem; }
-      .hero p { font-size: 1.1rem; }
+      .landing-header { padding: 16px 28px; }
+      .landing-header .logo { font-size: 22px; }
+      .hero { padding: 48px 28px 40px; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
       .hero .btn-hero { width: auto; }
-      .carousels-section { padding: 40px 32px 50px; }
-      .carousels-grid { grid-template-columns: repeat(2, 1fr); max-width: 800px; gap: 24px; }
-      .carousel-card .carousel-img { height: 200px; }
+      .carousels-section { padding: 32px 24px 40px; }
+      .carousels-grid { grid-template-columns: repeat(2, 1fr); max-width: 700px; gap: 20px; }
+      .carousel-card .carousel-img { height: 180px; }
+      .carousel-card .carousel-body p { font-size: 0.85rem; }
       .chat-container {
-        height: 780px;
+        height: 700px;
         max-height: 90vh;
-        border-radius: 32px;
+        border-radius: 28px;
         box-shadow: var(--shadow-chat);
-        max-width: 480px;
+        max-width: 440px;
       }
-      .modal-content { max-width: 400px; }
+      .modal-content { max-width: 380px; }
+      .avatar { width: 32px; height: 32px; }
+      .bubble { font-size: 13px; padding: 10px 14px; }
+      .hair-grid-3 .hair-image { max-height: 100px; }
+      .agent-indicators .indicator { width: 26px; height: 26px; }
     }
 
     @media (min-width: 992px) {
-      .carousels-grid { grid-template-columns: repeat(4, 1fr); max-width: 1100px; }
+      .carousels-grid { grid-template-columns: repeat(4, 1fr); max-width: 1000px; }
+      .chat-container { max-width: 480px; height: 780px; }
     }
 
     @media (max-width: 380px) {
-      .hero h1 { font-size: 1.6rem; }
-      .hero p { font-size: 0.9rem; }
-      .chat-header .logo { font-size: 15px; }
-      .agent-indicators .indicator { width: 22px; height: 22px; }
-      .bubble { font-size: 12px; padding: 8px 12px; }
-      .quick-buttons .btn { font-size: 10px; padding: 4px 10px; }
-      .chat-input input { font-size: 12px; padding: 8px 12px; }
-      .chat-input .send-btn { width: 36px; height: 36px; font-size: 14px; }
+      .hero h1 { font-size: 1.4rem; }
+      .hero p { font-size: 0.8rem; }
+      .chat-header .logo { font-size: 13px; }
+      .agent-indicators .indicator { width: 18px; height: 18px; }
+      .bubble { font-size: 11px; padding: 6px 10px; }
+      .quick-buttons .btn { font-size: 9px; padding: 4px 8px; }
+      .chat-input input { font-size: 11px; padding: 6px 10px; }
+      .chat-input .send-btn { width: 32px; height: 32px; font-size: 12px; }
+      .hair-grid-3 { grid-template-columns: 1fr 1fr; }
+      .hair-grid-3 .hair-image { max-height: 100px; }
     }
 
     @supports (padding: max(0px)) {
       .chat-input {
-        padding-bottom: max(14px, env(safe-area-inset-bottom));
+        padding-bottom: max(12px, env(safe-area-inset-bottom));
       }
       .landing-header {
-        padding-top: max(14px, env(safe-area-inset-top));
+        padding-top: max(12px, env(safe-area-inset-top));
       }
     }
   </style>
@@ -1540,7 +1657,7 @@
           <div class="carousel-body">
             <h3>✂️ Arthur</h3>
             <div class="personality-tag">🎭 Criativo · Técnico · Observador</div>
-            <p>Especialista em cortes — estrutura, densidade e movimento com um toque artístico.</p>
+            <p>Especialista em cortes — transforma diagnóstico em execução técnica precisa.</p>
             <button class="btn-saiba" data-modal="arthur">Saiba mais</button>
           </div>
         </div>
@@ -1558,7 +1675,7 @@
           <div class="carousel-body">
             <h3>👤 Rafael</h3>
             <div class="personality-tag">🎭 Filósofo · Analítico · Equilibrado</div>
-            <p>Especialista em visagismo — proporções faciais e estilo com profundidade filosófica.</p>
+            <p>Especialista em visagismo — diagnóstico de imagem, proporções faciais e estilo pessoal.</p>
             <button class="btn-saiba" data-modal="rafael">Saiba mais</button>
           </div>
         </div>
@@ -1589,6 +1706,17 @@
         <div class="modal-text" id="modalText"></div>
         <button class="modal-btn" id="modalBtn">👋 Falar com especialista</button>
       </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+  IMAGE PREVIEW (ampliação de imagem ao clicar)
+  ============================================================ -->
+  <div class="image-preview-overlay" id="imagePreviewOverlay">
+    <div class="preview-content">
+      <button class="preview-close" id="previewClose">✕</button>
+      <img id="previewImage" src="" alt="Visualização ampliada" loading="lazy" />
+      <div class="preview-caption" id="previewCaption"></div>
     </div>
   </div>
 
@@ -1869,7 +1997,41 @@
     }
 
     // ============================================================
-    // 4. MODAL
+    // 4. IMAGE PREVIEW (ampliação de imagem)
+    // ============================================================
+    const previewOverlay = document.getElementById('imagePreviewOverlay');
+    const previewImage = document.getElementById('previewImage');
+    const previewCaption = document.getElementById('previewCaption');
+    const previewClose = document.getElementById('previewClose');
+
+    function openImagePreview(src, caption = '') {
+      previewImage.src = src;
+      previewImage.alt = caption || 'Visualização ampliada';
+      previewCaption.textContent = caption || '';
+      previewOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImagePreview() {
+      previewOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        if (!previewOverlay.classList.contains('open')) {
+          previewImage.src = '';
+        }
+      }, 400);
+    }
+
+    previewClose.addEventListener('click', closeImagePreview);
+    previewOverlay.addEventListener('click', (e) => {
+      if (e.target === previewOverlay) closeImagePreview();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeImagePreview();
+    });
+
+    // ============================================================
+    // 5. MODAL
     // ============================================================
     const modalData = {
       helena: {
@@ -1882,8 +2044,8 @@
       arthur: {
         image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=face',
         title: 'Arthur',
-        subtitle: '✂️ Especialista em Cortes — Estrutura e Movimento',
-        text: 'Arthur é um verdadeiro artista dos cortes. Ele analisa a estrutura do seu cabelo, densidade e movimento para criar o corte que valoriza seu rosto e personalidade. Técnico e criativo, ele transforma cada cabelo em uma obra de arte.\n\n🎭 Personalidade: Criativo, Técnico e Observador.',
+        subtitle: '✂️ Especialista em Cortes — Técnica e Execução',
+        text: 'Arthur é um verdadeiro artista dos cortes. Ele recebe o diagnóstico de Rafael e transforma em solução técnica. Analisa a estrutura do seu cabelo, densidade, textura e movimento para criar o corte que valoriza seu rosto e personalidade. Técnico e criativo, ele transforma cada cabelo em uma obra de arte.\n\n🎭 Personalidade: Criativo, Técnico e Observador.',
         btnText: '✂️ Falar com Arthur'
       },
       isabella: {
@@ -1896,8 +2058,8 @@
       rafael: {
         image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=400&fit=crop&crop=face',
         title: 'Rafael',
-        subtitle: '👤 Especialista em Visagismo — Proporções e Estilo',
-        text: 'Rafael é um mestre do visagismo. Ele estuda proporções faciais, traços e personalidade para criar uma imagem harmônica que comunica quem você é. Analítico e filosófico, ele acredita que cada rosto tem uma história única a contar.\n\n🎭 Personalidade: Filósofo, Analítico e Equilibrado.',
+        subtitle: '👤 Especialista em Visagismo — Diagnóstico e Imagem',
+        text: 'Rafael é um mestre do visagismo. Ele estuda proporções faciais, traços e personalidade para criar um perfil visual completo. Analítico e filosófico, ele acredita que cada rosto tem uma história única a contar. Seu diagnóstico é a base para as recomendações técnicas de Arthur e Isabella.\n\n🎭 Personalidade: Filósofo, Analítico e Equilibrado.',
         btnText: '👤 Falar com Rafael'
       }
     };
@@ -1961,7 +2123,7 @@
     });
 
     // ============================================================
-    // 5. NAVEGAÇÃO
+    // 6. NAVEGAÇÃO
     // ============================================================
     const landingPage = document.getElementById('landingPage');
     const chatContainer = document.getElementById('app');
@@ -1989,7 +2151,7 @@
     document.getElementById('logoBtn').addEventListener('click', mostrarLanding);
 
     // ============================================================
-    // 6. AGENTES
+    // 7. AGENTES
     // ============================================================
     const AGENTES = {
       helena: {
@@ -2007,7 +2169,7 @@
       arthur: {
         nome: 'Arthur',
         role: 'Especialista em Cortes',
-        descricao: '✂️ Analisa estrutura, densidade e movimento para criar o corte ideal',
+        descricao: '✂️ Transforma diagnóstico em técnica de corte precisa',
         emoji: '✂️',
         avatar: 'arthur',
         personalidade: 'Criativo, Técnico, Observador',
@@ -2031,7 +2193,7 @@
       rafael: {
         nome: 'Rafael',
         role: 'Especialista em Visagismo',
-        descricao: '👤 Estuda proporções faciais e estilo para uma imagem harmônica',
+        descricao: '👤 Diagnóstico de imagem, proporções faciais e estilo pessoal',
         emoji: '👤',
         avatar: 'rafael',
         personalidade: 'Filósofo, Analítico, Equilibrado',
@@ -2044,7 +2206,7 @@
     };
 
     // ============================================================
-    // 7. IMAGENS
+    // 8. IMAGENS
     // ============================================================
     const HAIR_IMAGES = {
       short_bob: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&h=300&fit=crop',
@@ -2065,7 +2227,7 @@
     };
 
     // ============================================================
-    // 8. PRODUTOS
+    // 9. PRODUTOS
     // ============================================================
     const PRODUTOS = {
       arthur: [
@@ -2089,63 +2251,161 @@
     };
 
     // ============================================================
-    // 9. QUIZ
+    // 10. QUIZ - RAFAEL (VISAGISMO E PERFIL VISUAL) - COM 3 IMAGENS
     // ============================================================
     const QUIZ = {
+      rafael: {
+        titulo: '👤 Quiz de Visagismo e Perfil Visual',
+        agente: 'rafael',
+        perguntas: [
+          { id: 'q1', pergunta: 'Qual o formato do seu rosto?', opcoes: [{ label: 'Oval', valor: 'oval' }, { label: 'Quadrado', valor: 'quadrado' }, { label: 'Redondo', valor: 'redondo' }, { label: 'Coração', valor: 'coracao' }, { label: 'Diamante', valor: 'diamante' }] },
+          { id: 'q2', pergunta: 'Qual a característica mais marcante do seu rosto?', opcoes: [{ label: 'Olhos expressivos', valor: 'olhos' }, { label: 'Maçãs do rosto altas', valor: 'macas' }, { label: 'Mandíbula forte', valor: 'mandibula' }, { label: 'Queixo fino', valor: 'queixo' }] },
+          { id: 'q3', pergunta: 'Como você deseja ser percebido?', opcoes: [{ label: 'Autoridade e Profissionalismo', valor: 'autoridade' }, { label: 'Criatividade e Inovação', valor: 'criatividade' }, { label: 'Acessibilidade e Confiança', valor: 'confianca' }] },
+          { id: 'q4', pergunta: 'Qual estilo de imagem combina com você?', opcoes: [{ label: 'Linhas Suaves e Fluídas', valor: 'suave' }, { label: 'Linhas Estruturadas', valor: 'estruturado' }, { label: 'Linhas Desconectadas', valor: 'desconectado' }] },
+          { id: 'q5', pergunta: 'Qual o seu objetivo com a mudança de imagem?', opcoes: [{ label: 'Renovação pessoal', valor: 'renovacao' }, { label: 'Autoconfiança', valor: 'autoconfianca' }, { label: 'Impacto visual', valor: 'impacto' }] }
+        ],
+        resultado: function(respostas) {
+          let r = [];
+          const f = respostas.q1 || '', c = respostas.q2 || '', m = respostas.q3 || '', e = respostas.q4 || '', o = respostas.q5 || '';
+          if (f === 'oval') r.push('🟢 Rosto oval: estrutura versátil e equilibrada');
+          else if (f === 'quadrado') r.push('🔹 Rosto quadrado: linhas fortes e marcantes');
+          else if (f === 'redondo') r.push('🔸 Rosto redondo: traços suaves e acolhedores');
+          else if (f === 'coracao') r.push('🔺 Rosto coração: expressivo e cheio de personalidade');
+          else if (f === 'diamante') r.push('💎 Rosto diamante: elegante e sofisticado');
+          if (c === 'olhos') r.push('👁️ Olhos expressivos: seu ponto de destaque');
+          else if (c === 'macas') r.push('🟤 Maçãs altas: traços marcantes e definidos');
+          else if (c === 'mandibula') r.push('🦴 Mandíbula forte: presença e determinação');
+          else if (c === 'queixo') r.push('🎯 Queixo fino: delicadeza e suavidade');
+          if (m === 'autoridade') r.push('💼 Perfil de autoridade: presença e liderança');
+          else if (m === 'criatividade') r.push('🎨 Perfil criativo: originalidade e inovação');
+          else if (m === 'confianca') r.push('🤝 Perfil de confiança: acolhimento e segurança');
+          if (e === 'suave') r.push('🌊 Estilo suave: fluidez e naturalidade');
+          else if (e === 'estruturado') r.push('📐 Estilo estruturado: definição e precisão');
+          else if (e === 'desconectado') r.push('🌀 Estilo desconectado: modernidade e ousadia');
+          if (o === 'renovacao') r.push('🌟 Busca por renovação e leveza');
+          else if (o === 'autoconfianca') r.push('💪 Busca por autoconfiança e autenticidade');
+          else if (o === 'impacto') r.push('🔥 Busca por impacto e presença');
+          return r;
+        },
+        getImagemRecomendacao: function(respostas) {
+          const f = respostas.q1 || '';
+          const mapa = { 'oval': HAIR_IMAGES.visagismo_oval, 'quadrado': HAIR_IMAGES.visagismo_quadrado, 'redondo': HAIR_IMAGES.visagismo_redondo, 'coracao': HAIR_IMAGES.visagismo_coracao, 'diamante': HAIR_IMAGES.visagismo_diamante };
+          return mapa[f] || HAIR_IMAGES.visagismo_oval;
+        },
+        getSugestoes: function(respostas) {
+          // Rafael entrega 3 imagens de perfil visual
+          const f = respostas.q1 || '';
+          const perfis = {
+            'oval': '🟢 Perfil Oval — Versátil e equilibrado',
+            'quadrado': '🔹 Perfil Quadrado — Estruturado e marcante',
+            'redondo': '🔸 Perfil Redondo — Suave e acolhedor',
+            'coracao': '🔺 Perfil Coração — Expressivo e cheio de personalidade',
+            'diamante': '💎 Perfil Diamante — Elegante e sofisticado'
+          };
+          
+          // Mapeamento de 3 imagens para cada formato de rosto
+          const imagensPorFormato = {
+            'oval': [
+              HAIR_IMAGES.visagismo_oval,
+              HAIR_IMAGES.short_bob,
+              HAIR_IMAGES.long_bob
+            ],
+            'quadrado': [
+              HAIR_IMAGES.visagismo_quadrado,
+              HAIR_IMAGES.short_bob,
+              HAIR_IMAGES.butterfly
+            ],
+            'redondo': [
+              HAIR_IMAGES.visagismo_redondo,
+              HAIR_IMAGES.pixie,
+              HAIR_IMAGES.butterfly
+            ],
+            'coracao': [
+              HAIR_IMAGES.visagismo_coracao,
+              HAIR_IMAGES.butterfly,
+              HAIR_IMAGES.long_bob
+            ],
+            'diamante': [
+              HAIR_IMAGES.visagismo_diamante,
+              HAIR_IMAGES.short_bob,
+              HAIR_IMAGES.pixie
+            ]
+          };
+          
+          const imagens = imagensPorFormato[f] || [HAIR_IMAGES.visagismo_oval, HAIR_IMAGES.short_bob, HAIR_IMAGES.long_bob];
+          const descs = [
+            'Diagnóstico visual do seu perfil',
+            'Sugestão de estilo complementar',
+            'Alternativa para valorizar seus traços'
+          ];
+          
+          return imagens.map((img, index) => ({
+            nome: perfis[f] || 'Perfil Personalizado',
+            imagem: img,
+            desc: descs[index] || 'Opção para seu perfil'
+          }));
+        }
+      },
       arthur: {
         titulo: '✂️ Quiz do Corte Ideal',
         agente: 'arthur',
         perguntas: [
-          { id: 'q1', pergunta: 'Qual o formato do seu rosto?', opcoes: [{ label: 'Oval', valor: 'oval' }, { label: 'Quadrado', valor: 'quadrado' }, { label: 'Redondo', valor: 'redondo' }, { label: 'Coração', valor: 'coracao' }] },
-          { id: 'q2', pergunta: 'Qual a textura do seu cabelo?', opcoes: [{ label: 'Liso', valor: 'liso' }, { label: 'Ondulado', valor: 'ondulado' }, { label: 'Cacheado', valor: 'cacheado' }, { label: 'Crespo', valor: 'crespo' }] },
-          { id: 'q3', pergunta: 'Como é sua densidade capilar?', opcoes: [{ label: 'Fino', valor: 'fino' }, { label: 'Médio', valor: 'medio' }, { label: 'Grosso', valor: 'grosso' }] },
-          { id: 'q4', pergunta: 'Qual estilo de corte você prefere?', opcoes: [{ label: 'Moderno e Versátil', valor: 'moderno' }, { label: 'Ousado e Despojado', valor: 'ousado' }, { label: 'Clássico e Elegante', valor: 'classico' }] },
-          { id: 'q5', pergunta: 'Quanto tempo quer gastar com manutenção?', opcoes: [{ label: 'Baixa (lavar e sair)', valor: 'baixa' }, { label: 'Média (alguma modelagem)', valor: 'media' }, { label: 'Alta (estilo elaborado)', valor: 'alta' }] }
+          { id: 'q1', pergunta: 'Qual a textura do seu cabelo?', opcoes: [{ label: 'Liso', valor: 'liso' }, { label: 'Ondulado', valor: 'ondulado' }, { label: 'Cacheado', valor: 'cacheado' }, { label: 'Crespo', valor: 'crespo' }] },
+          { id: 'q2', pergunta: 'Como é a densidade do seu cabelo?', opcoes: [{ label: 'Fino (poucos fios)', valor: 'fino' }, { label: 'Médio', valor: 'medio' }, { label: 'Grosso (muitos fios)', valor: 'grosso' }] },
+          { id: 'q3', pergunta: 'Você gosta de volume no cabelo?', opcoes: [{ label: 'Sim, adoro volume', valor: 'volume_sim' }, { label: 'Prefiro mais rente', valor: 'volume_nao' }, { label: 'Equilibrado', valor: 'volume_medio' }] },
+          { id: 'q4', pergunta: 'Quanto tempo dedica para arrumar o cabelo?', opcoes: [{ label: 'Pouco (lavar e sair)', valor: 'baixa' }, { label: 'Médio (alguma modelagem)', valor: 'media' }, { label: 'Muito (estilo elaborado)', valor: 'alta' }] },
+          { id: 'q5', pergunta: 'Qual comprimento você deseja?', opcoes: [{ label: 'Curto (acima das orelhas)', valor: 'curto' }, { label: 'Médio (no queixo/ombros)', valor: 'medio' }, { label: 'Longo (abaixo dos ombros)', valor: 'longo' }] }
         ],
         resultado: function(respostas) {
           let r = [];
-          const f = respostas.q1 || '', t = respostas.q2 || '', d = respostas.q3 || '', e = respostas.q4 || '', m = respostas.q5 || '';
-          if (f === 'oval') r.push('🟢 Rosto oval: praticamente tudo combina!');
-          else if (f === 'quadrado') r.push('🔹 Rosto quadrado: cortes que suavizam a mandíbula são ideais');
-          else if (f === 'redondo') r.push('🔸 Rosto redondo: cortes com volume no topo alongam a silhueta');
-          else if (f === 'coracao') r.push('🔺 Rosto coração: franjas laterais equilibram a testa');
-          if (t === 'liso') r.push('💇 Cabelo liso: cortes retos ou com camadas leves');
-          else if (t === 'ondulado') r.push('🌊 Cabelo ondulado: cortes em camadas valorizam o movimento');
+          const t = respostas.q1 || '', d = respostas.q2 || '', v = respostas.q3 || '', m = respostas.q4 || '', c = respostas.q5 || '';
+          
+          if (t === 'liso') r.push('💇 Cabelo liso: cortes retos ou com camadas leves funcionam bem');
+          else if (t === 'ondulado') r.push('🌊 Cabelo ondulado: cortes em camadas valorizam o movimento natural');
           else if (t === 'cacheado') r.push('🌀 Cabelo cacheado: cortes que respeitam o formato dos cachos');
-          else if (t === 'crespo') r.push('🌟 Cabelo crespo: cortes com formato definido');
-          if (d === 'fino') r.push('📏 Cabelo fino: cortes retos dão volume');
-          else if (d === 'grosso') r.push('📏 Cabelo grosso: camadas internas reduzem peso');
-          if (e === 'moderno') r.push('✨ Estilo moderno: Short Bob ou Butterfly');
-          else if (e === 'ousado') r.push('🔥 Estilo ousado: Pixie ou Shaggy Cut');
-          else if (e === 'classico') r.push('👔 Estilo clássico: Long Bob ou corte reto');
-          if (m === 'baixa') r.push('⚡ Baixa manutenção: cortes que mantêm a forma natural');
+          else if (t === 'crespo') r.push('🌟 Cabelo crespo: cortes com formato definido e bem desenhado');
+          
+          if (d === 'fino') r.push('📏 Fios finos: cortes retos ou com pouco desfiado para dar volume');
+          else if (d === 'medio') r.push('📏 Fios médios: versatilidade para diferentes técnicas');
+          else if (d === 'grosso') r.push('📏 Fios grossos: camadas internas para reduzir peso e dar movimento');
+          
+          if (v === 'volume_sim') r.push('💨 Com volume: técnicas que maximizam o volume natural');
+          else if (v === 'volume_nao') r.push('📐 Sem volume: cortes mais rentes e com pouco desfiado');
+          else if (v === 'volume_medio') r.push('⚖️ Volume equilibrado: camadas médias para um resultado natural');
+          
+          if (m === 'baixa') r.push('⚡ Baixa manutenção: cortes que mantêm a forma natural sem muito esforço');
           else if (m === 'media') r.push('⏳ Manutenção média: retoques a cada 4-6 semanas');
-          else if (m === 'alta') r.push('💈 Alta manutenção: estilo elaborado com retoques mensais');
+          else if (m === 'alta') r.push('💈 Alta manutenção: estilo elaborado com retoques mensais e cuidados específicos');
+          
+          if (c === 'curto') r.push('✂️ Curto: prático, moderno e cheio de atitude');
+          else if (c === 'medio') r.push('✂️ Médio: versátil, combina com diversos estilos');
+          else if (c === 'longo') r.push('✂️ Longo: elegante, permite várias possibilidades de penteado');
+          
           return r;
         },
         getImagemRecomendacao: function(respostas) {
-          const e = respostas.q4 || '', f = respostas.q1 || '';
-          if (e === 'moderno' || e === 'classico') return HAIR_IMAGES.short_bob;
-          if (e === 'ousado') return HAIR_IMAGES.pixie;
-          if (f === 'redondo' || f === 'coracao') return HAIR_IMAGES.butterfly;
+          const c = respostas.q5 || '', t = respostas.q1 || '';
+          if (c === 'curto') return HAIR_IMAGES.pixie;
+          if (c === 'medio') return HAIR_IMAGES.short_bob;
+          if (c === 'longo') return HAIR_IMAGES.long_bob;
           return HAIR_IMAGES.short_bob;
         },
         getSugestoes: function(respostas) {
-          const e = respostas.q4 || '', f = respostas.q1 || '';
-          if (e === 'moderno' || e === 'classico') return [
+          const c = respostas.q5 || '', t = respostas.q1 || '';
+          if (c === 'curto') return [
+            { nome: 'Pixie', imagem: HAIR_IMAGES.pixie, desc: 'Curto, prático e cheio de personalidade' },
             { nome: 'Short Bob', imagem: HAIR_IMAGES.short_bob, desc: 'Moderno, versátil, na altura do queixo' },
-            { nome: 'Butterfly', imagem: HAIR_IMAGES.butterfly, desc: 'Camadas suaves que criam movimento' },
-            { nome: 'Long Bob', imagem: HAIR_IMAGES.long_bob, desc: 'Elegante, comprimento médio' }
+            { nome: 'Butterfly', imagem: HAIR_IMAGES.butterfly, desc: 'Camadas suaves que criam movimento' }
           ];
-          if (e === 'ousado') return [
-            { nome: 'Pixie', imagem: HAIR_IMAGES.pixie, desc: 'Curto, ousado, cheio de personalidade' },
-            { nome: 'Shaggy', imagem: HAIR_IMAGES.shaggy, desc: 'Desconectado, texturizado, rock\'n\'roll' },
-            { nome: 'Butterfly', imagem: HAIR_IMAGES.butterfly, desc: 'Camadas suaves e movimento' }
+          if (c === 'medio') return [
+            { nome: 'Short Bob', imagem: HAIR_IMAGES.short_bob, desc: 'Moderno, versátil, na altura do queixo' },
+            { nome: 'Long Bob', imagem: HAIR_IMAGES.long_bob, desc: 'Elegante, comprimento médio' },
+            { nome: 'Butterfly', imagem: HAIR_IMAGES.butterfly, desc: 'Camadas suaves que criam movimento' }
           ];
           return [
-            { nome: 'Short Bob', imagem: HAIR_IMAGES.short_bob, desc: 'Moderno e versátil' },
-            { nome: 'Butterfly', imagem: HAIR_IMAGES.butterfly, desc: 'Leveza e movimento' },
-            { nome: 'Pixie', imagem: HAIR_IMAGES.pixie, desc: 'Ousado e cheio de atitude' }
+            { nome: 'Long Bob', imagem: HAIR_IMAGES.long_bob, desc: 'Elegante, comprimento longo médio' },
+            { nome: 'Butterfly', imagem: HAIR_IMAGES.butterfly, desc: 'Camadas suaves e movimento' },
+            { nome: 'Shaggy', imagem: HAIR_IMAGES.shaggy, desc: 'Desconectado, texturizado e moderno' }
           ];
         }
       },
@@ -2157,7 +2417,7 @@
           { id: 'q2', pergunta: 'Como sua pele reage ao sol?', opcoes: [{ label: 'Bronzeia com facilidade', valor: 'bronzeia' }, { label: 'Queima com facilidade', valor: 'queima' }, { label: 'Queima e depois bronzeia', valor: 'mista' }] },
           { id: 'q3', pergunta: 'Qual a cor natural dos seus olhos?', opcoes: [{ label: 'Castanho escuro ou mel', valor: 'castanho_escuro' }, { label: 'Azul ou cinza', valor: 'azul_cinza' }, { label: 'Verde ou avelã', valor: 'verde_avela' }] },
           { id: 'q4', pergunta: 'Qual estilo de cor você prefere?', opcoes: [{ label: 'Natural e Iluminado', valor: 'natural' }, { label: 'Vibrante e Ousado', valor: 'vibrante' }, { label: 'Sofisticado e Elegante', valor: 'sofisticado' }] },
-          { id: 'q5', pergunta: 'Quanto tempo quer gastar com manutenção?', opcoes: [{ label: 'Baixa (cor natural ou ombre)', valor: 'baixa' }, { label: 'Média (retoque 2-3 meses)', valor: 'media' }, { label: 'Alta (retoque mensal)', valor: 'alta' }] }
+          { id: 'q5', pergunta: 'Quanto tempo quer gastar com manutenção da cor?', opcoes: [{ label: 'Baixa (cor natural ou ombre)', valor: 'baixa' }, { label: 'Média (retoque 2-3 meses)', valor: 'media' }, { label: 'Alta (retoque mensal)', valor: 'alta' }] }
         ],
         resultado: function(respostas) {
           let r = [];
@@ -2204,84 +2464,22 @@
             { nome: 'Caramelo', imagem: HAIR_IMAGES.caramelo, desc: 'Sofisticado e elegante' }
           ];
         }
-      },
-      rafael: {
-        titulo: '👤 Quiz do Visagismo',
-        agente: 'rafael',
-        perguntas: [
-          { id: 'q1', pergunta: 'Qual o formato do seu rosto?', opcoes: [{ label: 'Oval', valor: 'oval' }, { label: 'Quadrado', valor: 'quadrado' }, { label: 'Redondo', valor: 'redondo' }, { label: 'Coração', valor: 'coracao' }, { label: 'Diamante', valor: 'diamante' }] },
-          { id: 'q2', pergunta: 'Qual a característica mais marcante do seu rosto?', opcoes: [{ label: 'Olhos expressivos', valor: 'olhos' }, { label: 'Maçãs do rosto altas', valor: 'macas' }, { label: 'Mandíbula forte', valor: 'mandibula' }, { label: 'Queixo fino', valor: 'queixo' }] },
-          { id: 'q3', pergunta: 'Qual mensagem você quer transmitir?', opcoes: [{ label: 'Autoridade e Profissionalismo', valor: 'autoridade' }, { label: 'Criatividade e Inovação', valor: 'criatividade' }, { label: 'Acessibilidade e Confiança', valor: 'confianca' }] },
-          { id: 'q4', pergunta: 'Qual estilo de imagem combina com você?', opcoes: [{ label: 'Linhas Suaves e Fluídas', valor: 'suave' }, { label: 'Linhas Estruturadas', valor: 'estruturado' }, { label: 'Linhas Desconectadas', valor: 'desconectado' }] },
-          { id: 'q5', pergunta: 'O que você busca com a mudança?', opcoes: [{ label: 'Renovação pessoal', valor: 'renovacao' }, { label: 'Autoconfiança', valor: 'autoconfianca' }, { label: 'Impacto visual', valor: 'impacto' }] }
-        ],
-        resultado: function(respostas) {
-          let r = [];
-          const f = respostas.q1 || '', c = respostas.q2 || '', m = respostas.q3 || '', e = respostas.q4 || '', o = respostas.q5 || '';
-          if (f === 'oval') r.push('🟢 Rosto oval: estrutura versátil, tudo combina!');
-          else if (f === 'quadrado') r.push('🔹 Rosto quadrado: suavize a mandíbula com linhas curvas');
-          else if (f === 'redondo') r.push('🔸 Rosto redondo: alongue com volume no topo');
-          else if (f === 'coracao') r.push('🔺 Rosto coração: equilibre a testa com franjas laterais');
-          else if (f === 'diamante') r.push('💎 Rosto diamante: valorize as maçãs com movimento');
-          if (c === 'olhos') r.push('👁️ Olhos expressivos: franjas que os valorizam');
-          else if (c === 'macas') r.push('🟤 Maçãs altas: cortes com volume nessa região');
-          else if (c === 'mandibula') r.push('🦴 Mandíbula forte: cortes que criam leveza');
-          else if (c === 'queixo') r.push('🎯 Queixo fino: volume na nuca para equilibrar');
-          if (m === 'autoridade') r.push('💼 Autoridade: linhas verticais e estrutura');
-          else if (m === 'criatividade') r.push('🎨 Criatividade: linhas diagonais e desconexão');
-          else if (m === 'confianca') r.push('🤝 Confiança: linhas horizontais e acolhimento');
-          if (e === 'suave') r.push('🌊 Linhas suaves: cortes fluidos e naturais');
-          else if (e === 'estruturado') r.push('📐 Linhas estruturadas: cortes definidos e precisos');
-          else if (e === 'desconectado') r.push('🌀 Linhas desconectadas: cortes modernos e ousados');
-          if (o === 'renovacao') r.push('🌟 Renovação: mudança que traz leveza');
-          else if (o === 'autoconfianca') r.push('💪 Autoconfiança: visual que te representa');
-          else if (o === 'impacto') r.push('🔥 Impacto: presença e autenticidade');
-          return r;
-        },
-        getImagemRecomendacao: function(respostas) {
-          const f = respostas.q1 || '';
-          const mapa = { 'oval': HAIR_IMAGES.visagismo_oval, 'quadrado': HAIR_IMAGES.visagismo_quadrado, 'redondo': HAIR_IMAGES.visagismo_redondo, 'coracao': HAIR_IMAGES.visagismo_coracao, 'diamante': HAIR_IMAGES.visagismo_diamante };
-          return mapa[f] || HAIR_IMAGES.visagismo_oval;
-        },
-        getSugestoes: function(respostas) {
-          const f = respostas.q1 || '';
-          if (f === 'oval') return [
-            { nome: 'Short Bob', imagem: HAIR_IMAGES.short_bob, desc: 'Versátil, na altura do queixo' },
-            { nome: 'Butterfly', imagem: HAIR_IMAGES.butterfly, desc: 'Camadas suaves e movimento' },
-            { nome: 'Long Bob', imagem: HAIR_IMAGES.long_bob, desc: 'Elegante e atemporal' }
-          ];
-          if (f === 'quadrado') return [
-            { nome: 'Short Bob com camadas', imagem: HAIR_IMAGES.short_bob, desc: 'Suaviza a mandíbula' },
-            { nome: 'Butterfly', imagem: HAIR_IMAGES.butterfly, desc: 'Leveza e movimento' },
-            { nome: 'Franja lateral', imagem: HAIR_IMAGES.visagismo_quadrado, desc: 'Desvia a atenção da mandíbula' }
-          ];
-          if (f === 'redondo') return [
-            { nome: 'Pixie assimétrico', imagem: HAIR_IMAGES.pixie, desc: 'Volume no topo, laterais curtas' },
-            { nome: 'Butterfly', imagem: HAIR_IMAGES.butterfly, desc: 'Camadas que alongam' },
-            { nome: 'Short Bob', imagem: HAIR_IMAGES.short_bob, desc: 'Na altura do queixo com camadas' }
-          ];
-          return [
-            { nome: 'Short Bob', imagem: HAIR_IMAGES.short_bob, desc: 'Moderno e versátil' },
-            { nome: 'Butterfly', imagem: HAIR_IMAGES.butterfly, desc: 'Leveza e movimento' },
-            { nome: 'Pixie', imagem: HAIR_IMAGES.pixie, desc: 'Ousado e cheio de atitude' }
-          ];
-        }
       }
     };
 
     // ============================================================
-    // 10. DÚVIDAS
+    // 11. DÚVIDAS
     // ============================================================
     const DUVIDAS = {
       arthur: {
         titulo: '✂️ Dúvidas sobre Cortes',
         agente: 'arthur',
         perguntas: [
-          { id: 'd1', pergunta: 'Qual corte combina com rosto redondo?', resposta: 'Para rosto redondo, o segredo é alongar! Aposte em:\n\n✂️ Short Bob — na altura do queixo, com camadas\n✂️ Butterfly — camadas suaves que criam movimento\n✂️ Pixie assimétrico — volume no topo e laterais curtas\n\n🚫 Evite cortes muito volumosos nas laterais!' },
-          { id: 'd2', pergunta: 'Qual corte combina com rosto quadrado?', resposta: 'Para rosto quadrado, o ideal é suavizar as linhas:\n\n✂️ Short Bob com camadas — suaviza a mandíbula\n✂️ Butterfly — as camadas criam movimento e leveza\n✂️ Franja lateral — desvia a atenção da mandíbula\n\n🚫 Evite cortes muito retos e geométricos!' },
-          { id: 'd3', pergunta: 'Qual a diferença entre Butterfly e Shaggy?', resposta: '🦋 Butterfly — camadas suaves, leves, que lembram asas. Ideal para quem quer movimento sem perder o comprimento.\n\n🌀 Shaggy — camadas mais desconectadas, com mais textura. Perfeito para um visual despojado e cheio de atitude.\n\nResumo: Butterfly é mais elegante, Shaggy é mais rock\'n\'roll! 🎸' },
-          { id: 'd4', pergunta: 'Como escolher entre Short Bob e Pixie?', resposta: 'Depende do seu estilo:\n\n✂️ Short Bob — moderno, versátil, combina com todos. ✅ Quer um visual elegante e prático\n\n✂️ Pixie — ousado, cheio de personalidade. ✅ Quer um visual impactante e prático\n\n💡 Se você nunca teve cabelo curto, comece com o Short Bob! É uma transição mais suave.' },
-          { id: 'd5', pergunta: 'Como manter meu corte em casa?', resposta: 'Dicas de manutenção para seu corte ficar sempre lindo! ✨\n\n💇 Short Bob — retocar a cada 4-6 semanas\n🦋 Butterfly — retoque a cada 6-8 semanas\n✂️ Pixie — retoque mensal para manter a forma\n\nEm casa: use produtos específicos e evite lavar com água muito quente! 🚿' }
+          { id: 'd1', pergunta: 'Qual corte combina com cabelo liso?', resposta: 'Para cabelo liso, cortes retos ou com camadas leves funcionam muito bem! ✂️\n\n• Short Bob — moderno e versátil\n• Long Bob — elegante e prático\n• Camadas suaves — dão movimento sem perder o comprimento\n\n💡 O cabelo liso aceita muito bem cortes com linhas retas e precisas.' },
+          { id: 'd2', pergunta: 'Qual corte combina com cabelo ondulado?', resposta: 'Para cabelo ondulado, o segredo é valorizar o movimento natural! 🌊\n\n• Butterfly — camadas suaves que criam movimento\n• Shaggy — camadas desconectadas e texturizadas\n• Long Bob com camadas — mantém o comprimento com movimento\n\n💡 Evite cortes muito retos que podem deixar o cabelo sem forma.' },
+          { id: 'd3', pergunta: 'Qual corte combina com cabelo cacheado?', resposta: 'Para cabelo cacheado, o ideal é respeitar o formato dos cachos! 🌀\n\n• Cortes em camadas — valorizam os cachos\n• Formato arredondado — segue a curva natural dos fios\n• Corte a seco — técnica que respeita o movimento dos cachos\n\n💡 Cachos bem cortados ficam mais definidos e cheios de vida!' },
+          { id: 'd4', pergunta: 'Como escolher o comprimento ideal?', resposta: 'O comprimento ideal depende de vários fatores: 📏\n\n• Curto — prático, moderno, ideal para quem tem pouco tempo\n• Médio — versátil, combina com diversos estilos\n• Longo — elegante, permite várias possibilidades de penteado\n\n💡 Pense na sua rotina e no visual que deseja transmitir!' },
+          { id: 'd5', pergunta: 'Qual a manutenção necessária para cada corte?', resposta: 'A manutenção varia de acordo com o corte: ✨\n\n• Short Bob — retoque a cada 4-6 semanas\n• Butterfly — retoque a cada 6-8 semanas\n• Long Bob — retoque a cada 6-8 semanas\n• Pixie — retoque mensal para manter a forma\n\n💡 Manutenção regular mantém o corte sempre bonito e com a forma perfeita!' }
         ]
       },
       isabella: {
@@ -2299,17 +2497,17 @@
         titulo: '👤 Dúvidas sobre Visagismo',
         agente: 'rafael',
         perguntas: [
-          { id: 'd1', pergunta: 'Como descobrir meu formato de rosto?', resposta: 'Para descobrir seu formato de rosto: 👇\n\n1️⃣ Meça sua testa (pontos mais largos)\n2️⃣ Meça suas maçãs do rosto\n3️⃣ Meça sua mandíbula\n4️⃣ Meça a altura do rosto\n\n📊 Compare as medidas e veja qual formato se encaixa!' },
-          { id: 'd2', pergunta: 'Como harmonizar um rosto longo?', resposta: 'Para rosto longo, o objetivo é criar largura! 👇\n\n💇 Franja reta — encurta visualmente o rosto\n✂️ Cortes com volume nas laterais — equilibra\n✂️ Short Bob — dá a ilusão de um rosto mais curto\n\n🚫 Evite cortes muito longos e retos!' },
-          { id: 'd3', pergunta: 'Como harmonizar um rosto redondo?', resposta: 'Para rosto redondo, o segredo é alongar! 👇\n\n💇 Franja lateral — cria assimetria e alonga\n✂️ Volume no topo — dá a ilusão de um rosto mais comprido\n✂️ Butterfly — as camadas suaves alongam a silhueta\n\n🚫 Evite cortes muito redondos ou volumosos nas laterais!' },
-          { id: 'd4', pergunta: 'Qual franja combina com meu rosto?', resposta: 'A escolha da franja depende do seu formato de rosto! 👇\n\n🧐 Rosto oval — qualquer franja funciona! 🥰\n🧐 Rosto redondo — franja lateral alonga\n🧐 Rosto quadrado — franja cortininha suaviza\n🧐 Rosto coração — franja lateral equilibra\n🧐 Rosto longo — franja reta encurta' },
-          { id: 'd5', pergunta: 'Como valorizar um queixo fino?', resposta: 'Para queixo fino, o objetivo é equilibrar! 👇\n\n💇 Franja reta — desvia a atenção do queixo\n✂️ Volume na nuca — equilibra a silhueta\n✂️ Cortes com camadas suaves — suavizam a região\n\n💡 O segredo é criar equilíbrio entre a parte superior e inferior do rosto!' }
+          { id: 'd1', pergunta: 'Como descobrir meu formato de rosto?', resposta: 'Para descobrir seu formato de rosto: 👇\n\n1️⃣ Meça sua testa (pontos mais largos)\n2️⃣ Meça suas maçãs do rosto\n3️⃣ Meça sua mandíbula\n4️⃣ Meça a altura do rosto\n\n📊 Compare as medidas e veja qual formato se encaixa!\n\n💡 O formato do rosto é a base do diagnóstico de visagismo.' },
+          { id: 'd2', pergunta: 'Como harmonizar um rosto longo?', resposta: 'Para rosto longo, o objetivo é criar largura visual: 👇\n\n💇 Franja reta — encurta visualmente o rosto\n✂️ Volume nas laterais — equilibra a proporção\n✂️ Cortes com camadas — dão movimento e largura\n\n🚫 Evite cortes muito longos e retos que alongam ainda mais!' },
+          { id: 'd3', pergunta: 'Como harmonizar um rosto redondo?', resposta: 'Para rosto redondo, o segredo é alongar a silhueta: 👇\n\n💇 Franja lateral — cria assimetria e alonga\n✂️ Volume no topo — dá a ilusão de um rosto mais comprido\n✂️ Cortes com camadas — suavizam as laterais\n\n🚫 Evite cortes muito redondos ou volumosos nas laterais!' },
+          { id: 'd4', pergunta: 'Qual franja combina com meu rosto?', resposta: 'A escolha da franja depende do formato do seu rosto: 👇\n\n🧐 Rosto oval — qualquer franja funciona!\n🧐 Rosto redondo — franja lateral alonga\n🧐 Rosto quadrado — franja cortininha suaviza\n🧐 Rosto coração — franja lateral equilibra\n🧐 Rosto longo — franja reta encurta\n\n💡 A franja é um poderoso recurso para equilibrar proporções!' },
+          { id: 'd5', pergunta: 'Como valorizar minhas características faciais?', resposta: 'Valorizar suas características é o objetivo do visagismo: 👇\n\n👁️ Olhos expressivos — franjas que os valorizam\n🟤 Maçãs altas — volume na região para destacar\n🦴 Mandíbula forte — suavizar com linhas curvas\n🎯 Queixo fino — equilibrar com volume na nuca\n\n💡 O diagnóstico visual identifica seus pontos fortes para realçá-los!' }
         ]
       }
     };
 
     // ============================================================
-    // 11. CURSOS
+    // 12. CURSOS
     // ============================================================
     const CURSOS = [
       { id: 'c1', titulo: 'Fundamentos do Corte', desc: 'Aprenda técnicas básicas de corte profissional', duracao: '4h', nivel: 'Iniciante', icone: '✂️' },
@@ -2320,7 +2518,7 @@
     ];
 
     // ============================================================
-    // 12. PLANOS
+    // 13. PLANOS
     // ============================================================
     const PLANOS = [
       { id: 'p1', nome: 'Básico', preco: 'Grátis', desc: 'Acesso ao chat com especialistas IA', cor: '#4ade80' },
@@ -2329,10 +2527,10 @@
     ];
 
     // ============================================================
-    // 13. BIBLIOTECA
+    // 14. BIBLIOTECA
     // ============================================================
     const BIBLIOTECA = [
-      { id: 'b1', titulo: 'Ebook: Guia de Cortes', desc: 'Guia completo com os melhores cortes para cada tipo de rosto', categoria: 'Ebook' },
+      { id: 'b1', titulo: 'Ebook: Guia de Cortes', desc: 'Guia completo com os melhores cortes para cada tipo de cabelo', categoria: 'Ebook' },
       { id: 'b2', titulo: 'Guia de Cores', desc: 'Como escolher a cor ideal para seu tom de pele', categoria: 'Guia' },
       { id: 'b3', titulo: 'Tendências 2024', desc: 'As principais tendências em cabelos e estilo', categoria: 'Tendências' },
       { id: 'b4', titulo: 'Rotina de Cuidados', desc: 'Passo a passo para cabelos saudáveis', categoria: 'Guia' },
@@ -2340,7 +2538,7 @@
     ];
 
     // ============================================================
-    // 14. ESTADO + HISTÓRICO
+    // 15. ESTADO + HISTÓRICO
     // ============================================================
     let historico = JSON.parse(localStorage.getItem('hairos-historico') || '[]');
 
@@ -2373,7 +2571,7 @@
     };
 
     // ============================================================
-    // 15. FUNÇÕES DE HISTÓRICO
+    // 16. FUNÇÕES DE HISTÓRICO
     // ============================================================
     function salvarHistorico(entrada) {
       const entry = { data: new Date().toLocaleString(), ...entrada };
@@ -2437,7 +2635,7 @@
     }
 
     // ============================================================
-    // 16. RENDERIZAÇÃO CHAT
+    // 17. RENDERIZAÇÃO CHAT
     // ============================================================
     const messagesEl = document.getElementById('messages');
     const indicators = document.querySelectorAll('.indicator');
@@ -2477,7 +2675,7 @@
     }
 
     // ============================================================
-    // 17. SISTEMA DE IA
+    // 18. SISTEMA DE IA
     // ============================================================
     const sistemaIA = {
       agentes: {},
@@ -2485,6 +2683,8 @@
       inicializar() {
         console.log('🧠 HairOS com IA e Personalidades iniciado!');
         console.log('👤 Agentes:', Object.keys(AGENTES).filter(k => k !== 'system').join(', '));
+        console.log('📋 Fluxo: Helena → Rafael (diagnóstico) → Arthur (corte) → Isabella (cor)');
+        console.log('🖱️ Clique nas imagens para ampliar');
       },
 
       gerarRespostaPersonalizada(agenteId, mensagem, contexto = {}) {
@@ -2496,18 +2696,20 @@
 
         const respostasEspecificas = {
           'helena': {
-            'corte': 'Ah, que bom que você quer saber sobre cortes! Vou te apresentar ao Arthur, nosso especialista. ✂️',
+            'corte': 'Ah, que bom que você quer saber sobre cortes! Vou te apresentar ao Arthur, nosso especialista em técnicas de corte. ✂️',
             'cor': 'Que legal! Para cores, nossa Isabella é a melhor. Vamos chamá-la! 🎨',
-            'visagismo': 'O Rafael é o mestre do visagismo. Ele vai te ajudar com isso! 👤',
+            'visagismo': 'O Rafael é o mestre do visagismo e diagnóstico de imagem. Ele vai te ajudar com isso! 👤',
             'foto': 'Sim, me envie uma foto para que possamos analisar com IA! 📸',
             'produto': 'Os produtos recomendados são incríveis! Vou te mostrar a loja. 🛒'
           },
           'arthur': {
-            'corte': 'Que legal você perguntar sobre cortes! Vamos analisar o que combina com você. ✂️',
+            'corte': 'Que legal você perguntar sobre cortes! Vamos analisar as características do seu cabelo. ✂️',
             'bob': 'O Short Bob é incrível! Dá um ar moderno e versátil.',
             'pixie': 'O Pixie é ousado e cheio de atitude! Perfeito para quem quer um visual impactante.',
             'butterfly': 'O Butterfly é super elegante! As camadas suaves criam movimento.',
-            'shaggy': 'O Shaggy é rock\'n\'roll! Camadas desconectadas e muita textura.'
+            'shaggy': 'O Shaggy é rock\'n\'roll! Camadas desconectadas e muita textura.',
+            'textura': 'A textura do cabelo é essencial para definir a técnica de corte ideal.',
+            'densidade': 'A densidade dos fios influencia diretamente no resultado final do corte.'
           },
           'isabella': {
             'cor': 'Cores são minha paixão! Vamos encontrar a cor perfeita para você. 🎨',
@@ -2517,10 +2719,11 @@
             'loiro': 'Loiro platinado é moderno e iluminado! Perfeito para pele fria.'
           },
           'rafael': {
-            'rosto': 'O formato do rosto é essencial para o visagismo. Vamos analisar! 👤',
-            'visagismo': 'Visagismo é a arte de harmonizar. Vou te ajudar nisso.',
+            'rosto': 'O formato do rosto é essencial para o diagnóstico de visagismo. Vamos analisar! 👤',
+            'visagismo': 'Visagismo é a arte de harmonizar proporções e criar um perfil visual único.',
             'harmonia': 'A harmonia é a chave para uma imagem equilibrada e autêntica.',
-            'proporção': 'As proporções faciais definem o estilo ideal para você.'
+            'proporção': 'As proporções faciais definem o estilo ideal para você.',
+            'perfil': 'O diagnóstico visual identifica seus pontos fortes para realçá-los.'
           }
         };
 
@@ -2542,7 +2745,7 @@
             'Massa! Essa pergunta é show! Vamos criar algo irado! ✂️',
             'Top! Isso me lembra um corte que fiz mês passado... 🔥',
             'Olha que legal você perguntar isso! Vamos explorar! 💇',
-            'Perfeito! Adoro quando me perguntam sobre isso! ⭐'
+            'Perfeito! Adoro quando me perguntam sobre técnicas de corte! ⭐'
           ],
           'isabella': [
             'Ai, que pergunta linda! Vamos colorir isso juntos! 🎨',
@@ -2551,10 +2754,10 @@
             'Uau! Que pergunta incrível! Vamos mergulhar nisso! ✨'
           ],
           'rafael': [
-            'Interessante... Essa pergunta revela uma busca profunda. 👤',
-            'Refletindo sobre isso... A resposta pode te surpreender. 🙏',
+            'Interessante... Essa pergunta revela uma busca profunda por autoconhecimento. 👤',
+            'Refletindo sobre isso... O diagnóstico pode te surpreender. 🙏',
             'A harmonia está na pergunta em si. Vamos explorar juntos? ✨',
-            'Que pergunta filosófica! Vamos refletir sobre isso. 💫'
+            'Que pergunta filosófica! Vamos refletir sobre sua imagem pessoal. 💫'
           ]
         };
 
@@ -2589,9 +2792,9 @@
 
       encontrarAgenteAdequado(mensagem) {
         const palavrasChave = {
-          'arthur': ['corte', 'tesoura', 'short bob', 'pixie', 'butterfly', 'shaggy', 'cabelo', 'fio', 'densidade', 'movimento', 'camadas'],
+          'arthur': ['corte', 'tesoura', 'short bob', 'pixie', 'butterfly', 'shaggy', 'cabelo', 'fio', 'densidade', 'movimento', 'camadas', 'textura', 'volume'],
           'isabella': ['cor', 'pintar', 'mel', 'caramelo', 'cobre', 'loiro', 'tons', 'coloração', 'pigmento', 'tinta', 'luzes', 'reflexos'],
-          'rafael': ['rosto', 'visagismo', 'proporção', 'harmonia', 'formato', 'feições', 'queixo', 'mandíbula', 'testa', 'maçãs']
+          'rafael': ['rosto', 'visagismo', 'proporção', 'harmonia', 'formato', 'feições', 'queixo', 'mandíbula', 'testa', 'maçãs', 'perfil', 'diagnóstico']
         };
 
         const lowerMsg = mensagem.toLowerCase();
@@ -2627,7 +2830,7 @@
     sistemaIA.inicializar();
 
     // ============================================================
-    // 18. FUNÇÕES DE MENSAGEM
+    // 19. FUNÇÕES DE MENSAGEM
     // ============================================================
     function addMessage(agenteId, html, extraClass = '', contexto = null, imagens = null) {
       const agente = AGENTES[agenteId];
@@ -2639,9 +2842,10 @@
       let imagesHtml = '';
       if (imagens) {
         if (Array.isArray(imagens)) {
-          imagesHtml = `<div class="hair-grid">${imagens.map(img => `<img src="${img}" class="hair-image" alt="Referência" loading="lazy" />`).join('')}</div>`;
+          imagesHtml = `<div class="hair-grid">${imagens.map(img => `<img src="${img}" class="hair-image" alt="Referência" loading="lazy" onclick="openImagePreview('${img}', 'Referência visual')" />`).join('')}</div>`;
         } else {
-          imagesHtml = `<img src="${imagens}" class="hair-image" alt="Referência" loading="lazy" />`;
+          const caption = 'Visualizar imagem';
+          imagesHtml = `<img src="${imagens}" class="hair-image" alt="Referência" loading="lazy" onclick="openImagePreview('${imagens}', '${caption}')" />`;
         }
       }
 
@@ -2662,7 +2866,7 @@
       messagesEl.appendChild(div);
       scrollToBottom();
       updateIndicators(agenteId);
-      animateAgentConversation(['helena', 'arthur', 'isabella', 'rafael'], 1800);
+      animateAgentConversation(['helena', 'rafael', 'arthur', 'isabella'], 1800);
       if (estado.contextos[agenteId]) estado.contextos[agenteId].interacoes += 1;
       salvarHistorico({ agente: agenteId, texto: html.replace(/<[^>]*>/g, '').substring(0, 100) });
     }
@@ -2758,7 +2962,7 @@
     }
 
     // ============================================================
-    // 19. REUNIÃO
+    // 20. REUNIÃO
     // ============================================================
     function executarReuniao(callback) {
       estado.meeting_ativa = true;
@@ -2813,7 +3017,7 @@
     }
 
     // ============================================================
-    // 20. QUIZ
+    // 21. QUIZ
     // ============================================================
     function iniciarQuiz(agenteId) {
       const quiz = QUIZ[agenteId];
@@ -2937,17 +3141,18 @@
         sugestoes.forEach(s => {
           gridHtml += `
             <div>
-              <img src="${s.imagem}" class="hair-image" alt="${s.nome}" loading="lazy" />
+              <img src="${s.imagem}" class="hair-image" alt="${s.nome}" loading="lazy" onclick="openImagePreview('${s.imagem}', '${s.nome} — ${s.desc}')" />
               <div class="hair-label">${s.nome}</div>
-              <div style="font-size:10px;color:var(--text-muted);text-align:center;">${s.desc}</div>
+              <div class="hair-desc">${s.desc}</div>
             </div>
           `;
         });
         gridHtml += `</div>`;
         addMessage(agenteId, `
-          <p>✂️ <strong>3 Sugestões para você:</strong></p>
+          <p>✂️ <strong>Resultado para você:</strong></p>
           ${gridHtml}
-        `, '', 'Sugestões');
+          <p style="font-size:10px;color:var(--text-muted);">🖱️ Clique nas imagens para ampliar</p>
+        `, '', 'Resultado');
       }
 
       const botoes = [
@@ -2976,7 +3181,7 @@
     }
 
     // ============================================================
-    // 21. DÚVIDAS
+    // 22. DÚVIDAS
     // ============================================================
     function iniciarDuvidas(agenteId) {
       const duvidas = DUVIDAS[agenteId];
@@ -3033,7 +3238,7 @@
     }
 
     // ============================================================
-    // 22. PRODUTOS
+    // 23. PRODUTOS
     // ============================================================
     function mostrarProdutos(agenteId) {
       const produtos = PRODUTOS[agenteId] || PRODUTOS.arthur;
@@ -3072,7 +3277,7 @@
     }
 
     // ============================================================
-    // 23. COMPARTILHAR
+    // 24. COMPARTILHAR
     // ============================================================
     function compartilharResultado(agenteId, recomendacoes) {
       const nomeAgente = AGENTES[agenteId]?.nome || 'HairOS';
@@ -3128,7 +3333,7 @@
     }
 
     // ============================================================
-    // 24. TROCAR AGENTE
+    // 25. TROCAR AGENTE
     // ============================================================
     function trocarAgente(agenteId) {
       if (estado.quiz_ativo) {
@@ -3162,7 +3367,7 @@
     }
 
     // ============================================================
-    // 25. MOSTRAR OPÇÕES DO AGENTE
+    // 26. MOSTRAR OPÇÕES DO AGENTE
     // ============================================================
     function mostrarOpcoesAgente(agenteId) {
       const botoes = [];
@@ -3174,10 +3379,24 @@
         case 'helena':
           botoes.push(
             { label: '📸 Enviar foto', action: 'enviar_foto', class: 'primary' },
-            { label: '✂️ Arthur', action: 'ir_para_arthur', class: 'outline' },
-            { label: '🎨 Isabella', action: 'ir_para_isabella', class: 'outline' },
-            { label: '👤 Rafael', action: 'ir_para_rafael', class: 'outline' }
+            { label: '👤 Rafael (Visagismo)', action: 'ir_para_rafael', class: 'outline' },
+            { label: '✂️ Arthur (Cortes)', action: 'ir_para_arthur', class: 'outline' },
+            { label: '🎨 Isabella (Cores)', action: 'ir_para_isabella', class: 'outline' }
           );
+          break;
+
+        case 'rafael':
+          botoes.push(
+            { label: '🔍 Analisar imagem', action: 'analisar_imagem', class: 'primary', data: { agente: 'rafael' } },
+            { label: '📋 Fazer quiz', action: 'iniciar_quiz', class: 'accent', data: { agente: 'rafael' } },
+            { label: '❓ Tirar dúvidas', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'rafael' } },
+            { label: '🛒 Ver produtos', action: 'ver_produtos', class: 'outline', data: { agente: 'rafael' } },
+            { label: '👥 Compartilhar', action: 'compartilhar', class: 'outline', data: { agente: 'rafael' } },
+            { label: '👋 Voltar à Helena', action: 'ir_para_helena', class: 'outline' }
+          );
+          if (temFoto && temQuiz && temAnalise) {
+            botoes.unshift({ label: '✅ Ver meu perfil visual', action: 'ver_sugestoes', class: 'success', data: { agente: 'rafael' } });
+          }
           break;
 
         case 'arthur':
@@ -3190,7 +3409,7 @@
             { label: '👋 Voltar à Helena', action: 'ir_para_helena', class: 'outline' }
           );
           if (temFoto && temQuiz && temAnalise) {
-            botoes.unshift({ label: '✅ Ver minhas 3 sugestões', action: 'ver_sugestoes', class: 'success', data: { agente: 'arthur' } });
+            botoes.unshift({ label: '✅ Ver minhas 3 sugestões de corte', action: 'ver_sugestoes', class: 'success', data: { agente: 'arthur' } });
           }
           break;
 
@@ -3204,21 +3423,7 @@
             { label: '👋 Voltar à Helena', action: 'ir_para_helena', class: 'outline' }
           );
           if (temFoto && temQuiz && temAnalise) {
-            botoes.unshift({ label: '✅ Ver minhas 3 sugestões', action: 'ver_sugestoes', class: 'success', data: { agente: 'isabella' } });
-          }
-          break;
-
-        case 'rafael':
-          botoes.push(
-            { label: '🔍 Analisar imagem', action: 'analisar_imagem', class: 'primary', data: { agente: 'rafael' } },
-            { label: '📋 Fazer quiz', action: 'iniciar_quiz', class: 'accent', data: { agente: 'rafael' } },
-            { label: '❓ Tirar dúvidas', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'rafael' } },
-            { label: '🛒 Ver produtos', action: 'ver_produtos', class: 'outline', data: { agente: 'rafael' } },
-            { label: '👥 Compartilhar', action: 'compartilhar', class: 'outline', data: { agente: 'rafael' } },
-            { label: '👋 Voltar à Helena', action: 'ir_para_helena', class: 'outline' }
-          );
-          if (temFoto && temQuiz && temAnalise) {
-            botoes.unshift({ label: '✅ Ver minhas 3 sugestões', action: 'ver_sugestoes', class: 'success', data: { agente: 'rafael' } });
+            botoes.unshift({ label: '✅ Ver minhas 3 sugestões de cor', action: 'ver_sugestoes', class: 'success', data: { agente: 'isabella' } });
           }
           break;
       }
@@ -3227,7 +3432,7 @@
     }
 
     // ============================================================
-    // 26. VER SUGESTÕES
+    // 27. VER SUGESTÕES
     // ============================================================
     function verSugestoes(agenteId) {
       if (!estado.analise_realizada || estado.sugestoes_cortes.length === 0) {
@@ -3243,21 +3448,23 @@
       estado.sugestoes_cortes.forEach(s => {
         gridHtml += `
           <div>
-            <img src="${s.imagem}" class="hair-image" alt="${s.nome}" loading="lazy" />
+            <img src="${s.imagem}" class="hair-image" alt="${s.nome}" loading="lazy" onclick="openImagePreview('${s.imagem}', '${s.nome} — ${s.desc}')" />
             <div class="hair-label">${s.nome}</div>
-            <div style="font-size:10px;color:var(--text-muted);text-align:center;">${s.desc}</div>
+            <div class="hair-desc">${s.desc}</div>
           </div>
         `;
       });
       gridHtml += `</div>`;
 
       addMessage(agenteId, `
-        <p>✂️ <strong>Suas 3 sugestões personalizadas:</strong></p>
+        <p>✂️ <strong>Resultado personalizado:</strong></p>
         ${gridHtml}
+        <p style="font-size:10px;color:var(--text-muted);">🖱️ Clique nas imagens para ampliar</p>
       `, '', 'Sugestões');
 
       appendButtons([
-        { label: '✂️ Falar com Arthur', action: 'ir_para_arthur', class: 'primary' },
+        { label: '👤 Rafael (Visagismo)', action: 'ir_para_rafael', class: 'primary' },
+        { label: '✂️ Arthur (Cortes)', action: 'ir_para_arthur', class: 'primary' },
         { label: '🛒 Ver produtos', action: 'ver_produtos', class: 'accent', data: { agente: agenteId } },
         { label: '👥 Compartilhar', action: 'compartilhar', class: 'outline', data: { agente: agenteId } },
         { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agenteId } }
@@ -3265,7 +3472,7 @@
     }
 
     // ============================================================
-    // 27. CURSOS
+    // 28. CURSOS
     // ============================================================
     function mostrarCursos() {
       let html = `<p>🎓 <strong>Cursos HairOS</strong></p><p style="font-size:12px;color:var(--text-muted);">Aprenda com os melhores!</p>`;
@@ -3302,7 +3509,7 @@
     }
 
     // ============================================================
-    // 28. PLANOS
+    // 29. PLANOS
     // ============================================================
     function mostrarPlanos() {
       let html = `<p>💎 <strong>Planos HairOS</strong></p><p style="font-size:12px;color:var(--text-muted);">Escolha o plano ideal para você!</p>`;
@@ -3337,7 +3544,7 @@
     }
 
     // ============================================================
-    // 29. BIBLIOTECA
+    // 30. BIBLIOTECA
     // ============================================================
     function mostrarBiblioteca() {
       let html = `<p>📚 <strong>Biblioteca HairOS</strong></p><p style="font-size:12px;color:var(--text-muted);">Conteúdo exclusivo para você!</p>`;
@@ -3372,7 +3579,7 @@
     }
 
     // ============================================================
-    // 30. HANDLER DE AÇÕES
+    // 31. HANDLER DE AÇÕES
     // ============================================================
     function handleAction(action, data) {
       removeLastButtons();
@@ -3421,9 +3628,9 @@
                   addMessage('helena', `
                     <p>🎯 <strong>Análise com IA concluída!</strong></p>
                     <p>Os especialistas analisaram sua imagem:</p>
-                    <p>• <strong>Arthur:</strong> ${sistemaIA.gerarRespostaPersonalizada('arthur', 'Recomendação de corte')}</p>
-                    <p>• <strong>Isabella:</strong> ${sistemaIA.gerarRespostaPersonalizada('isabella', 'Recomendação de cor')}</p>
-                    <p>• <strong>Rafael:</strong> ${sistemaIA.gerarRespostaPersonalizada('rafael', 'Recomendação de visagismo')}</p>
+                    <p>• <strong>Rafael (Visagismo):</strong> ${sistemaIA.gerarRespostaPersonalizada('rafael', 'Diagnóstico de imagem')}</p>
+                    <p>• <strong>Arthur (Cortes):</strong> ${sistemaIA.gerarRespostaPersonalizada('arthur', 'Recomendação de corte')}</p>
+                    <p>• <strong>Isabella (Cores):</strong> ${sistemaIA.gerarRespostaPersonalizada('isabella', 'Recomendação de cor')}</p>
                     <p style="font-size:12px;color:var(--text-muted);">Faça o quiz para sugestões personalizadas!</p>
                   `, '', 'Recepcionista - IA');
                   appendButtons([
@@ -3474,14 +3681,14 @@
                 setTimeout(() => {
                   addMessage('helena', `
                     <p>🎯 <strong>Análise com IA concluída!</strong></p>
-                    <p>Faça o <strong>quiz</strong> para receber 3 sugestões personalizadas com imagens.</p>
+                    <p>Faça os <strong>quizzes</strong> para receber sugestões personalizadas com imagens.</p>
+                    <p style="font-size:10px;color:var(--text-muted);">🖱️ Clique nas imagens para ampliar</p>
                   `, '', 'Recepcionista - IA');
                   appendButtons([
-                    { label: '📋 Fazer quiz', action: 'iniciar_quiz', class: 'primary', data: { agente: 'arthur' } },
-                    { label: '❓ Tirar dúvidas', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'arthur' } },
-                    { label: '✂️ Arthur', action: 'ir_para_arthur', class: 'outline' },
-                    { label: '🎨 Isabella', action: 'ir_para_isabella', class: 'outline' },
-                    { label: '👤 Rafael', action: 'ir_para_rafael', class: 'outline' }
+                    { label: '👤 Rafael (Visagismo)', action: 'ir_para_rafael', class: 'primary' },
+                    { label: '✂️ Arthur (Cortes)', action: 'ir_para_arthur', class: 'primary' },
+                    { label: '🎨 Isabella (Cores)', action: 'ir_para_isabella', class: 'primary' },
+                    { label: '❓ Tirar dúvidas', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'arthur' } }
                   ]);
                 }, 500);
               });
@@ -3529,16 +3736,20 @@
           closeMenu();
           addMessage('helena', `
             <p>💡 <strong>HairOS com IA e Personalidades</strong></p>
-            <p>• 🧠 Cada especialista tem IA própria</p>
-            <p>• 🎭 Cada um tem personalidade única</p>
-            <p>• 📸 Envie foto para análise</p>
-            <p>• 📋 Quiz para sugestões personalizadas</p>
+            <p>📋 <strong>Fluxo dos Especialistas:</strong></p>
+            <p>• 👤 <strong>Rafael</strong> — Diagnóstico de visagismo e perfil visual</p>
+            <p>• ✂️ <strong>Arthur</strong> — Técnica e execução de cortes</p>
+            <p>• 🎨 <strong>Isabella</strong> — Colorimetria e harmonização de cores</p>
+            <p>• 🧭 <strong>Helena</strong> — Recepção e direcionamento</p>
+            <p>📌 <strong>Funcionalidades:</strong></p>
+            <p>• 📸 Envie foto para análise com IA</p>
+            <p>• 📋 Quizzes personalizados por especialista</p>
             <p>• ❓ Dúvidas frequentes</p>
             <p>• 🛒 Produtos recomendados</p>
-            <p>• 👥 Compartilhe resultados</p>
             <p>• 🎓 Cursos exclusivos</p>
             <p>• 💎 Planos Premium</p>
             <p>• 📚 Biblioteca com +100 conteúdos</p>
+            <p>• 🖱️ Clique nas imagens para ampliar</p>
             <p>• Clique no logo para voltar</p>
           `, '', 'Ajuda');
           break;
@@ -3574,7 +3785,7 @@
     }
 
     // ============================================================
-    // 31. FUNÇÕES DE APOIO
+    // 32. FUNÇÕES DE APOIO
     // ============================================================
     function pedirFotoPrimeiro(agenteId) {
       const nome = AGENTES[agenteId]?.nome || 'especialista';
@@ -3591,7 +3802,7 @@
     }
 
     // ============================================================
-    // 32. INPUT DO USUÁRIO
+    // 33. INPUT DO USUÁRIO
     // ============================================================
     const userInput = document.getElementById('userInput');
     const sendBtn = document.getElementById('sendBtn');
@@ -3663,7 +3874,7 @@
     sendBtn.addEventListener('click', handleUserText);
 
     // ============================================================
-    // 33. UPLOAD AVATAR - CHAT
+    // 34. UPLOAD AVATAR - CHAT
     // ============================================================
     document.getElementById('profileUploadBtn').addEventListener('click', function() {
       const input = document.createElement('input');
@@ -3690,7 +3901,7 @@
     });
 
     // ============================================================
-    // 34. UPLOAD AVATAR - LANDING
+    // 35. UPLOAD AVATAR - LANDING
     // ============================================================
     document.getElementById('profileUploadBtnLanding')?.addEventListener('click', function() {
       const input = document.createElement('input');
@@ -3716,7 +3927,7 @@
     });
 
     // ============================================================
-    // 35. MENU - TODOS OS ITENS DO CHAT
+    // 36. MENU - TODOS OS ITENS DO CHAT
     // ============================================================
     // Principal
     document.getElementById('menuHome').addEventListener('click', () => handleAction('ir_para_home'));
@@ -3743,9 +3954,9 @@
       if (agente === 'helena') {
         addMessage('helena', 'Qual quiz você quer fazer? 🥰', '', 'Quiz');
         appendButtons([
+          { label: '👤 Rafael - Visagismo', action: 'iniciar_quiz', class: 'outline', data: { agente: 'rafael' } },
           { label: '✂️ Arthur - Cortes', action: 'iniciar_quiz', class: 'outline', data: { agente: 'arthur' } },
           { label: '🎨 Isabella - Cores', action: 'iniciar_quiz', class: 'outline', data: { agente: 'isabella' } },
-          { label: '👤 Rafael - Visagismo', action: 'iniciar_quiz', class: 'outline', data: { agente: 'rafael' } },
           { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agente } }
         ]);
       } else {
@@ -3759,9 +3970,9 @@
       if (agente === 'helena') {
         addMessage('helena', 'Escolha o especialista para dúvidas:', '', 'Dúvidas');
         appendButtons([
+          { label: '👤 Rafael - Visagismo', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'rafael' } },
           { label: '✂️ Arthur - Cortes', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'arthur' } },
           { label: '🎨 Isabella - Cores', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'isabella' } },
-          { label: '👤 Rafael - Visagismo', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'rafael' } },
           { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agente } }
         ]);
       } else {
@@ -3795,7 +4006,7 @@
     document.getElementById('menuReset').addEventListener('click', reiniciar);
 
     // ============================================================
-    // 36. MENU - TODOS OS ITENS DA LANDING
+    // 37. MENU - TODOS OS ITENS DA LANDING
     // ============================================================
     // Principal
     document.getElementById('menuHomeLanding')?.addEventListener('click', () => {
@@ -3821,16 +4032,20 @@
       setTimeout(() => {
         addMessage('helena', `
           <p>💡 <strong>HairOS com IA e Personalidades</strong></p>
-          <p>• 🧠 Cada especialista tem IA própria</p>
-          <p>• 🎭 Cada um tem personalidade única</p>
-          <p>• 📸 Envie foto para análise</p>
-          <p>• 📋 Quiz para sugestões personalizadas</p>
+          <p>📋 <strong>Fluxo dos Especialistas:</strong></p>
+          <p>• 👤 <strong>Rafael</strong> — Diagnóstico de visagismo e perfil visual</p>
+          <p>• ✂️ <strong>Arthur</strong> — Técnica e execução de cortes</p>
+          <p>• 🎨 <strong>Isabella</strong> — Colorimetria e harmonização de cores</p>
+          <p>• 🧭 <strong>Helena</strong> — Recepção e direcionamento</p>
+          <p>📌 <strong>Funcionalidades:</strong></p>
+          <p>• 📸 Envie foto para análise com IA</p>
+          <p>• 📋 Quizzes personalizados por especialista</p>
           <p>• ❓ Dúvidas frequentes</p>
           <p>• 🛒 Produtos recomendados</p>
-          <p>• 👥 Compartilhe resultados</p>
           <p>• 🎓 Cursos exclusivos</p>
           <p>• 💎 Planos Premium</p>
           <p>• 📚 Biblioteca com +100 conteúdos</p>
+          <p>• 🖱️ Clique nas imagens para ampliar</p>
           <p>• Clique no logo para voltar</p>
         `, '', 'Ajuda');
       }, 500);
@@ -3870,9 +4085,9 @@
         if (agente === 'helena') {
           addMessage('helena', 'Qual quiz você quer fazer? 🥰', '', 'Quiz');
           appendButtons([
+            { label: '👤 Rafael - Visagismo', action: 'iniciar_quiz', class: 'outline', data: { agente: 'rafael' } },
             { label: '✂️ Arthur - Cortes', action: 'iniciar_quiz', class: 'outline', data: { agente: 'arthur' } },
             { label: '🎨 Isabella - Cores', action: 'iniciar_quiz', class: 'outline', data: { agente: 'isabella' } },
-            { label: '👤 Rafael - Visagismo', action: 'iniciar_quiz', class: 'outline', data: { agente: 'rafael' } },
             { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agente } }
           ]);
         } else {
@@ -3889,9 +4104,9 @@
         if (agente === 'helena') {
           addMessage('helena', 'Escolha o especialista para dúvidas:', '', 'Dúvidas');
           appendButtons([
+            { label: '👤 Rafael - Visagismo', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'rafael' } },
             { label: '✂️ Arthur - Cortes', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'arthur' } },
             { label: '🎨 Isabella - Cores', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'isabella' } },
-            { label: '👤 Rafael - Visagismo', action: 'iniciar_duvidas', class: 'outline', data: { agente: 'rafael' } },
             { label: '🔙 Voltar', action: 'voltar_menu', class: 'outline', data: { agente: agente } }
           ]);
         } else {
@@ -3966,7 +4181,7 @@
     });
 
     // ============================================================
-    // 37. REINICIAR
+    // 38. REINICIAR
     // ============================================================
     function reiniciar() {
       estado = {
@@ -4004,7 +4219,7 @@
     }
 
     // ============================================================
-    // 38. BOAS-VINDAS
+    // 39. BOAS-VINDAS
     // ============================================================
     function boasVindas() {
       addMeetingBadge('🧠 HAIROS — IA com Personalidades');
@@ -4017,15 +4232,17 @@
         <div class="photo-upload">
           <button class="btn primary" onclick="document.getElementById('fileInput').click()">📷 Enviar Foto</button>
         </div>
-        <p style="font-size:12px;color:var(--text-muted);">Os especialistas com personalidades únicas vão analisar!</p>
-        <p style="font-size:11px;color:var(--text-muted);">💡 Use o menu ☰ para acessar todas as funcionalidades</p>
+        <p style="font-size:11px;color:var(--text-muted);">Os especialistas com personalidades únicas vão analisar!</p>
+        <p style="font-size:10px;color:var(--text-muted);">💡 Use o menu ☰ para acessar todas as funcionalidades</p>
+        <p style="font-size:10px;color:var(--text-muted);">📋 Fluxo: Rafael (diagnóstico) → Arthur (corte) → Isabella (cor)</p>
+        <p style="font-size:10px;color:var(--text-muted);">🖱️ Clique nas imagens para ampliar</p>
       `, '', 'Recepcionista - IA');
 
       appendButtons([
         { label: '📸 Enviar foto', action: 'enviar_foto', class: 'primary' },
-        { label: '✂️ Arthur', action: 'ir_para_arthur', class: 'outline' },
-        { label: '🎨 Isabella', action: 'ir_para_isabella', class: 'outline' },
-        { label: '👤 Rafael', action: 'ir_para_rafael', class: 'outline' }
+        { label: '👤 Rafael (Visagismo)', action: 'ir_para_rafael', class: 'outline' },
+        { label: '✂️ Arthur (Cortes)', action: 'ir_para_arthur', class: 'outline' },
+        { label: '🎨 Isabella (Cores)', action: 'ir_para_isabella', class: 'outline' }
       ]);
 
       estado.passo = 'boas_vindas';
@@ -4048,14 +4265,14 @@
     }
 
     // ============================================================
-    // 39. INICIALIZAÇÃO
+    // 40. INICIALIZAÇÃO
     // ============================================================
     document.addEventListener('DOMContentLoaded', () => {
       landingPage.classList.remove('hidden');
       chatContainer.classList.remove('active');
 
       setTimeout(() => {
-        animateAgentConversation(['helena', 'arthur', 'isabella', 'rafael'], 2000);
+        animateAgentConversation(['helena', 'rafael', 'arthur', 'isabella'], 2000);
       }, 600);
 
       window.ver_sugestoes = function(data) {
@@ -4079,12 +4296,16 @@
         // já implementado
       };
 
+      window.openImagePreview = openImagePreview;
+
       atualizarMenuHistorico();
       atualizarBadgeHistorico();
 
       console.log('🧠 HairOS com IA e Personalidades iniciado!');
       console.log('👤 Especialistas:', Object.keys(AGENTES).filter(k => k !== 'system').join(', '));
+      console.log('📋 Fluxo: Helena → Rafael (diagnóstico) → Arthur (corte) → Isabella (cor)');
       console.log('🎭 Cada um com personalidade, vocabulário e emoções próprias!');
+      console.log('🖱️ Clique nas imagens para ampliar');
       console.log('📋 Menu com: Especialistas, Quizzes, Dúvidas, Produtos, Cursos, Planos, Biblioteca, Tema Escuro/Claro');
 
       setTimeout(boasVindas, 400);
